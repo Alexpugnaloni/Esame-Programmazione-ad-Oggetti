@@ -1,6 +1,8 @@
 package it.forecast.Openweather.Service;
 
 
+import it.forecast.Openweather.Model.WeatherData;
+
 public interface WeatherService {
 
 	list<WeatherData> get5ForecastWeather(String url); // throws IOException, ParseException, JSONException, org.json.simple.parser.ParseException
