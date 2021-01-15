@@ -18,7 +18,7 @@ public class Controller {
 
 
 	@GetMapping("/cities")
-			public ResponseEntity<Object> get5ForecastWeather(@RequestParam name="q",defaultValue="Ancona") String q, @RequestParam(name="lang",defaultValue = "it") String lang) throws NoDataException
+			public ResponseEntity<Object> get5ForecastWeather(@RequestParam( name="q",defaultValue="Ancona") String q, @RequestParam(name="lang",defaultValue = "it") String lang) throws NoDataException
 	{
 		q= q.toLowerCase();
 		lang= lang.toLowerCase();
