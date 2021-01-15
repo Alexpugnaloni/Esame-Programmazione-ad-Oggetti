@@ -1,5 +1,6 @@
 package it.forecast.Openweather.Controller;
 
+import it.forecast.Openweather.Exception.NoDataException;
 import it.forecast.Openweather.Service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -7,6 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.IOException;
+import java.text.ParseException;
 
 @RestController
 public class Controller {
@@ -18,8 +22,7 @@ public class Controller {
 
 
 	@GetMapping("/cities")
-			public ResponseEntity<Object> get5ForecastWeather(@RequestParam( name="q",defaultValue="Ancona") String q, @RequestParam(name="lang",defaultValue = "it") String lang) throws NoDataException
-	{
+			public ResponseEntity<Object> get5ForecastWeather(@RequestParam( name="q",defaultValue="Ancona") String q, @RequestParam(name="lang",defaultValue = "it") String lang) throws NoDataException, IOException, ParseException {
 		q= q.toLowerCase();
 		lang= lang.toLowerCase();
 		url = "https://api.openweathermap.org/data/2.5/forecast?q="+ q + "&lang=" + lang + "&units=metric&cnt=40";

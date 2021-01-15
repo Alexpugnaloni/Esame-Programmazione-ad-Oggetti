@@ -1,12 +1,17 @@
 package it.forecast.Openweather.Service;
 
+import it.forecast.Openweather.Exception.NoDataException;
 import it.forecast.Openweather.Model.WeatherData;
-import org.apache.tomcat.util.json.JSONParser;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
@@ -14,11 +19,11 @@ import java.util.Vector;
 
 public class WeatherForecast_API_Call {
 
-	public List<WeatherData> download(String url) throws NoDataException{
-		List<WeatherData> downloadedWeathers= new Vector<>();
+	public List<WeatherData> loadCall(String url) throws NoDataException {
+		List<WeatherData> downloadedForecast = new Vector<>();
 		JSONParser parser = new JSONParser();
 
-		//MANCA IL TRY CATCH CHE PER ORA NON SO COME FARLO
+		try {
 			//API CALL
 			URL obj = new URL(url);
 			HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
@@ -29,18 +34,24 @@ public class WeatherForecast_API_Call {
 				JSONObject stats = (JSONObject) parser.parse(inputLine);
 
 
-				buildWheaters(stats, downloadedWeathers);
+				buildForecast(stats, downloadedForecast);
 			}
-		in.close();
+			in.close();
+		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
+		} catch (ParseException e) {
+
 		}
 
+		return downloadedForecast;
 
 
+	}
 
 
-		private void buildWheaters(JSONObject stats,List<WeatherData> downloadedWeathers) {
+		private void buildForecast(JSONObject stats,List<WeatherData> downloadedForecast) {
 			JSONArray a = (JSONArray) stats.get("q");
-			//DA FINIRE E DA CAPIRE
+
 		}
 	}
 
