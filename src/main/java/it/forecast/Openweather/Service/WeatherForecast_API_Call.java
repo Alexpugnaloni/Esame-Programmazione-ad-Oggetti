@@ -51,11 +51,13 @@ public class WeatherForecast_API_Call {
 
 
 	private void buildForecast(JSONObject stats, List<WeatherData> downloadedForecast) {
-		JSONArray a = (JSONArray) stats.get("main");
+		JSONArray a = (JSONArray) stats.get("list");
+
 
 		for (Object o : a) {
 			try {
-				JSONObject main = (JSONObject) o;
+				JSONObject elem = (JSONObject) o;
+				JSONObject main = elem.getJSONObject("main");
 
 				Double temperature = (Double) main.get("temp");
 				Double tempMin = (Double) main.get("temp_min");
@@ -63,7 +65,12 @@ public class WeatherForecast_API_Call {
 				Integer pressure = (Integer) main.get("pressure");
 				Integer humidity = (Integer) main.get("humidity");
 
-				WeatherData w = new WeatherData(temperature, tempMin, tempMax, pressure, humidity);
+				JSONArray weatherList = elem.getJSONArray("weather");
+				JSONObject data = (JSONObject) weatherList.get(0);
+				String description = (String) data.get("description");
+				String date = (String) elem.getString("dt_txt");
+
+				WeatherData w = new WeatherData(description, temperature, tempMin, tempMax, humidity, pressure, date);
 				downloadedForecast.add(w);
 
 			} catch (Exception e) {
@@ -72,35 +79,6 @@ public class WeatherForecast_API_Call {
 
 	}
 
-	private void buildWeather(JSONObject stats, List<WeatherData> downloadedForecast) {
-		JSONArray a = (JSONArray) stats.get("weather");
 
-		for (Object o : a) {
-			try {
-				JSONObject weather = (JSONObject) o;
-				String description = (String) weather.get("description");
-
-				WeatherData w = new WeatherData(description);
-				downloadedForecast.add(w);
-			} catch (Exception e) {
-			}
-
-		}
-	}
-
-	private void buildTime(JSONObject stats, List<WeatherData> downloadedForecast) {
-		JSONArray a = (JSONArray) stats.get("sys");
-
-		for (Object o : a) {
-			try {
-				JSONObject time = (JSONObject) o;
-				String date = (String) time.get("dt_txt");
-
-				WeatherData w = new WeatherData(date);
-				downloadedForecast.add(w);
-			} catch (Exception e) {
-			}
-		}
-	}
 }
 

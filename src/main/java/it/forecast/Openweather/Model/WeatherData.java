@@ -2,7 +2,7 @@ package it.forecast.Openweather.Model;
 
 public class WeatherData {
 
-	private String city;
+
 	private String description;
 	private Double temperature;
 	private Double tempMin;
@@ -11,8 +11,8 @@ public class WeatherData {
 	private Integer pressure;
 	private String date;
 
-	public WeatherData(String city, String description, Double temperature, Double tempMin, Double tempMax, Integer humidity,Integer pressure,String date){
-		this.city = city;
+	public WeatherData( String description, Double temperature, Double tempMin, Double tempMax, Integer humidity,Integer pressure,String date){
+
 		this.description = description;
 		this.temperature = temperature;
 		this.tempMin = tempMin;
@@ -23,12 +23,7 @@ public class WeatherData {
 	}
 	
 	
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
+
 	
 	public String getDescription() {
 		return description;
@@ -106,7 +101,6 @@ public class WeatherData {
 	public String toString() {
 		
 		StringBuffer buffer = new StringBuffer();
-		buffer.append("City: " + city + ";");
 		buffer.append("Description: " + description + ";");
 		buffer.append("Temperature: " + temperature + ";");
 		return buffer.toString();
