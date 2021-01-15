@@ -14,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.nio.DoubleBuffer;
 import java.util.List;
 import java.util.Vector;
 
@@ -50,8 +51,26 @@ public class WeatherForecast_API_Call {
 
 
 		private void buildForecast(JSONObject stats,List<WeatherData> downloadedForecast) {
-			JSONArray a = (JSONArray) stats.get("q");
+			JSONArray a = (JSONArray) stats.get("main");
+
+				for (Object o : a) {
+					try {
+						JSONObject main = (JSONObject) o;
+
+						Double temperature = (Double) main.get("temp");
+						Double tempMin = (Double) main.get("temp_min");
+						Double tempMax = (Double) main.get("temp_max");
+						Integer pressure = (Integer) main.get("pressure");
+						Integer humidity = (Integer) main.get("humidity");
+
+						WeatherData w = new WeatherData(temperature, tempMin, tempMax, pressure, humidity);
+						downloadedForecast.add(w);
+
+					} catch (Exception e){ }
+				}
 
 		}
+
+	//	private void build
 	}
 

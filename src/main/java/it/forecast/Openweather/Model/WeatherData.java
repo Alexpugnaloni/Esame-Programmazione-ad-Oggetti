@@ -4,11 +4,11 @@ public class WeatherData {
 
 	private String city;
 	private String description;
-	private String temperature;
-	private String tempMin;
-	private String tempMax;
-	private String humidity;
-	private String pressure;
+	private Double temperature;
+	private Double tempMin;
+	private Double tempMax;
+	private Integer humidity;
+	private Integer pressure;
 	private String date;
 	
 	
@@ -28,27 +28,27 @@ public class WeatherData {
 	}
 	
 	
-	public String getTemperature() {
+	public Double getTemperature() {
 		return temperature;
 	}
-	public void setTemperature(String temperature) {
+	public void setTemperature(Double temperature) {
 		this.temperature = temperature;
 	}
 	
-	public String getTempMin() {
+	public Double getTempMin() {
 		return tempMin;
 	}
-	public void setTempMin(String tempMin) {
+	public void setTempMin(Double tempMin) {
 		this.tempMin = tempMin;
 	}
 	
 	
 	
 	
-	public String getTempMax() {
+	public Double getTempMax() {
 		return tempMax;
 	}
-	public void setTempMax(String tempMax) {
+	public void setTempMax(Double tempMax) {
 		this.tempMax = tempMax;
 	}
 	
@@ -63,10 +63,10 @@ public class WeatherData {
 	
 	
 	
-	public String getHumidity() {
+	public Integer getHumidity() {
 		return humidity;
 	}
-	public void setHumidity(String humidity) {
+	public void setHumidity(Integer humidity) {
 		this.humidity = humidity;
 	}
 	
@@ -76,10 +76,10 @@ public class WeatherData {
 	
 	
 	
-	public String getPressure() {
+	public Integer getPressure() {
 		return pressure;
 	}
-	public void setPressure(String pressure) {
+	public void setPressure(Integer pressure) {
 		this.pressure = pressure;
 	}
 	
