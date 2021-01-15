@@ -10,6 +10,17 @@ public class WeatherData {
 	private Integer humidity;
 	private Integer pressure;
 	private String date;
+
+	public WeatherData(String city, String description, Double temperature, Double tempMin, Double tempMax, Integer humidity,Integer pressure,String date){
+		this.city = city;
+		this.description = description;
+		this.temperature = temperature;
+		this.tempMin = tempMin;
+		this.tempMax = tempMax;
+		this.humidity = humidity;
+		this.pressure = pressure;
+		this.date = date;
+	}
 	
 	
 	public String getCity() {

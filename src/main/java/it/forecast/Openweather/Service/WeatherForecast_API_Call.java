@@ -50,27 +50,57 @@ public class WeatherForecast_API_Call {
 	}
 
 
-		private void buildForecast(JSONObject stats,List<WeatherData> downloadedForecast) {
-			JSONArray a = (JSONArray) stats.get("main");
+	private void buildForecast(JSONObject stats, List<WeatherData> downloadedForecast) {
+		JSONArray a = (JSONArray) stats.get("main");
 
-				for (Object o : a) {
-					try {
-						JSONObject main = (JSONObject) o;
+		for (Object o : a) {
+			try {
+				JSONObject main = (JSONObject) o;
 
-						Double temperature = (Double) main.get("temp");
-						Double tempMin = (Double) main.get("temp_min");
-						Double tempMax = (Double) main.get("temp_max");
-						Integer pressure = (Integer) main.get("pressure");
-						Integer humidity = (Integer) main.get("humidity");
+				Double temperature = (Double) main.get("temp");
+				Double tempMin = (Double) main.get("temp_min");
+				Double tempMax = (Double) main.get("temp_max");
+				Integer pressure = (Integer) main.get("pressure");
+				Integer humidity = (Integer) main.get("humidity");
 
-						WeatherData w = new WeatherData(temperature, tempMin, tempMax, pressure, humidity);
-						downloadedForecast.add(w);
+				WeatherData w = new WeatherData(temperature, tempMin, tempMax, pressure, humidity);
+				downloadedForecast.add(w);
 
-					} catch (Exception e){ }
-				}
-
+			} catch (Exception e) {
+			}
 		}
 
-	//	private void build
 	}
+
+	private void buildWeather(JSONObject stats, List<WeatherData> downloadedForecast) {
+		JSONArray a = (JSONArray) stats.get("weather");
+
+		for (Object o : a) {
+			try {
+				JSONObject weather = (JSONObject) o;
+				String description = (String) weather.get("description");
+
+				WeatherData w = new WeatherData(description);
+				downloadedForecast.add(w);
+			} catch (Exception e) {
+			}
+
+		}
+	}
+
+	private void buildTime(JSONObject stats, List<WeatherData> downloadedForecast) {
+		JSONArray a = (JSONArray) stats.get("sys");
+
+		for (Object o : a) {
+			try {
+				JSONObject time = (JSONObject) o;
+				String date = (String) time.get("dt_txt");
+
+				WeatherData w = new WeatherData(date);
+				downloadedForecast.add(w);
+			} catch (Exception e) {
+			}
+		}
+	}
+}
 
