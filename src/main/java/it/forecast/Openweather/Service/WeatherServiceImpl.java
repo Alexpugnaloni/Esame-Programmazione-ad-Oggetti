@@ -28,7 +28,7 @@ public class WeatherServiceImpl implements WeatherService {
         return this.weatherForecast;
     }
 
-    public List<WeatherData> get5ForecastWeatherFiltered(JSONObject bodyFilter, String url) {
+   /* public List<WeatherData> get5ForecastWeatherFiltered(JSONObject bodyFilter, String url) {
         try {
             WeatherForecast_API_Call w = new WeatherForecast_API_Call();
             List<WeatherData> forecastToFilter1 = w.loadCall(url);
@@ -91,31 +91,8 @@ public class WeatherServiceImpl implements WeatherService {
         }
 
         //aggiungere nostre statistiche
-        return Stat;
+        return Stat; */
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
 
 
 

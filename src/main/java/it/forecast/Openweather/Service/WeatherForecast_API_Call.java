@@ -3,8 +3,9 @@ package it.forecast.Openweather.Service;
 import it.forecast.Openweather.Exception.NoDataException;
 import it.forecast.Openweather.Model.WeatherData;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
@@ -51,13 +52,12 @@ public class WeatherForecast_API_Call {
 
 
 	private void buildForecast(JSONObject stats, List<WeatherData> downloadedForecast) {
-		JSONArray a = (JSONArray) stats.get("list");
-
+		JSONArray a = (JSONArray) stats.get("list"); System.out.println(a); // funziona fino a qua
 
 		for (Object o : a) {
 			try {
-				JSONObject elem = (JSONObject) o;
-				JSONObject main = elem.getJSONObject("main");
+				JSONObject elem = (JSONObject) stats.get(o); System.out.println(elem); // per alex: trovare modo di passare l' indice "0" a elem, in quanto non viene passato nulla
+				JSONObject main = (JSONObject) elem.get("main");
 
 				Double temperature = (Double) main.get("temp");
 				Double tempMin = (Double) main.get("temp_min");
@@ -65,10 +65,10 @@ public class WeatherForecast_API_Call {
 				Integer pressure = (Integer) main.get("pressure");
 				Integer humidity = (Integer) main.get("humidity");
 
-				JSONArray weatherList = elem.getJSONArray("weather");
+				JSONArray weatherList = (JSONArray) elem.get("weather");
 				JSONObject data = (JSONObject) weatherList.get(0);
 				String description = (String) data.get("description");
-				String date = (String) elem.getString("dt_txt");
+				String date = (String) elem.get("dt_txt");
 
 				WeatherData w = new WeatherData(description, temperature, tempMin, tempMax, humidity, pressure, date);
 				downloadedForecast.add(w);

@@ -13,6 +13,6 @@ import java.util.List;
 public interface WeatherService {
 
 	List<WeatherData> get5ForecastWeather(String url) throws IOException, ParseException, JSONException, NoDataException;
-	List<WeatherData> get5ForecastWeatherFiltered(JSONObject bodyFilter, String url);
-	List<WeatherData> getStats(String url);
+	//List<WeatherData> get5ForecastWeatherFiltered(JSONObject bodyFilter, String url);
+	//List<WeatherData> getStats(String url);
 }
