@@ -21,10 +21,8 @@ public class WeatherData {
 		this.pressure = pressure;
 		this.date = date;
 	}
-	
-	
 
-	
+
 	public String getDescription() {
 		return description;
 	}
@@ -32,8 +30,7 @@ public class WeatherData {
 
 		this.description = description;
 	}
-	
-	
+
 	public Double getTemperature() {
 		return temperature;
 	}
@@ -47,10 +44,7 @@ public class WeatherData {
 	public void setTempMin(Double tempMin) {
 		this.tempMin = tempMin;
 	}
-	
-	
-	
-	
+
 	public Double getTempMax() {
 		return tempMax;
 	}
@@ -58,29 +52,12 @@ public class WeatherData {
 		this.tempMax = tempMax;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public Long getHumidity() {
 		return humidity;
 	}
 	public void setHumidity(Long humidity) {
 		this.humidity = humidity;
 	}
-	
-	
-	
-	
-	
-	
 	
 	public Long getPressure() {
 		return pressure;
