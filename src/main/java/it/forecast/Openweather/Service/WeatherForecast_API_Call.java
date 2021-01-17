@@ -52,18 +52,18 @@ public class WeatherForecast_API_Call {
 
 
 	private void buildForecast(JSONObject stats, List<WeatherData> downloadedForecast) {
-		JSONArray a = (JSONArray) stats.get("list"); //System.out.println(a);
+		JSONArray a = (JSONArray) stats.get("list");
 
-		for (Object o : a) {                                            //SISTEMATO !!!!
+		for (Object o : a) {
 			try {
-				JSONObject elem = (JSONObject) o; //System.out.println(elem);
+				JSONObject elem = (JSONObject) o;
 				JSONObject main = (JSONObject) elem.get("main");
 
 				Double temperature = (Double) main.get("temp");
 				Double tempMin = (Double) main.get("temp_min");
 				Double tempMax = (Double) main.get("temp_max");
-				Integer pressure = (Integer) main.get("pressure");
-				Integer humidity = (Integer) main.get("humidity");
+				Long pressure = (Long) main.get("pressure");
+				Long humidity = (Long) main.get("humidity");
 
 				JSONArray weatherList = (JSONArray) elem.get("weather");
 				JSONObject data = (JSONObject) weatherList.get(0);

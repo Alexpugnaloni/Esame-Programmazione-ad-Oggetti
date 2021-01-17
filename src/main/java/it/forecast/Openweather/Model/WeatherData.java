@@ -7,11 +7,11 @@ public class WeatherData {
 	private Double temperature;
 	private Double tempMin;
 	private Double tempMax;
-	private Integer humidity;
-	private Integer pressure;
+	private Long humidity;
+	private Long pressure;
 	private String date;
 
-	public WeatherData( String description, Double temperature, Double tempMin, Double tempMax, Integer humidity,Integer pressure,String date){
+	public WeatherData( String description, Double temperature, Double tempMin, Double tempMax, Long humidity,Long pressure,String date){
 
 		this.description = description;
 		this.temperature = temperature;
@@ -69,10 +69,10 @@ public class WeatherData {
 	
 	
 	
-	public Integer getHumidity() {
+	public Long getHumidity() {
 		return humidity;
 	}
-	public void setHumidity(Integer humidity) {
+	public void setHumidity(Long humidity) {
 		this.humidity = humidity;
 	}
 	
@@ -82,10 +82,10 @@ public class WeatherData {
 	
 	
 	
-	public Integer getPressure() {
+	public Long getPressure() {
 		return pressure;
 	}
-	public void setPressure(Integer pressure) {
+	public void setPressure(Long pressure) {
 		this.pressure = pressure;
 	}
 	
