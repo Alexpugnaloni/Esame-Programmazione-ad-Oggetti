@@ -62,6 +62,7 @@ public class WeatherForecast_API_Call {
 				Double temperature = (Double) main.get("temp");
 				Double tempMin = (Double) main.get("temp_min");
 				Double tempMax = (Double) main.get("temp_max");
+				Double feels_like = (Double) main.get("feels_like");
 				Long pressure = (Long) main.get("pressure");
 				Long humidity = (Long) main.get("humidity");
 
@@ -71,7 +72,7 @@ public class WeatherForecast_API_Call {
 				String date = (String) elem.get("dt_txt");
 
 
-				WeatherData w = new WeatherData(description, temperature, tempMin, tempMax, humidity, pressure, date);
+				WeatherData w = new WeatherData(description, temperature, tempMin, tempMax, feels_like, humidity, pressure, date);
 				downloadedForecast.add(w);
 
 

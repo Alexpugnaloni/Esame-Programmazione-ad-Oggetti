@@ -7,19 +7,25 @@ public class WeatherData {
 	private Double temperature;
 	private Double tempMin;
 	private Double tempMax;
+	private Double feels_like;
 	private Long humidity;
 	private Long pressure;
 	private String date;
 
-	public WeatherData( String description, Double temperature, Double tempMin, Double tempMax, Long humidity,Long pressure,String date){
+	public WeatherData( String description, Double temperature, Double tempMin, Double tempMax, Double feels_like, Long humidity,Long pressure,String date){
 
 		this.description = description;
 		this.temperature = temperature;
 		this.tempMin = tempMin;
 		this.tempMax = tempMax;
+		this.feels_like = feels_like;
 		this.humidity = humidity;
 		this.pressure = pressure;
 		this.date = date;
+	}
+
+	public WeatherData() {
+
 	}
 
 
@@ -51,6 +57,9 @@ public class WeatherData {
 	public void setTempMax(Double tempMax) {
 		this.tempMax = tempMax;
 	}
+
+	public Double getFeels_like() {return feels_like;}
+	public void setFeels_like(Double feels_like) {this.feels_like = feels_like;}
 	
 	public Long getHumidity() {
 		return humidity;

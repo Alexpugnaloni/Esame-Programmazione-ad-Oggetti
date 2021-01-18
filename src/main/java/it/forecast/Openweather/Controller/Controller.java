@@ -30,6 +30,9 @@ public class Controller {
 		url = "https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&appid="+ api_key+ "&lang=" + lang + "&units=metric&cnt=40";
 		return new ResponseEntity<>(w.get5ForecastWeather(url), HttpStatus.OK);
 	}
+
+	@GetMapping("/stats")
+
 }
 
 //MANCANO LE GETMAPPING DI STATS E FILTRI
