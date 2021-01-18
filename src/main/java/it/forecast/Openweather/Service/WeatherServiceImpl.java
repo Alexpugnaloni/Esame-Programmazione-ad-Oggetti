@@ -3,6 +3,9 @@ package it.forecast.Openweather.Service;
 import it.forecast.Openweather.Exception.NoDataException;
 import it.forecast.Openweather.Model.City;
 import it.forecast.Openweather.Model.WeatherData;
+import it.forecast.Openweather.Stats.MaxTemperature;
+import it.forecast.Openweather.Stats.Stats;
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Vector;
@@ -26,13 +29,22 @@ public class WeatherServiceImpl implements WeatherService {
             throw new NoDataException();
         return this.weatherForecast;
     }
-    public List<WeatherData> get5StatsWeather(String url) throws NoDataException{           //DA SISTEMARE PER STATS
-        WeatherForecast_API_Call w = new WeatherForecast_API_Call();
-        this.weatherStats = w.loadCall(url);
-        System.out.println(this.weatherStats);
-        if(this.weatherStats == null || this.weatherStats.contains("[]"))
-            throw new NoDataException();
-        return this.weatherStats;
+    public JSONObject get5StatsWeather(String url) throws NoDataException {           //DA SISTEMARE PER STATS
+        JSONObject St = new JSONObject();
+        Stats s;
+        try {
+            WeatherForecast_API_Call c = new WeatherForecast_API_Call();
+            weatherForecast = c.loadCall(url);
+            if (this.weatherForecast == null)
+                throw new NoDataException();
+        } catch (Exception e) {
+        }
+
+        //MASSIMA
+        s = new MaxTemperature((Vector<WeatherData>) weatherForecast);
+        s.calculateStat();
+        St.put("temp_max", s.getDouble());
+        
     }
 
     }

@@ -16,7 +16,7 @@ public class VarianceTemperature extends Stats {
         return this.varianceTemperature;
     }
 
-    public Vector<WeatherData> calculateStat() {
+    public Vector<WeatherData> calculateStat(Vector<WeatherData> list) {
         Vector<Double> v = new Vector<Double>();
         Double sum = (double) 0, sumSquareRej = (double) 0, variance, avg;
         int size;

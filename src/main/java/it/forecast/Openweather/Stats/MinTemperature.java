@@ -2,10 +2,12 @@ package it.forecast.Openweather.Stats;
 
 import it.forecast.Openweather.Model.WeatherData;
 
+import java.util.List;
 import java.util.Vector;
 
 public class MinTemperature extends Stats{
     private double minTemperature;
+    private WeatherData MinValue;
 
     public MinTemperature(Vector<WeatherData> weatherForecast){
         super(weatherForecast);
@@ -16,7 +18,9 @@ public class MinTemperature extends Stats{
         return this.minTemperature;
     }
 
-    public Vector<WeatherData> calculateStat(){ //DOVREBBE ESSERE VOID
+
+
+    public Vector<WeatherData> calculateStat(Vector<WeatherData> list){ //DOVREBBE ESSERE VOID
        Vector result = new Vector<WeatherData>();
 
         MinValue = list.get(0);

@@ -2,6 +2,7 @@ package it.forecast.Openweather.Stats;
 
 import it.forecast.Openweather.Model.WeatherData;
 
+import java.util.List;
 import java.util.Vector;
 
 public class AverageTemperature extends Stats {
@@ -17,27 +18,23 @@ public class AverageTemperature extends Stats {
     }
 
 
-    public Vector<WeatherData> calculateStat() {
-        Vector<Double> v2 = new Vector<Double>();
-        Double sum2 = (double) 0, avg2;
-        int sizeAvg;
+    public Vector<WeatherData> calculateStat(Vector<WeatherData> list) {
+        Vector<Double> v = new Vector<Double>();
+        Double sum = (double) 0, avg;
+        int size;
         for (int i = 0; i < list.size(); i++) {
-            v2.add(list.elementAt(i).getTemperature());
+            v.add(list.elementAt(i).getTemperature());
         }
-        sizeAvg = v2.size();
-        for (int i = 0; i < sizeAvg; i++) {
-            sum2 = sum2 + v2.elementAt(i);
+        size = v.size();
+        for (int i = 0; i < size; i++) {
+            sum = sum + v.elementAt(i);
         }
-        avg = sum2 / sizeAvg;
-        for (int i = 0; i < sizeAvg; i++) {
-            sum2 = sum2 + v2.elementAt(i);
-        }
+        avg = sum / size;
 
-        avg2 = sum2 / sizeAvg;
         Vector<WeatherData> WeatherDataAverage = new Vector<WeatherData>();
         WeatherData finalAverage = new WeatherData();
 
-        finalAverage.setTemperature(avg2);
+        finalAverage.setTemperature(avg);
         WeatherDataAverage.add(finalAverage);
         return WeatherDataAverage;
     }
