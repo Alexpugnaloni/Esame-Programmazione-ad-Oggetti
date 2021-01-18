@@ -1,6 +1,7 @@
 package it.forecast.Openweather.Service;
 
 import it.forecast.Openweather.Exception.NoDataException;
+import it.forecast.Openweather.Model.City;
 import it.forecast.Openweather.Model.WeatherData;
 
 import org.json.simple.JSONArray;
@@ -51,8 +52,16 @@ public class WeatherForecast_API_Call {
 	}
 
 
-	private void buildForecast(JSONObject stats, List<WeatherData> downloadedForecast) {
+	private void buildForecast(JSONObject stats,  List<WeatherData> downloadedForecast) {
 		JSONArray a = (JSONArray) stats.get("list");
+
+		JSONObject c = (JSONObject) stats.get("city"); //TEST
+		Long id = (Long) c.get("id"); System.out.println(id);
+		String city = (String) c.get("name");
+		String country = (String) c.get("country");
+
+		City cit = new City(id, city, country);
+	//	downloadedForecast.add(cit); //QUI IL PROBLEMA
 
 		for (Object o : a) {
 			try {

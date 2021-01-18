@@ -1,14 +1,37 @@
 package it.forecast.Openweather.Stats;
 
 import it.forecast.Openweather.Model.WeatherData;
+import org.json.simple.JSONObject;
 
 import java.util.List;
+import java.util.Vector;
 
-public class Stats {
+public abstract class Stats {
 
-    protected WeatherData MaxValue;
-    protected WeatherData MinValue;
-    protected List<WeatherData> result;
+    List<WeatherData> weatherForecast;
 
-    public List<WeatherData> getStats(String statsType, List<WeatherData> list) {return result;}
+    public Stats(List<WeatherData> weatherForecast){
+        this.weatherForecast = weatherForecast;
+    }
+
+    public List<WeatherData> getWeatherForecast(){
+        return weatherForecast;
+    }
+    public void setWeatherForecast(List<WeatherData> weatherForecast){
+        this.weatherForecast = weatherForecast;
+    }
+    public int getInt() {
+        return 0;
+    }
+
+
+    public double getDouble() {
+        return 0;
+    }
+
+
+    public JSONObject getJSONObject() {
+        return null;
+    }
+    public abstract Vector<WeatherData> calculateStat(); //boooooooooooohhhh DOVREBBE ESSERE VOID
 }
