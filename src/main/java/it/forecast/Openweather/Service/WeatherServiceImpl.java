@@ -8,6 +8,7 @@ import it.forecast.Openweather.Stats.Stats;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 @Service
@@ -29,7 +30,7 @@ public class WeatherServiceImpl implements WeatherService {
 
         return this.weatherForecast;
     }
-    public JSONObject get5StatsWeather(String url) throws NoDataException {           //DA SISTEMARE PER STATS
+    public Map<String, Object> get5StatsWeather(String url) throws NoDataException {           //DA SISTEMARE PER STATS
         JSONObject St = new JSONObject();
         Stats s;
         try {
@@ -43,14 +44,19 @@ public class WeatherServiceImpl implements WeatherService {
         //MASSIMA
         s = new MaxTemperature((Vector<WeatherData>) weatherForecast);
         s.calculateStat();
-        St.put("tempMax", s.getDouble());
+        St.put("tempMax", s.getTemp());
+        St.put("tempMaxDate",s.getDate());
+        System.out.println(St);
+
 
         //Minima
         s = new MinTemperature((Vector<WeatherData>) weatherForecast);
         s.calculateStat();
-        St.put("tempMin", s.getDouble());
+        St.put("tempMin", s.getTemp());
+        St.put("tempMinDate",s.getDate());
+        System.out.println(St);
 
-        return St;
+        return St.toMap();
 
         
     }

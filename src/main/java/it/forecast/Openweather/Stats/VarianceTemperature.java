@@ -6,17 +6,29 @@ import java.util.Vector;
 
 public class VarianceTemperature extends Stats {
     private double varianceTemperature;
+    private String date;
 
     public VarianceTemperature(Vector<WeatherData> weatherForecast) {
         super(weatherForecast);
         this.varianceTemperature = 0;
+        this.date = null;
     }
 
     public double getDouble() {
         return this.varianceTemperature;
     }
 
-    public Vector<WeatherData> calculateStat() {
+    @Override
+    public String getDate() {
+        return null;
+    }
+
+    @Override
+    public double getTemp() {
+        return 0;
+    }
+
+    public void calculateStat() {
 
         Vector<Double> v = new Vector<Double>();
         Double sum = (double) 0, sumSquareRej = (double) 0, variance, avg;
@@ -40,6 +52,6 @@ public class VarianceTemperature extends Stats {
 
         finalVariance.setTemperature(variance);
         WeatherDataVariance.add(finalVariance);
-        return WeatherDataVariance;
+
     }
 }

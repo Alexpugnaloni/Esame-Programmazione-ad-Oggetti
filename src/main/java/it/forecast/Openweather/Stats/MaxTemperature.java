@@ -10,21 +10,26 @@ public class MaxTemperature extends Stats {
 
     private double maxTemperature;
     private WeatherData MaxValue;
+    private String date;
 
     public MaxTemperature(Vector<WeatherData> weatherForecast){
         super(weatherForecast);
         this.maxTemperature = 0;
+        this.date = null;
+    }
+@Override
+    public double getTemp(){
+        return this.maxTemperature; }
+    @Override
+    public String getDate(){
+        return  this.date;
+
     }
 
-    public double getDouble(){
-        return this.maxTemperature;
-    }
 
 
+    public void calculateStat(){
 
-    public Vector<WeatherData> calculateStat(){
-
-        Vector result = new Vector<WeatherData>();
         MaxValue = weatherForecast.get(0);
         for (int i = 1; i < weatherForecast.size(); i++) {
             WeatherData wD = weatherForecast.get(i);
@@ -32,8 +37,10 @@ public class MaxTemperature extends Stats {
                 MaxValue = wD;
             }
         }
-        result.add(MaxValue);
-        return result;
+        maxTemperature = MaxValue.getTemperature();
+        date = MaxValue.getDate();
+
+
 
     }
 

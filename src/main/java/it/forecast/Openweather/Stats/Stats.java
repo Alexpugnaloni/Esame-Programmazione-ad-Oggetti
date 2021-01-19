@@ -20,18 +20,15 @@ public abstract class Stats {
     public void setWeatherForecast(List<WeatherData> weatherForecast){
         this.weatherForecast = weatherForecast;
     }
-    public int getInt() {
-        return 0;
-    }
+    public abstract String getDate();
 
 
-    public double getDouble() {
-        return 0;
-    }
+
+    public abstract double getTemp();
 
 
     public JSONObject getJSONObject() {
         return null;
     }
-    public abstract Vector<WeatherData> calculateStat();
+    public abstract void calculateStat();
 }

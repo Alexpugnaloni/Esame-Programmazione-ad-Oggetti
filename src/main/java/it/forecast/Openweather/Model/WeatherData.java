@@ -11,8 +11,10 @@ public class WeatherData {
 	private Long humidity;
 	private Long pressure;
 	private String date;
+	private String city;
+	private String country;
 
-	public WeatherData( String description, Double temperature, Double tempMin, Double tempMax, Double feels_like, Long humidity,Long pressure,String date){
+	public WeatherData( String description, Double temperature, Double tempMin, Double tempMax, Double feels_like, Long humidity,Long pressure,String date, String city, String country){
 
 		this.description = description;
 		this.temperature = temperature;
@@ -22,6 +24,8 @@ public class WeatherData {
 		this.humidity = humidity;
 		this.pressure = pressure;
 		this.date = date;
+		this.city = city;
+		this.country = country;
 	}
 
 	public WeatherData() {
@@ -81,6 +85,19 @@ public class WeatherData {
 	public void setDate(String date) {
 		this.date = date;
 	}
+
+	public String getCity(){
+		return city;
+	}
+	public void setCity(String city){
+		this.city = city;
+	}
+	public String getCountry(){
+		return country;
+	}
+	public void setCountry(String country){
+		this.country = country;
+	}
 	
 	
 	@Override
@@ -94,7 +111,7 @@ public class WeatherData {
 		buffer.append("Feels Like: " + feels_like + "; ");
 		buffer.append("Humidity: " + humidity + "; ");
 		buffer.append("Pressure: " + pressure + "; ");
-		buffer.append("Date: " + date + "; ");
+		buffer.append("Date: " + date + "; "); 
 		return buffer.toString();
 	}
 	

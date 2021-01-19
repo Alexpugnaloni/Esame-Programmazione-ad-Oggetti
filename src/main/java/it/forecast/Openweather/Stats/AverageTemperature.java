@@ -7,18 +7,26 @@ import java.util.Vector;
 
 public class AverageTemperature extends Stats {
     private double averageTemperature;
+    private String date;
 
     public AverageTemperature(Vector<WeatherData> weatherForecast) {
         super(weatherForecast);
         this.averageTemperature = 0;
+        this.date = null;
     }
 
-    public double getDouble() {
+
+    @Override
+    public String getDate() {
+        return this.date;
+    }
+
+    @Override
+    public double getTemp() {
         return this.averageTemperature;
     }
 
-
-    public Vector<WeatherData> calculateStat() {
+    public void calculateStat() {
         Vector<Double> v = new Vector<Double>();
         Double sum = (double) 0, avg;
         int size;
@@ -31,11 +39,14 @@ public class AverageTemperature extends Stats {
         }
         avg = sum / size;
 
-        Vector<WeatherData> WeatherDataAverage = new Vector<WeatherData>();
+     //   Vector<WeatherData> WeatherDataAverage = new Vector<WeatherData>();
         WeatherData finalAverage = new WeatherData();
 
-        finalAverage.setTemperature(avg);
-        WeatherDataAverage.add(finalAverage);
-        return WeatherDataAverage;
+        averageTemperature = finalAverage.getTemperature();
+        date = finalAverage.getDate();
+      //  finalAverage.setTemperature(avg);
+      //   WeatherDataAverage.add(finalAverage);
+
     }
+
 }
