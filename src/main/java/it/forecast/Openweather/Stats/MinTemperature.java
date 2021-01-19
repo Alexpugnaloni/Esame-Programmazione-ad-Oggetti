@@ -20,13 +20,13 @@ public class MinTemperature extends Stats{
 
 
 
-    public Vector<WeatherData> calculateStat(Vector<WeatherData> list){ //DOVREBBE ESSERE VOID
+    public Vector<WeatherData> calculateStat(){ //DOVREBBE ESSERE VOID
        Vector result = new Vector<WeatherData>();
 
-        MinValue = list.get(0);
-        for (int i = 1; i < list.size(); i++) {
+        MinValue = weatherForecast.get(0);
+        for (int i = 1; i < weatherForecast.size(); i++) {
 
-            WeatherData wD = list.get(i);
+            WeatherData wD = weatherForecast.get(i);
             if (wD.getTemperature() < MinValue.getTemperature()) {
                 MinValue = wD;
             }

@@ -33,5 +33,5 @@ public abstract class Stats {
     public JSONObject getJSONObject() {
         return null;
     }
-    public abstract Vector<WeatherData> calculateStat(Vector<WeatherData> list);
+    public abstract Vector<WeatherData> calculateStat();
 }

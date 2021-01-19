@@ -22,11 +22,12 @@ public class MaxTemperature extends Stats {
 
 
 
-    public Vector<WeatherData> calculateStat(Vector<WeatherData> list){
+    public Vector<WeatherData> calculateStat(){
+
         Vector result = new Vector<WeatherData>();
         MaxValue = weatherForecast.get(0);
-        for (int i = 1; i < list.size(); i++) {
-            WeatherData wD = list.get(i);
+        for (int i = 1; i < weatherForecast.size(); i++) {
+            WeatherData wD = weatherForecast.get(i);
             if (wD.getTemperature() > MaxValue.getTemperature()) {
                 MaxValue = wD;
             }

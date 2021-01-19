@@ -18,12 +18,12 @@ public class AverageTemperature extends Stats {
     }
 
 
-    public Vector<WeatherData> calculateStat(Vector<WeatherData> list) {
+    public Vector<WeatherData> calculateStat() {
         Vector<Double> v = new Vector<Double>();
         Double sum = (double) 0, avg;
         int size;
-        for (int i = 0; i < list.size(); i++) {
-            v.add(list.elementAt(i).getTemperature());
+        for (int i = 0; i < weatherForecast.size(); i++) {
+            v.add(weatherForecast.get(i).getTemperature());
         }
         size = v.size();
         for (int i = 0; i < size; i++) {
