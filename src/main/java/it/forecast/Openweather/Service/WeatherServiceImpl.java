@@ -66,6 +66,32 @@ public class WeatherServiceImpl implements WeatherService {
         result.add(s.ritornaCalculateStat());
         St.put("Variance", new JSONArray(result));
 
+        //FEELS LIKE
+        result = new Vector<>();
+        s = new MaxFeelsLike((Vector<WeatherData>) weatherForecast);
+        s.calculateStat();
+        result.add(s.ritornaCalculateStat());
+        St.put("MaxFeelsStats",new JSONArray(result));
+
+        result = new Vector<>();
+        s = new MinFeelsLike((Vector<WeatherData>) weatherForecast);
+        s.calculateStat();
+        result.add(s.ritornaCalculateStat());
+        St.put("MinFeelsStats",new JSONArray(result));
+
+        result = new Vector<>();
+        s = new AverageFeelsLike((Vector<WeatherData>) weatherForecast);
+        s.calculateStat();
+        result.add(s.ritornaCalculateStat());
+        St.put("AverageFeelsLike",new JSONArray(result));
+
+        result = new Vector<>();
+        s = new VarianceFeelsLike((Vector<WeatherData>) weatherForecast);
+        s.calculateStat();
+        result.add(s.ritornaCalculateStat());
+        St.put("VarianceFeelsLike",new JSONArray(result));
+
+
 
         return St.toMap();
 

@@ -3,17 +3,16 @@ package it.forecast.Openweather.Stats;
 import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
 
-import java.util.List;
 import java.util.Vector;
 
-public class MinTemperature extends Stats{
-    private double minTemperature;
+public class MinFeelsLike extends Stats{
+    private double minTemperatureFeelsLike;
     private WeatherData MinValue;
     private String date;
 
-    public MinTemperature(Vector<WeatherData> weatherForecast){
+    public MinFeelsLike(Vector<WeatherData> weatherForecast){
         super(weatherForecast);
-        this.minTemperature = 0;
+        this.minTemperatureFeelsLike = 0;
         this.date = null;
     }
 
@@ -25,7 +24,7 @@ public class MinTemperature extends Stats{
 
     @Override
     public double getTemp() {
-        return this.minTemperature;
+        return this.minTemperatureFeelsLike;
     }
 
     public void calculateStat(){
@@ -34,10 +33,10 @@ public class MinTemperature extends Stats{
         for (int i = 1; i < weatherForecast.size(); i++) {
 
             WeatherData wD = weatherForecast.get(i);
-            if (wD.getTemperature() < MinValue.getTemperature()) {
+            if (wD.getFeels_like() < MinValue.getFeels_like()) {
                 MinValue = wD;
             }
-            minTemperature = MinValue.getTemperature();
+            minTemperatureFeelsLike = MinValue.getFeels_like();
             date = MinValue.getDate();
         }
 
@@ -46,9 +45,9 @@ public class MinTemperature extends Stats{
         JSONObject St = new JSONObject();
 
 
-        St.put("tempMin", getTemp());
+        St.put("tempMin_FeelsLike", getTemp());
 
-        St.put("tempMinDate",getDate());
+        St.put("tempMinDate_FeelsLike",getDate());
 
         return St;
     }

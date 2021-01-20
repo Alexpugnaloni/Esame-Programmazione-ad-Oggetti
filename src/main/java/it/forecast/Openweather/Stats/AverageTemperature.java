@@ -45,10 +45,9 @@ public class AverageTemperature extends Stats {
     }
     public JSONObject ritornaCalculateStat(){
         JSONObject St = new JSONObject();
-        // calculateStat();
-       // returnCalculateStat().get(averageTemperature);
+
         St.put("Average", getTemp());
-      //  System.out.println(St); //QUA FUNZIONA
+
         return St;
 
     }

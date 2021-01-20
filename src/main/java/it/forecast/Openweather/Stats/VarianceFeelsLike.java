@@ -5,12 +5,12 @@ import org.json.simple.JSONObject;
 
 import java.util.Vector;
 
-public class VarianceTemperature extends Stats {
-    private double varianceTemperature;
+public class VarianceFeelsLike extends Stats{
+    private double varianceTemperatureFeelsLike;
 
-    public VarianceTemperature(Vector<WeatherData> weatherForecast) {
+    public VarianceFeelsLike(Vector<WeatherData> weatherForecast) {
         super(weatherForecast);
-        this.varianceTemperature = 0;
+        this.varianceTemperatureFeelsLike = 0;
     }
 
 
@@ -21,7 +21,7 @@ public class VarianceTemperature extends Stats {
 
     @Override
     public double getTemp() {
-        return this.varianceTemperature;
+        return this.varianceTemperatureFeelsLike;
     }
 
     public void calculateStat() {
@@ -30,7 +30,7 @@ public class VarianceTemperature extends Stats {
         Double sum = (double) 0, sumSquareRej = (double) 0, variance, avg;
         int size;
         for (int i = 0; i < weatherForecast.size(); i++) {
-            v.add(weatherForecast.get(i).getTemperature());
+            v.add(weatherForecast.get(i).getFeels_like());
         }
         size = v.size();
         for (int i = 0; i < size; i++) {
@@ -43,14 +43,14 @@ public class VarianceTemperature extends Stats {
         }
 
         variance = sumSquareRej / size;
-        varianceTemperature = variance;
+        varianceTemperatureFeelsLike = variance;
 
     }
     public JSONObject ritornaCalculateStat(){
         JSONObject St = new JSONObject();
 
 
-        St.put("Variance", getTemp());
+        St.put("Variance_FeelsLike", getTemp());
 
 
         return St;
