@@ -41,55 +41,45 @@ public class WeatherServiceImpl implements WeatherService {
         }
 
         Vector result = new Vector<>();
+        Vector resultFeelsLike = new Vector<>();
 
+        // TEMPERATURE STATS
         s = new MaxTemperature((Vector<WeatherData>) weatherForecast);
         s.calculateStat();
         result.add(s.ritornaCalculateStat());
-        St.put("MaxStats",new JSONArray(result));
 
-
-        result = new Vector<>();
         s = new MinTemperature((Vector<WeatherData>) weatherForecast);
         s.calculateStat();
         result.add(s.ritornaCalculateStat());
-        St.put("MinStats",new JSONArray(result));
 
-        result = new Vector<>();
         s = new AverageTemperature((Vector<WeatherData>) weatherForecast);
         s.calculateStat();
         result.add(s.ritornaCalculateStat());
-        St.put("Average",new JSONArray(result));
 
-        result = new Vector<>();
         s = new VarianceTemperature((Vector<WeatherData>) weatherForecast);
         s.calculateStat();
         result.add(s.ritornaCalculateStat());
-        St.put("Variance", new JSONArray(result));
 
-        //FEELS LIKE
-        result = new Vector<>();
+        //FEELS LIKE STATS
         s = new MaxFeelsLike((Vector<WeatherData>) weatherForecast);
         s.calculateStat();
-        result.add(s.ritornaCalculateStat());
-        St.put("MaxFeelsStats",new JSONArray(result));
+        resultFeelsLike.add(s.ritornaCalculateStat());
 
-        result = new Vector<>();
         s = new MinFeelsLike((Vector<WeatherData>) weatherForecast);
         s.calculateStat();
-        result.add(s.ritornaCalculateStat());
-        St.put("MinFeelsStats",new JSONArray(result));
+        resultFeelsLike.add(s.ritornaCalculateStat());
 
-        result = new Vector<>();
         s = new AverageFeelsLike((Vector<WeatherData>) weatherForecast);
         s.calculateStat();
-        result.add(s.ritornaCalculateStat());
-        St.put("AverageFeelsLike",new JSONArray(result));
+        resultFeelsLike.add(s.ritornaCalculateStat());
 
-        result = new Vector<>();
         s = new VarianceFeelsLike((Vector<WeatherData>) weatherForecast);
         s.calculateStat();
-        result.add(s.ritornaCalculateStat());
-        St.put("VarianceFeelsLike",new JSONArray(result));
+        resultFeelsLike.add(s.ritornaCalculateStat());
+
+
+        St.put("Stats for Temperature",new JSONArray(result));
+        St.put("Stats for Feels Like Temperature",new JSONArray(resultFeelsLike));
 
 
 
