@@ -1,8 +1,10 @@
 package it.forecast.Openweather.Stats;
 
 import it.forecast.Openweather.Model.WeatherData;
+import org.json.simple.JSONObject;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 
@@ -40,9 +42,16 @@ public class MaxTemperature extends Stats {
         maxTemperature = MaxValue.getTemperature();
         date = MaxValue.getDate();
 
-
-
     }
 
+    public JSONObject ritornaCalculateStat(){
+        JSONObject St = new JSONObject();
+
+        St.put("tempMax", getTemp());
+
+        St.put("tempMaxDate",getDate());
+     //   System.out.println(St);
+        return St;
+    }
 
 }

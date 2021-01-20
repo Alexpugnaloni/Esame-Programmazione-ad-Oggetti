@@ -4,6 +4,7 @@ import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 public abstract class Stats {
@@ -31,4 +32,5 @@ public abstract class Stats {
         return null;
     }
     public abstract void calculateStat();
+    public abstract JSONObject ritornaCalculateStat();
 }

@@ -1,24 +1,25 @@
 package it.forecast.Openweather.Stats;
 
 import it.forecast.Openweather.Model.WeatherData;
+import org.json.simple.JSONObject;
 
 import java.util.List;
 import java.util.Vector;
 
 public class AverageTemperature extends Stats {
     private double averageTemperature;
-    private String date;
+
 
     public AverageTemperature(Vector<WeatherData> weatherForecast) {
         super(weatherForecast);
         this.averageTemperature = 0;
-        this.date = null;
+
     }
 
 
     @Override
     public String getDate() {
-        return this.date;
+        return null;
     }
 
     @Override
@@ -39,13 +40,16 @@ public class AverageTemperature extends Stats {
         }
         avg = sum / size;
 
-     //   Vector<WeatherData> WeatherDataAverage = new Vector<WeatherData>();
-        WeatherData finalAverage = new WeatherData();
+        averageTemperature = avg;
 
-        averageTemperature = finalAverage.getTemperature();
-        date = finalAverage.getDate();
-      //  finalAverage.setTemperature(avg);
-      //   WeatherDataAverage.add(finalAverage);
+    }
+    public JSONObject ritornaCalculateStat(){
+        JSONObject St = new JSONObject();
+        // calculateStat();
+       // returnCalculateStat().get(averageTemperature);
+        St.put("Average", getTemp());
+      //  System.out.println(St); //QUA FUNZIONA
+        return St;
 
     }
 

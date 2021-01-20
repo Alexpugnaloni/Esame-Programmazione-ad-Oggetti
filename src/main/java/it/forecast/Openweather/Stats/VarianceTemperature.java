@@ -1,22 +1,18 @@
 package it.forecast.Openweather.Stats;
 
 import it.forecast.Openweather.Model.WeatherData;
+import org.json.simple.JSONObject;
 
 import java.util.Vector;
 
 public class VarianceTemperature extends Stats {
     private double varianceTemperature;
-    private String date;
 
     public VarianceTemperature(Vector<WeatherData> weatherForecast) {
         super(weatherForecast);
         this.varianceTemperature = 0;
-        this.date = null;
     }
 
-    public double getDouble() {
-        return this.varianceTemperature;
-    }
 
     @Override
     public String getDate() {
@@ -25,7 +21,7 @@ public class VarianceTemperature extends Stats {
 
     @Override
     public double getTemp() {
-        return 0;
+        return this.varianceTemperature;
     }
 
     public void calculateStat() {
@@ -47,11 +43,16 @@ public class VarianceTemperature extends Stats {
         }
 
         variance = sumSquareRej / size;
-        Vector<WeatherData> WeatherDataVariance = new Vector<WeatherData>();
-        WeatherData finalVariance = new WeatherData();
+        varianceTemperature = variance;
 
-        finalVariance.setTemperature(variance);
-        WeatherDataVariance.add(finalVariance);
+    }
+    public JSONObject ritornaCalculateStat(){
+        JSONObject St = new JSONObject();
 
+
+        St.put("Variance", getTemp());
+      //  System.out.println(St);
+
+        return St;
     }
 }

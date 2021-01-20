@@ -2,9 +2,8 @@ package it.forecast.Openweather.Service;
 
 import it.forecast.Openweather.Exception.NoDataException;
 import it.forecast.Openweather.Model.WeatherData;
-import it.forecast.Openweather.Stats.MaxTemperature;
-import it.forecast.Openweather.Stats.MinTemperature;
-import it.forecast.Openweather.Stats.Stats;
+import it.forecast.Openweather.Stats.*;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -41,24 +40,38 @@ public class WeatherServiceImpl implements WeatherService {
         } catch (Exception e) {
         }
 
-        //MASSIMA
+        Vector result = new Vector<>();
+
         s = new MaxTemperature((Vector<WeatherData>) weatherForecast);
         s.calculateStat();
-        St.put("tempMax", s.getTemp());
-        St.put("tempMaxDate",s.getDate());
-        System.out.println(St);
+        result.add(s.ritornaCalculateStat());
+        St.put("MaxStats",new JSONArray(result));
 
 
-        //Minima
+        result = new Vector<>();
         s = new MinTemperature((Vector<WeatherData>) weatherForecast);
         s.calculateStat();
-        St.put("tempMin", s.getTemp());
-        St.put("tempMinDate",s.getDate());
-        System.out.println(St);
+        result.add(s.ritornaCalculateStat());
+        St.put("MinStats",new JSONArray(result));
+
+        result = new Vector<>();
+        s = new AverageTemperature((Vector<WeatherData>) weatherForecast);
+        s.calculateStat();
+        result.add(s.ritornaCalculateStat());
+        St.put("Average",new JSONArray(result));
+
+        result = new Vector<>();
+        s = new VarianceTemperature((Vector<WeatherData>) weatherForecast);
+        s.calculateStat();
+        result.add(s.ritornaCalculateStat());
+        St.put("Variance", new JSONArray(result));
+
 
         return St.toMap();
 
-        
+
+
+
     }
 
     }
