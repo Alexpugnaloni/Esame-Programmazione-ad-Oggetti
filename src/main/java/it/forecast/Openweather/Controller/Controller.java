@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,7 +33,7 @@ public class Controller {
 		return new ResponseEntity<>(w.get5ForecastWeather(url), HttpStatus.OK);
 	}
 
-	@GetMapping("/stats")
+	@PostMapping("/stats")
 		public 	ResponseEntity<Object> get5StatsWeather (@RequestParam( name="city",defaultValue="Ancona") String city, @RequestParam(name="api_key", defaultValue = "64ad2ae5de08dc46224c92d7503a2ac2")String api_key, @RequestParam(name="lang",defaultValue = "it") String lang) throws NoDataException, IOException, ParseException {
 		city= city.toLowerCase();
 		api_key=api_key.toLowerCase();
