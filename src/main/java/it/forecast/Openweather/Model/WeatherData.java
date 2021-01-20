@@ -13,8 +13,9 @@ public class WeatherData {
 	private String date;
 	private String city;
 	private String country;
+	private String mainCondition;
 
-	public WeatherData( String description, Double temperature, Double tempMin, Double tempMax, Double feels_like, Long humidity,Long pressure,String date, String city, String country){
+	public WeatherData( String description, Double temperature, Double tempMin, Double tempMax, Double feels_like, Long humidity,Long pressure,String date, String city, String country, String mainCondition){
 
 		this.description = description;
 		this.temperature = temperature;
@@ -26,6 +27,7 @@ public class WeatherData {
 		this.date = date;
 		this.city = city;
 		this.country = country;
+		this.mainCondition = mainCondition;
 	}
 
 	public WeatherData() {
@@ -92,12 +94,21 @@ public class WeatherData {
 	public void setCity(String city){
 		this.city = city;
 	}
+
 	public String getCountry(){
 		return country;
 	}
 	public void setCountry(String country){
 		this.country = country;
 	}
+
+	public String getMainCondition(){
+		return mainCondition;
+	}
+	public void setMainCondition(String mainCondition){
+		this.mainCondition= mainCondition;
+	}
+
 	
 	
 	@Override

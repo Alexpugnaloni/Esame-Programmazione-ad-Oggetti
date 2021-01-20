@@ -73,9 +73,10 @@ public class WeatherForecast_API_Call {
 				JSONObject data = (JSONObject) weatherList.get(0);
 				String description = (String) data.get("description");
 				String date = (String) elem.get("dt_txt");
+				String mainCondition = (String) data.get("main");
 
 
-				WeatherData w = new WeatherData(description, temperature, tempMin, tempMax, feels_like, humidity, pressure, date, city,country);
+				WeatherData w = new WeatherData(description, temperature, tempMin, tempMax, feels_like, humidity, pressure, date, city,country, mainCondition);
 				downloadedForecast.add(w);
 
 

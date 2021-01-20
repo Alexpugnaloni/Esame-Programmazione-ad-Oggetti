@@ -77,9 +77,13 @@ public class WeatherServiceImpl implements WeatherService {
         s.calculateStat();
         resultFeelsLike.add(s.ritornaCalculateStat());
 
+        s = new ConditionStats((Vector<WeatherData>) weatherForecast);
+        s.calculateStat();
+
 
         St.put("Stats for Temperature",new JSONArray(result));
         St.put("Stats for Feels Like Temperature",new JSONArray(resultFeelsLike));
+        St.put("Weather Condition Count", new JSONObject(s.ritornaCalculateStat()));
 
 
 
