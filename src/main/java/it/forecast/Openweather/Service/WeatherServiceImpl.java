@@ -21,6 +21,7 @@ public class WeatherServiceImpl implements WeatherService {
     public WeatherServiceImpl() {
     }
 
+
     public List<WeatherData> get5ForecastWeather(String url) throws NoDataException {
         WeatherForecast_API_Call w = new WeatherForecast_API_Call();
         this.weatherForecast = w.loadCall(url);

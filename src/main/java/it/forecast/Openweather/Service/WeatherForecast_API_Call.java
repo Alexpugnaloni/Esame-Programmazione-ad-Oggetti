@@ -21,6 +21,8 @@ import java.util.Vector;
 
 public class WeatherForecast_API_Call {
 
+
+
 	public List<WeatherData> loadCall(String url) throws NoDataException {
 		List<WeatherData> downloadedForecast = new Vector<>();
 		JSONParser parser = new JSONParser();
@@ -44,7 +46,6 @@ public class WeatherForecast_API_Call {
 		} catch (ParseException e) {
 
 		}
-
 		return downloadedForecast;
 
 
@@ -57,6 +58,8 @@ public class WeatherForecast_API_Call {
 		JSONObject c = (JSONObject) stats.get("city");
 		String city = (String) c.get("name");
 		String country = (String) c.get("country");
+
+
 
 		for (Object o : a) {
 			try {
@@ -80,10 +83,17 @@ public class WeatherForecast_API_Call {
 				WeatherData w = new WeatherData(description, temperature, tempMin, tempMax, feels_like, humidity, pressure, date, city,country, mainCondition);
 				downloadedForecast.add(w);
 
+
+				Database.addWeatherForecast(w);
+				Database.saveToCSV();
 				
 			} catch (Exception e) {
 			}
 		}
+
+	}
+
+	public static void scheduledloadCall() {
 
 	}
 

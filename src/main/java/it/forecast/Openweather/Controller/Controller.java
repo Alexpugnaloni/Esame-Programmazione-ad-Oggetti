@@ -1,5 +1,6 @@
 package it.forecast.Openweather.Controller;
 
+import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Exception.NoDataException;
 import it.forecast.Openweather.Model.WeatherData;
 import it.forecast.Openweather.Service.WeatherForecast_API_Call;
@@ -43,6 +44,7 @@ public class Controller {
 		lang = lang.toLowerCase();
 		url = "https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&appid="+ api_key+ "&lang=" + lang + "&units=metric&cnt=40";
 		return new ResponseEntity<>(w.get5StatsWeather(url), HttpStatus.OK);
+
 	}
 }
 
