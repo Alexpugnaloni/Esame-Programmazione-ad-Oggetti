@@ -1,5 +1,6 @@
 package it.forecast.Openweather.Service;
 
+import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Exception.NoDataException;
 import it.forecast.Openweather.Model.WeatherData;
 
@@ -79,7 +80,7 @@ public class WeatherForecast_API_Call {
 				WeatherData w = new WeatherData(description, temperature, tempMin, tempMax, feels_like, humidity, pressure, date, city,country, mainCondition);
 				downloadedForecast.add(w);
 
-
+				
 			} catch (Exception e) {
 			}
 		}
