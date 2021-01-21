@@ -29,7 +29,7 @@ public class ConditionStats extends Stats{
 
 
 
-        for (int i = 0; i <= weatherForecast.size(); i++) {
+        for (int i = 0; i < weatherForecast.size(); i++) {
 
             switch (weatherForecast.get(i).getMainCondition()) {
 
