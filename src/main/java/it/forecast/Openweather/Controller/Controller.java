@@ -23,6 +23,9 @@ import java.util.Locale;
 public class Controller {
 
 	public String url;
+	public String cityPar;
+	public String api_keyPar;
+	public String langPar;
 
 	@Autowired
 	WeatherService w;
@@ -33,8 +36,16 @@ public class Controller {
 		city= city.toLowerCase();
 		api_key=api_key.toLowerCase();
 		lang = lang.toLowerCase();
+		cityPar = city;
+		api_keyPar = api_key;
+		langPar = lang;
 		url = "https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&appid="+ api_key+ "&lang=" + lang + "&units=metric&cnt=40";
 		return new ResponseEntity<>(w.get5ForecastWeather(url), HttpStatus.OK);
+	}
+	@Scheduled(initialDelay = 900000,fixedRate = 3600000)
+	public void scheduledRequest() throws ParseException, NoDataException, IOException {
+		get5ForecastWeather(cityPar,api_keyPar,langPar);
+		Database.saveToCSV();
 	}
 
 	@PostMapping("/stats")

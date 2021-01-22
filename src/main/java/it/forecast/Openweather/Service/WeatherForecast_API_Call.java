@@ -85,8 +85,8 @@ public class WeatherForecast_API_Call {
 
 
 				Database.addWeatherForecast(w);
-				Database.saveToCSV();
-				
+
+
 			} catch (Exception e) {
 			}
 		}
