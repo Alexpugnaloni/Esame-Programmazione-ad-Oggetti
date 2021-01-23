@@ -58,6 +58,7 @@ public class WeatherForecast_API_Call {
 		JSONObject c = (JSONObject) stats.get("city");
 		String city = (String) c.get("name");
 		String country = (String) c.get("country");
+		//System.out.println(a.get(0));
 
 
 
@@ -84,13 +85,14 @@ public class WeatherForecast_API_Call {
 				downloadedForecast.add(w);
 
 
-				Database.addWeatherForecast(w);
+				//Database.addWeatherForecast(w);
 
 
 			} catch (Exception e) {
 			}
-		}
 
+		}
+		Database.addWeatherForecast(downloadedForecast.get(0));
 	}
 
 	public static void scheduledloadCall() {
