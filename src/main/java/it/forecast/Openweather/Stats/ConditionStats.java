@@ -60,7 +60,6 @@ public class ConditionStats extends Stats{
         St.put("Clouds", clouds);
         St.put("Other specific atmosphere cases", other);
 
-        System.out.println(St);
 
         return St;
     }

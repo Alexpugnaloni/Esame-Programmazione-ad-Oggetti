@@ -38,6 +38,7 @@ public class WeatherServiceImpl implements WeatherService {
 
 
     public Map<String, Object> getStats(String period) throws NoDataException {           //DA SISTEMARE PER STATS
+
         JSONObject St = new JSONObject();
         Stats s;
 
@@ -48,7 +49,7 @@ public class WeatherServiceImpl implements WeatherService {
         } catch (Exception e) {
         }
 
-        weatherForecast = PeriodFilter.getFilteredPeriod(period, weatherForecast);
+        weatherStats = PeriodFilter.getFilteredPeriod(period, weatherForecast);
 
         Vector result = new Vector<>();
         Vector resultFeelsLike = new Vector<>();
