@@ -55,40 +55,40 @@ public class WeatherServiceImpl implements WeatherService {
         Vector resultFeelsLike = new Vector<>();
 
         // TEMPERATURE STATS
-        s = new MaxTemperature(weatherForecast);
+        s = new MaxTemperature(weatherStats);
         s.calculateStat();
         result.add(s.ritornaCalculateStat());
 
-        s = new MinTemperature(weatherForecast);
+        s = new MinTemperature(weatherStats);
         s.calculateStat();
         result.add(s.ritornaCalculateStat());
 
-        s = new AverageTemperature(weatherForecast);
+        s = new AverageTemperature(weatherStats);
         s.calculateStat();
         result.add(s.ritornaCalculateStat());
 
-        s = new VarianceTemperature(weatherForecast);
+        s = new VarianceTemperature(weatherStats);
         s.calculateStat();
         result.add(s.ritornaCalculateStat());
 
         //FEELS LIKE STATS
-        s = new MaxFeelsLike(weatherForecast);
+        s = new MaxFeelsLike(weatherStats);
         s.calculateStat();
         resultFeelsLike.add(s.ritornaCalculateStat());
 
-        s = new MinFeelsLike(weatherForecast);
+        s = new MinFeelsLike(weatherStats);
         s.calculateStat();
         resultFeelsLike.add(s.ritornaCalculateStat());
 
-        s = new AverageFeelsLike(weatherForecast);
+        s = new AverageFeelsLike(weatherStats);
         s.calculateStat();
         resultFeelsLike.add(s.ritornaCalculateStat());
 
-        s = new VarianceFeelsLike(weatherForecast);
+        s = new VarianceFeelsLike(weatherStats);
         s.calculateStat();
         resultFeelsLike.add(s.ritornaCalculateStat());
 
-        s = new ConditionStats(weatherForecast);
+        s = new ConditionStats(weatherStats);
         s.calculateStat();
 
 

@@ -1,9 +1,13 @@
 package it.forecast.Openweather.Filters;
 
+import ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy;
+import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Model.WeatherData;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
@@ -13,17 +17,43 @@ public class PeriodFilter {
 
         List<WeatherData> FilteredList = new Vector<WeatherData>();
 
-        /*
+
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-        System.out.println(dtf.format(now));
-        */
+        dtf.format(now);
+
 
         switch (period) {
 
-            case "day": System.out.println("day"); break;
-            case "week": System.out.println("week"); break;
-            case "month": System.out.println("month"); break;
+            case "day":
+                now = now.minusDays(1);
+                String dateString = dtf.format(now);
+                System.out.println(dateString);
+                for(int i=weatherForecast.size()-1; i>=0;i--) {
+                    if (weatherForecast.get(i).getDate().compareTo(dateString)>0) {
+                        FilteredList.add(weatherForecast.get(i));
+                        System.out.println(FilteredList);
+                    }
+                    else break;
+                }
+                break;
+
+            case "week":
+                now = now.minusWeeks(1);
+                for(int i=weatherForecast.size()-1; i>=0;i--) {
+                    if (weatherForecast.get(i).getDate().compareTo(now.toString())>0)
+                        FilteredList.add(weatherForecast.get(i));
+                     else break;
+                }
+                 break;
+            case "month":
+               now = now.minusMonths(1);
+                for(int i=weatherForecast.size()-1; i>=0;i--) {
+                    if (weatherForecast.get(i).getDate().compareTo(now.toString())>0)
+                        FilteredList.add(weatherForecast.get(i));
+                     else break;
+                }
+                 break;
         }
         return FilteredList;
 
