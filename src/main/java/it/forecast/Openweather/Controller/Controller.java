@@ -51,12 +51,9 @@ public class Controller {
 	}
 
 	@PostMapping("/stats")
-		public 	ResponseEntity<Object> get5StatsWeather (@RequestParam( name="city",defaultValue="Ancona") String city, @RequestParam(name="api_key", defaultValue = "64ad2ae5de08dc46224c92d7503a2ac2")String api_key, @RequestParam(name="lang",defaultValue = "it") String lang) throws NoDataException, IOException, ParseException {
-		city= city.toLowerCase();
-		api_key=api_key.toLowerCase();
-		lang = lang.toLowerCase();
-		url = "https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&appid="+ api_key+ "&lang=" + lang + "&units=metric&cnt=40";
-		return new ResponseEntity<>(w.get5StatsWeather(url), HttpStatus.OK);
+		public 	ResponseEntity<Object> getStats (@RequestParam( name="city",defaultValue="Ancona") String city, @RequestParam(name= "period", defaultValue = "week") String period) throws NoDataException, IOException, ParseException {
+		period = period.toLowerCase();
+		return new ResponseEntity<>(w.getStats(period), HttpStatus.OK);
 
 	}
 }

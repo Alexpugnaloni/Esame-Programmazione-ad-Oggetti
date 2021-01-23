@@ -2,6 +2,7 @@ package it.forecast.Openweather.Service;
 
 import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Exception.NoDataException;
+import it.forecast.Openweather.Filters.PeriodFilter;
 import it.forecast.Openweather.Model.WeatherData;
 import it.forecast.Openweather.Stats.*;
 import org.json.JSONArray;
@@ -31,17 +32,23 @@ public class WeatherServiceImpl implements WeatherService {
 
         return this.weatherForecast;
     }
-    public Map<String, Object> get5StatsWeather(String url) throws NoDataException {           //DA SISTEMARE PER STATS
+
+
+
+
+
+    public Map<String, Object> getStats(String period) throws NoDataException {           //DA SISTEMARE PER STATS
         JSONObject St = new JSONObject();
         Stats s;
-        System.out.println(Database.getWeatherforecast());
+
         try {
-          //  WeatherForecast_API_Call c = new WeatherForecast_API_Call();
             weatherForecast = Database.getWeatherforecast();
             if (this.weatherForecast == null)
                 throw new NoDataException();
         } catch (Exception e) {
         }
+
+        weatherForecast = PeriodFilter.getFilteredPeriod(period, weatherForecast);
 
         Vector result = new Vector<>();
         Vector resultFeelsLike = new Vector<>();
