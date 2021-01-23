@@ -11,7 +11,7 @@ public class MinTemperature extends Stats{
     private WeatherData MinValue;
     private String date;
 
-    public MinTemperature(Vector<WeatherData> weatherForecast){
+    public MinTemperature(List<WeatherData> weatherForecast){
         super(weatherForecast);
         this.minTemperature = 0;
         this.date = null;

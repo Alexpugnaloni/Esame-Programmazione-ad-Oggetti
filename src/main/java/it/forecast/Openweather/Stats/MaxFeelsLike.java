@@ -3,6 +3,7 @@ package it.forecast.Openweather.Stats;
 import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
 
+import java.util.List;
 import java.util.Vector;
 
 public class MaxFeelsLike extends Stats{
@@ -10,7 +11,7 @@ public class MaxFeelsLike extends Stats{
     private WeatherData MaxValue;
     private String date;
 
-    public MaxFeelsLike(Vector<WeatherData> weatherForecast){
+    public MaxFeelsLike(List<WeatherData> weatherForecast){
         super(weatherForecast);
         this.maxTemperatureFeelsLike = 0;
         this.date = null;

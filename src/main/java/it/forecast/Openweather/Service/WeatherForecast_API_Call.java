@@ -58,7 +58,7 @@ public class WeatherForecast_API_Call {
 		JSONObject c = (JSONObject) stats.get("city");
 		String city = (String) c.get("name");
 		String country = (String) c.get("country");
-		//System.out.println(a.get(0));
+
 
 
 

@@ -3,12 +3,13 @@ package it.forecast.Openweather.Stats;
 import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
 
+import java.util.List;
 import java.util.Vector;
 
 public class VarianceTemperature extends Stats {
     private double varianceTemperature;
 
-    public VarianceTemperature(Vector<WeatherData> weatherForecast) {
+    public VarianceTemperature(List<WeatherData> weatherForecast) {
         super(weatherForecast);
         this.varianceTemperature = 0;
     }

@@ -1,5 +1,6 @@
 package it.forecast.Openweather.Service;
 
+import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Exception.NoDataException;
 import it.forecast.Openweather.Model.WeatherData;
 import it.forecast.Openweather.Stats.*;
@@ -33,9 +34,10 @@ public class WeatherServiceImpl implements WeatherService {
     public Map<String, Object> get5StatsWeather(String url) throws NoDataException {           //DA SISTEMARE PER STATS
         JSONObject St = new JSONObject();
         Stats s;
+        System.out.println(Database.getWeatherforecast());
         try {
-            WeatherForecast_API_Call c = new WeatherForecast_API_Call();
-            weatherForecast = c.loadCall(url);
+          //  WeatherForecast_API_Call c = new WeatherForecast_API_Call();
+            weatherForecast = Database.getWeatherforecast();
             if (this.weatherForecast == null)
                 throw new NoDataException();
         } catch (Exception e) {
@@ -45,40 +47,40 @@ public class WeatherServiceImpl implements WeatherService {
         Vector resultFeelsLike = new Vector<>();
 
         // TEMPERATURE STATS
-        s = new MaxTemperature((Vector<WeatherData>) weatherForecast);
+        s = new MaxTemperature(weatherForecast);
         s.calculateStat();
         result.add(s.ritornaCalculateStat());
 
-        s = new MinTemperature((Vector<WeatherData>) weatherForecast);
+        s = new MinTemperature(weatherForecast);
         s.calculateStat();
         result.add(s.ritornaCalculateStat());
 
-        s = new AverageTemperature((Vector<WeatherData>) weatherForecast);
+        s = new AverageTemperature(weatherForecast);
         s.calculateStat();
         result.add(s.ritornaCalculateStat());
 
-        s = new VarianceTemperature((Vector<WeatherData>) weatherForecast);
+        s = new VarianceTemperature(weatherForecast);
         s.calculateStat();
         result.add(s.ritornaCalculateStat());
 
         //FEELS LIKE STATS
-        s = new MaxFeelsLike((Vector<WeatherData>) weatherForecast);
+        s = new MaxFeelsLike(weatherForecast);
         s.calculateStat();
         resultFeelsLike.add(s.ritornaCalculateStat());
 
-        s = new MinFeelsLike((Vector<WeatherData>) weatherForecast);
+        s = new MinFeelsLike(weatherForecast);
         s.calculateStat();
         resultFeelsLike.add(s.ritornaCalculateStat());
 
-        s = new AverageFeelsLike((Vector<WeatherData>) weatherForecast);
+        s = new AverageFeelsLike(weatherForecast);
         s.calculateStat();
         resultFeelsLike.add(s.ritornaCalculateStat());
 
-        s = new VarianceFeelsLike((Vector<WeatherData>) weatherForecast);
+        s = new VarianceFeelsLike(weatherForecast);
         s.calculateStat();
         resultFeelsLike.add(s.ritornaCalculateStat());
 
-        s = new ConditionStats((Vector<WeatherData>) weatherForecast);
+        s = new ConditionStats(weatherForecast);
         s.calculateStat();
 
 

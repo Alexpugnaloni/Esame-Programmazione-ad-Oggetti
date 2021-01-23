@@ -43,7 +43,7 @@ public class Controller {
 		url = "https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&appid="+ api_key+ "&lang=" + lang + "&units=metric";
 		return new ResponseEntity<>(w.get5ForecastWeather(url), HttpStatus.OK);
 	}
-	@Scheduled(initialDelay = 900000,fixedRate = 3600000)
+	@Scheduled(initialDelay = 10000,fixedRate = 5000)
 	public void scheduledRequest() throws ParseException, NoDataException, IOException {
 
 		get5ForecastWeather(cityPar,api_keyPar,langPar);

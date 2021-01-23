@@ -3,13 +3,14 @@ package it.forecast.Openweather.Stats;
 import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
 
+import java.util.List;
 import java.util.Vector;
 
 public class AverageFeelsLike extends Stats{
     private double averageFeelsLike;
 
 
-    public AverageFeelsLike(Vector<WeatherData> weatherForecast) {
+    public AverageFeelsLike(List<WeatherData> weatherForecast) {
         super(weatherForecast);
         this.averageFeelsLike = 0;
 

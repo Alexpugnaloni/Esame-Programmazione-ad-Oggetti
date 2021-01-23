@@ -3,13 +3,14 @@ package it.forecast.Openweather.Stats;
 import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
 
+import java.util.List;
 import java.util.Vector;
 
 public class ConditionStats extends Stats{
 
     int thunderstorm = 0, drizzle = 0, rain = 0, snow = 0, clear = 0, clouds = 0, other = 0;
 
-    public ConditionStats(Vector<WeatherData> weatherForecast) {
+    public ConditionStats(List<WeatherData> weatherForecast) {
         super(weatherForecast);
     }
 

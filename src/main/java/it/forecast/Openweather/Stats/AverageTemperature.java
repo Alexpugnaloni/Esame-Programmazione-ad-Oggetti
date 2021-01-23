@@ -10,7 +10,7 @@ public class AverageTemperature extends Stats {
     private double averageTemperature;
 
 
-    public AverageTemperature(Vector<WeatherData> weatherForecast) {
+    public AverageTemperature(List<WeatherData> weatherForecast) {
         super(weatherForecast);
         this.averageTemperature = 0;
 

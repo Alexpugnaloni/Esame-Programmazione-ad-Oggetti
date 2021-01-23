@@ -3,6 +3,7 @@ package it.forecast.Openweather.Stats;
 import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
 
+import java.util.List;
 import java.util.Vector;
 
 public class MinFeelsLike extends Stats{
@@ -10,7 +11,7 @@ public class MinFeelsLike extends Stats{
     private WeatherData MinValue;
     private String date;
 
-    public MinFeelsLike(Vector<WeatherData> weatherForecast){
+    public MinFeelsLike(List<WeatherData> weatherForecast){
         super(weatherForecast);
         this.minTemperatureFeelsLike = 0;
         this.date = null;

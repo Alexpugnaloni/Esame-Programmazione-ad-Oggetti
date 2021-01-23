@@ -14,7 +14,7 @@ public class MaxTemperature extends Stats {
     private WeatherData MaxValue;
     private String date;
 
-    public MaxTemperature(Vector<WeatherData> weatherForecast){
+    public MaxTemperature(List<WeatherData> weatherForecast){
         super(weatherForecast);
         this.maxTemperature = 0;
         this.date = null;

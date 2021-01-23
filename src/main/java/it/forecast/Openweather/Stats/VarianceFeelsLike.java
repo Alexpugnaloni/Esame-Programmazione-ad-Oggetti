@@ -3,12 +3,13 @@ package it.forecast.Openweather.Stats;
 import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
 
+import java.util.List;
 import java.util.Vector;
 
 public class VarianceFeelsLike extends Stats{
     private double varianceTemperatureFeelsLike;
 
-    public VarianceFeelsLike(Vector<WeatherData> weatherForecast) {
+    public VarianceFeelsLike(List<WeatherData> weatherForecast) {
         super(weatherForecast);
         this.varianceTemperatureFeelsLike = 0;
     }
