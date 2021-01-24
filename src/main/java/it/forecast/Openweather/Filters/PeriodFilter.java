@@ -1,13 +1,11 @@
 package it.forecast.Openweather.Filters;
 
-import ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy;
-import it.forecast.Openweather.Database.Database;
+
 import it.forecast.Openweather.Model.WeatherData;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Vector;
 
@@ -15,7 +13,7 @@ public class PeriodFilter {
 
     public static List<WeatherData> getFilteredPeriod(String period, List<WeatherData> weatherForecast) {
 
-        List<WeatherData> FilteredList = new Vector<WeatherData>();
+        List<WeatherData> FilteredList = new Vector<>();
 
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

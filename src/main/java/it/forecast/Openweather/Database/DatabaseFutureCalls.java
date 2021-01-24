@@ -7,9 +7,9 @@ import it.forecast.Openweather.Service.CSVparsing;
 import java.util.ArrayList;
 
 public class DatabaseFutureCalls {
-    private static ArrayList<WeatherData> weatherforecast = new ArrayList<WeatherData>();
-    private static ArrayList<Metadata> metadata = new ArrayList<Metadata>();
-    private static String csvFile = "DatabaseFile/DatabaseFutureCalls.csv";
+    private static ArrayList<WeatherData> weatherforecast = new ArrayList<>();
+    private static final ArrayList<Metadata> metadata = new ArrayList<>();
+    private static final String csvFile = "DatabaseFile/DatabaseFutureCalls.csv";
 
     public static ArrayList<WeatherData> getWeatherforecast(){
         return weatherforecast;
