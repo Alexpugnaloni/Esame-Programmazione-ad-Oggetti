@@ -1,6 +1,7 @@
 package it.forecast.Openweather.Controller;
 
 import it.forecast.Openweather.Database.Database;
+import it.forecast.Openweather.Database.DatabaseFutureCalls;
 import it.forecast.Openweather.Exception.NoDataException;
 import it.forecast.Openweather.Model.WeatherData;
 import it.forecast.Openweather.Service.ApiKey;
@@ -53,6 +54,7 @@ public class Controller {
 
 		get5ForecastWeather(cityPar,langPar);
 		Database.saveToCSV();
+		DatabaseFutureCalls.saveToCSV();
 	}
 
 	@PostMapping("/stats")

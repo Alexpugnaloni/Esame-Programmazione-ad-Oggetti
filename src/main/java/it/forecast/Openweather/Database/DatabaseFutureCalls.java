@@ -6,10 +6,10 @@ import it.forecast.Openweather.Service.CSVparsing;
 
 import java.util.ArrayList;
 
-public class Database {
+public class DatabaseFutureCalls {
     private static ArrayList<WeatherData> weatherforecast = new ArrayList<WeatherData>();
     private static ArrayList<Metadata> metadata = new ArrayList<Metadata>();
-    private static String csvFile = "DatabaseFile/Database.csv";
+    private static String csvFile = "DatabaseFile/DatabaseFutureCalls.csv";
 
     public static ArrayList<WeatherData> getWeatherforecast(){
         return weatherforecast;
@@ -38,6 +38,6 @@ public class Database {
         weatherforecast = CSVparsing.runParsing(csvFile);
     }
     public static void saveToCSV(){
-        CSVparsing.saveToDatabase(csvFile);
+        CSVparsing.saveToDatabaseFutureCalls(csvFile);
     }
 }
