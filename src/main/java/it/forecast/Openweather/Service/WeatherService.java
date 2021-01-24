@@ -14,7 +14,7 @@ import java.util.Map;
 public interface WeatherService {
 
 	List<WeatherData> get5ForecastWeather(String url) throws IOException, ParseException, JSONException, NoDataException;
-	Map<String,Object> getStats(String period) throws IOException, ParseException, JSONException, NoDataException;
-	//List<WeatherData> get5ForecastWeatherFiltered(JSONObject bodyFilter, String url);
-	//List<WeatherData> getStats(String url);
+	Map<String,Object> getStats(String city, String period) throws IOException, ParseException, JSONException, NoDataException;
+	Map<String,Object> getAccuracy (String city, Double accuracy) throws IOException, ParseException, JSONException, NoDataException;
+
 }

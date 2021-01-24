@@ -57,12 +57,16 @@ public class Controller {
 		DatabaseFutureCalls.saveToCSV();
 	}
 
-	@PostMapping("/stats")
-		public 	ResponseEntity<Object> getStats (@RequestParam( name="city",defaultValue="Ancona") String city, @RequestParam(name= "period", defaultValue = "week") String period) throws NoDataException, IOException, ParseException {
+	@PostMapping("/periodicstats")
+		public 	ResponseEntity<Object> getStats (@RequestParam( name="city",defaultValue="") String city, @RequestParam(name= "period", defaultValue = "week") String period) throws NoDataException, IOException, ParseException {
 		period = period.toLowerCase();
-		return new ResponseEntity<>(w.getStats(period), HttpStatus.OK);
+		return new ResponseEntity<>(w.getStats(city,period), HttpStatus.OK);
 
+	}
+	@PostMapping("/accuracystats")
+		public ResponseEntity<Object> getAccuracy(@RequestParam( name="city",defaultValue = "") String city, @RequestParam(name="accuracy",defaultValue = "0.9") Double accuracy) throws NoDataException, IOException, ParseException {
+		return new ResponseEntity<>(w.getAccuracy(city,accuracy),HttpStatus.OK);
 	}
 }
 
-//MANCA LA GETMAPPING DI STATS E FILTRI
+

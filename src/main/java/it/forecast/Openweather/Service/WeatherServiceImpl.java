@@ -1,13 +1,19 @@
 package it.forecast.Openweather.Service;
 
 import it.forecast.Openweather.Database.Database;
+import it.forecast.Openweather.Database.DatabaseFutureCalls;
 import it.forecast.Openweather.Exception.NoDataException;
+import it.forecast.Openweather.Filters.ErrorMarginFilter;
 import it.forecast.Openweather.Filters.PeriodFilter;
 import it.forecast.Openweather.Model.WeatherData;
 import it.forecast.Openweather.Stats.*;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
@@ -16,12 +22,9 @@ import java.util.Vector;
 public class WeatherServiceImpl implements WeatherService {
 
     private List<WeatherData> weatherForecast = new Vector<>();
-
+    private List<WeatherData> futureForecast = new Vector<>();
     private List<WeatherData> weatherStats = new Vector<>();
-    //private List<WeatherData> filteredForecast = new Vector<>();
 
-    public WeatherServiceImpl() {
-    }
 
 
     public List<WeatherData> get5ForecastWeather(String url) throws NoDataException {
@@ -37,7 +40,7 @@ public class WeatherServiceImpl implements WeatherService {
 
 
 
-    public Map<String, Object> getStats(String period) throws NoDataException {           //DA SISTEMARE PER STATS
+    public Map<String, Object> getStats(String city,String period) throws NoDataException {           //DA SISTEMARE PER STATS
 
         JSONObject St = new JSONObject();
         Stats s;
@@ -105,7 +108,25 @@ public class WeatherServiceImpl implements WeatherService {
 
     }
 
+
+    public Map<String, Object> getAccuracy(String city, Double accuracy) throws IOException, ParseException, JSONException, NoDataException {
+        JSONObject St = new JSONObject();
+
+        try {
+            weatherForecast = Database.getWeatherforecast();
+            futureForecast = DatabaseFutureCalls.getWeatherforecast();
+            if (this.weatherForecast == null || this.futureForecast == null)
+                throw new NoDataException();
+
+        } catch (Exception e) {
+        }
+
+        St.put("Amount of correct forecasts",new JSONObject(ErrorMarginFilter.getCount()));
+        St.put("List of correct forecasts",new JSONArray(ErrorMarginFilter.calculateAccuracy(weatherForecast,futureForecast,accuracy)));
+       return St.toMap();
     }
+
+}
 
 
 
