@@ -20,7 +20,6 @@ public class ErrorMarginFilter {
                    b= (double) futureForecast.get(j).getTemperature();
                    if(a>=b)  result = b/a;
                    else result = a/b;
-                   System.out.println(result);
                    if(result>=accuracy) {
                        count++;
                        FilteredList.add(weatherForecast.get(i));

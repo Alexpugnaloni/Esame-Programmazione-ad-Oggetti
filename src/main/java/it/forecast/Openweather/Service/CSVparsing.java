@@ -60,7 +60,7 @@ public class CSVparsing {
 
     public static void saveToDatabase(String csvFile) {
         ArrayList<WeatherData> weatherforecast = Database.getWeatherforecast();
-        ArrayList<String> rows = new ArrayList<String>();
+        ArrayList<String> rows = new ArrayList<>();
         for (WeatherData recovered : weatherforecast) {
             String x = recovered.getDescription() + ";" + recovered.getTemperature() + ";"
                     + recovered.getTempMin() + ";" + recovered.getTempMax() + ";"

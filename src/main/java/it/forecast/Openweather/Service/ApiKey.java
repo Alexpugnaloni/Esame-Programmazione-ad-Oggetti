@@ -31,7 +31,7 @@ public class ApiKey {
 
         File file = new File("ApiKey/ApiKey.txt");
 
-        BufferedReader br = null;
+        BufferedReader br;
         try {
             br = new BufferedReader(new FileReader(file));
             String st;

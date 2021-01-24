@@ -27,7 +27,7 @@ public class VarianceTemperature extends Stats {
 
     public void calculateStat() {
 
-        Vector<Double> v = new Vector<Double>();
+        Vector<Double> v = new Vector<>();
         Double sum = (double) 0, sumSquareRej = (double) 0, variance, avg;
         int size;
         for (int i = 0; i < weatherForecast.size(); i++) {

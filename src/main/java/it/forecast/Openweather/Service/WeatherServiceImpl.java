@@ -3,6 +3,7 @@ package it.forecast.Openweather.Service;
 import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Database.DatabaseFutureCalls;
 import it.forecast.Openweather.Exception.NoDataException;
+import it.forecast.Openweather.Filters.CityFilter;
 import it.forecast.Openweather.Filters.ErrorMarginFilter;
 import it.forecast.Openweather.Filters.PeriodFilter;
 import it.forecast.Openweather.Model.WeatherData;
@@ -52,6 +53,8 @@ public class WeatherServiceImpl implements WeatherService {
         } catch (Exception e) {
         }
 
+        if (city.equals("")) {}
+        else weatherForecast = CityFilter.getFilteredCity(city, weatherForecast);
         weatherStats = PeriodFilter.getFilteredPeriod(period, weatherForecast);
 
         Vector result = new Vector<>();
@@ -120,6 +123,8 @@ public class WeatherServiceImpl implements WeatherService {
 
         } catch (Exception e) {
         }
+        if (city.equals("")) {}
+        else { weatherForecast = CityFilter.getFilteredCity(city, weatherForecast); futureForecast = CityFilter.getFilteredCity(city, futureForecast); }
 
         St.put("Amount of correct forecasts",new JSONObject(ErrorMarginFilter.getCount()));
         St.put("List of correct forecasts",new JSONArray(ErrorMarginFilter.calculateAccuracy(weatherForecast,futureForecast,accuracy)));
