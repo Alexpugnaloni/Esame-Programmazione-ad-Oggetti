@@ -3,6 +3,7 @@ package it.forecast.Openweather.Controller;
 import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Exception.NoDataException;
 import it.forecast.Openweather.Model.WeatherData;
+import it.forecast.Openweather.Service.ApiKey;
 import it.forecast.Openweather.Service.WeatherForecast_API_Call;
 import it.forecast.Openweather.Service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,25 +29,29 @@ public class Controller {
 	public String langPar;
 
 
+
+
 	@Autowired
 	WeatherService w;
 
 
+
 	@GetMapping("/weather")
-			public ResponseEntity<Object> get5ForecastWeather(@RequestParam( name="city",defaultValue="Ancona") String city, @RequestParam(name="api_key", defaultValue = "64ad2ae5de08dc46224c92d7503a2ac2")String api_key, @RequestParam(name="lang",defaultValue = "it") String lang) throws NoDataException, IOException, ParseException {
+			public ResponseEntity<Object> get5ForecastWeather(@RequestParam( name="city",defaultValue="Ancona") String city, @RequestParam(name="lang",defaultValue = "it") String lang) throws NoDataException, IOException, ParseException {
 		city= city.toLowerCase();
-		api_key=api_key.toLowerCase();
 		lang = lang.toLowerCase();
 		cityPar = city;
-		api_keyPar = api_key;
 		langPar = lang;
-		url = "https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&appid="+ api_key+ "&lang=" + lang + "&units=metric";
+		ApiKey apiKey = new ApiKey();
+		apiKey.ReadApiKey();
+		api_keyPar = apiKey.getApiKey();
+		url = "https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&appid="+ api_keyPar+ "&lang=" + lang + "&units=metric";
 		return new ResponseEntity<>(w.get5ForecastWeather(url), HttpStatus.OK);
 	}
 	@Scheduled(initialDelay = 10000,fixedRate = 5000)
 	public void scheduledRequest() throws ParseException, NoDataException, IOException {
 
-		get5ForecastWeather(cityPar,api_keyPar,langPar);
+		get5ForecastWeather(cityPar,langPar);
 		Database.saveToCSV();
 	}
 
