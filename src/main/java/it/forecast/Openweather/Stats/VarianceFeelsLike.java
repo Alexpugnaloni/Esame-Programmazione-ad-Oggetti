@@ -27,11 +27,11 @@ public class VarianceFeelsLike extends Stats{
 
     public void calculateStat() {
 
-        Vector<Double> v = new Vector<Double>();
-        Double sum = (double) 0, sumSquareRej = (double) 0, variance, avg;
+        Vector<Double> v = new Vector<>();
+        double sum =  0, sumSquareRej =  0, variance, avg;
         int size;
-        for (int i = 0; i < weatherForecast.size(); i++) {
-            v.add(weatherForecast.get(i).getFeels_like());
+        for (WeatherData weatherData : weatherForecast) {
+            v.add(weatherData.getFeels_like());
         }
         size = v.size();
         for (int i = 0; i < size; i++) {

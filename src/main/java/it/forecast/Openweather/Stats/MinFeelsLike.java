@@ -4,11 +4,10 @@ import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
 
 import java.util.List;
-import java.util.Vector;
+
 
 public class MinFeelsLike extends Stats{
     private double minTemperatureFeelsLike;
-    private WeatherData MinValue;
     private String date;
 
     public MinFeelsLike(List<WeatherData> weatherForecast){
@@ -30,15 +29,15 @@ public class MinFeelsLike extends Stats{
 
     public void calculateStat(){
 
-        MinValue = weatherForecast.get(0);
+        WeatherData minValue = weatherForecast.get(0);
         for (int i = 1; i < weatherForecast.size(); i++) {
 
             WeatherData wD = weatherForecast.get(i);
-            if (wD.getFeels_like() < MinValue.getFeels_like()) {
-                MinValue = wD;
+            if (wD.getFeels_like() < minValue.getFeels_like()) {
+                minValue = wD;
             }
-            minTemperatureFeelsLike = MinValue.getFeels_like();
-            date = MinValue.getDate();
+            minTemperatureFeelsLike = minValue.getFeels_like();
+            date = minValue.getDate();
         }
 
     }

@@ -12,8 +12,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class OpenweatherApplication {
 
 	public static void main(String[] args) {
-		Database.setWeatherDataCSV();
-		DatabaseFutureCalls.setWeatherDataCSV();
+		// Database.setWeatherDataCSV();
+		// DatabaseFutureCalls.setWeatherDataCSV();
 		SpringApplication.run(OpenweatherApplication.class, args);
 
 

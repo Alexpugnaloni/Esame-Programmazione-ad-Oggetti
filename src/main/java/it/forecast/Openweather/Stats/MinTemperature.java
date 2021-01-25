@@ -4,11 +4,9 @@ import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
 
 import java.util.List;
-import java.util.Vector;
 
 public class MinTemperature extends Stats{
     private double minTemperature;
-    private WeatherData MinValue;
     private String date;
 
     public MinTemperature(List<WeatherData> weatherForecast){
@@ -30,15 +28,15 @@ public class MinTemperature extends Stats{
 
     public void calculateStat(){
 
-        MinValue = weatherForecast.get(0);
+        WeatherData minValue = weatherForecast.get(0);
         for (int i = 1; i < weatherForecast.size(); i++) {
 
             WeatherData wD = weatherForecast.get(i);
-            if (wD.getTemperature() < MinValue.getTemperature()) {
-                MinValue = wD;
+            if (wD.getTemperature() < minValue.getTemperature()) {
+                minValue = wD;
             }
-            minTemperature = MinValue.getTemperature();
-            date = MinValue.getDate();
+            minTemperature = minValue.getTemperature();
+            date = minValue.getDate();
         }
 
     }

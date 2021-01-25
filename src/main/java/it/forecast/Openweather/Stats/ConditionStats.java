@@ -2,9 +2,8 @@ package it.forecast.Openweather.Stats;
 
 import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
-
 import java.util.List;
-import java.util.Vector;
+
 
 public class ConditionStats extends Stats{
 
@@ -29,18 +28,31 @@ public class ConditionStats extends Stats{
     public void calculateStat() {
 
 
+        for (WeatherData weatherData : weatherForecast) {
 
-        for (int i = 0; i < weatherForecast.size(); i++) {
+            switch (weatherData.getMainCondition()) {
 
-            switch (weatherForecast.get(i).getMainCondition()) {
-
-                case "Thunderstorm": thunderstorm++; break;
-                case "Drizzle": drizzle++; break;
-                case "Rain": rain++; break;
-                case "Snow": snow++; break;
-                case "Clear": clear++; break;
-                case "Clouds": clouds++; break;
-                default: other++; break;
+                case "Thunderstorm":
+                    thunderstorm++;
+                    break;
+                case "Drizzle":
+                    drizzle++;
+                    break;
+                case "Rain":
+                    rain++;
+                    break;
+                case "Snow":
+                    snow++;
+                    break;
+                case "Clear":
+                    clear++;
+                    break;
+                case "Clouds":
+                    clouds++;
+                    break;
+                default:
+                    other++;
+                    break;
             }
         }
 

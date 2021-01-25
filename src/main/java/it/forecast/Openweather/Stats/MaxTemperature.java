@@ -4,14 +4,12 @@ import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Vector;
+
 
 
 public class MaxTemperature extends Stats {
 
     private double maxTemperature;
-    private WeatherData MaxValue;
     private String date;
 
     public MaxTemperature(List<WeatherData> weatherForecast){
@@ -32,15 +30,15 @@ public class MaxTemperature extends Stats {
 
     public void calculateStat(){
 
-        MaxValue = weatherForecast.get(0);
+        WeatherData maxValue = weatherForecast.get(0);
         for (int i = 1; i < weatherForecast.size(); i++) {
             WeatherData wD = weatherForecast.get(i);
-            if (wD.getTemperature() > MaxValue.getTemperature()) {
-                MaxValue = wD;
+            if (wD.getTemperature() > maxValue.getTemperature()) {
+                maxValue = wD;
             }
         }
-        maxTemperature = MaxValue.getTemperature();
-        date = MaxValue.getDate();
+        maxTemperature = maxValue.getTemperature();
+        date = maxValue.getDate();
 
     }
 

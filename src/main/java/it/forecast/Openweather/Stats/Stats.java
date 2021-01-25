@@ -4,8 +4,7 @@ import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Vector;
+
 
 public abstract class Stats {
 

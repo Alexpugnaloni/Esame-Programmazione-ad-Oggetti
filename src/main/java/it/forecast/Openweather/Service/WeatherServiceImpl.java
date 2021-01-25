@@ -24,8 +24,6 @@ public class WeatherServiceImpl implements WeatherService {
 
     private List<WeatherData> weatherForecast = new Vector<>();
     private List<WeatherData> futureForecast = new Vector<>();
-    private List<WeatherData> weatherStats = new Vector<>();
-
 
 
     public List<WeatherData> get5ForecastWeather(String url) throws NoDataException {
@@ -41,7 +39,7 @@ public class WeatherServiceImpl implements WeatherService {
 
 
 
-    public Map<String, Object> getStats(String city,String period) throws NoDataException {           //DA SISTEMARE PER STATS
+    public Map<String, Object> getStats(String city,String period) throws NoDataException {
 
         JSONObject St = new JSONObject();
         Stats s;
@@ -55,7 +53,7 @@ public class WeatherServiceImpl implements WeatherService {
 
         if (city.equals("")) {}
         else weatherForecast = CityFilter.getFilteredCity(city, weatherForecast);
-        weatherStats = PeriodFilter.getFilteredPeriod(period, weatherForecast);
+        List<WeatherData> weatherStats = PeriodFilter.getFilteredPeriod(period, weatherForecast);
 
         Vector result = new Vector<>();
         Vector resultFeelsLike = new Vector<>();

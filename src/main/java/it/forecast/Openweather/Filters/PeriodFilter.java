@@ -26,11 +26,9 @@ public class PeriodFilter {
             case "day":
                 now = now.minusDays(1);
                 String dateString = dtf.format(now);
-                System.out.println(dateString);
                 for(int i=weatherForecast.size()-1; i>=0;i--) {
                     if (weatherForecast.get(i).getDate().compareTo(dateString)>0) {
                         FilteredList.add(weatherForecast.get(i));
-                        System.out.println(FilteredList);
                     }
                     else break;
                 }

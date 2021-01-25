@@ -24,7 +24,7 @@ public class WeatherForecast_API_Call {
 
 
 
-	public List<WeatherData> loadCall(String url) throws NoDataException {
+	public List<WeatherData> loadCall(String url) {
 		List<WeatherData> downloadedForecast = new Vector<>();
 		JSONParser parser = new JSONParser();
 
@@ -94,15 +94,7 @@ public class WeatherForecast_API_Call {
 
 			} catch (Exception e) {
 			}
-
 		}
-
 	}
-
-	public static void scheduledloadCall() {
-
-	}
-
-
 }
 

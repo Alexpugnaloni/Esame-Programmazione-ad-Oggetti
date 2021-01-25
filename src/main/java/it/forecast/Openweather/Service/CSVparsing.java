@@ -6,7 +6,7 @@ import it.forecast.Openweather.Model.WeatherData;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.concurrent.RecursiveAction;
+
 
 public class CSVparsing {
 
@@ -14,7 +14,7 @@ public class CSVparsing {
     public static ArrayList<WeatherData> runParsing(String csvFile){
 
         int row = 1;
-        String line = "";
+        String line="";
         ArrayList<WeatherData> weatherforecast = new ArrayList<>();
         try{
             BufferedReader bufferedReader = new BufferedReader(new FileReader(csvFile));

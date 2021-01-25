@@ -4,11 +4,10 @@ import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
 
 import java.util.List;
-import java.util.Vector;
+
 
 public class MaxFeelsLike extends Stats{
     private double maxTemperatureFeelsLike;
-    private WeatherData MaxValue;
     private String date;
 
     public MaxFeelsLike(List<WeatherData> weatherForecast){
@@ -29,15 +28,15 @@ public class MaxFeelsLike extends Stats{
 
     public void calculateStat(){
 
-        MaxValue = weatherForecast.get(0);
+        WeatherData maxValue = weatherForecast.get(0);
         for (int i = 1; i < weatherForecast.size(); i++) {
             WeatherData wD = weatherForecast.get(i);
-            if (wD.getFeels_like() > MaxValue.getFeels_like()) {
-                MaxValue = wD;
+            if (wD.getFeels_like() > maxValue.getFeels_like()) {
+                maxValue = wD;
             }
         }
-        maxTemperatureFeelsLike = MaxValue.getFeels_like();
-        date = MaxValue.getDate();
+        maxTemperatureFeelsLike = maxValue.getFeels_like();
+        date = maxValue.getDate();
 
     }
 

@@ -109,22 +109,7 @@ public class WeatherData {
 		this.mainCondition= mainCondition;
 	}
 
-	
-	
-	@Override
-	public String toString() {
-		
-		StringBuffer buffer = new StringBuffer();
-		buffer.append("Description: " + description + "; ");
-		buffer.append("Temperature: " + temperature + "; ");
-		buffer.append("Temp Max: " + tempMax + "; ");
-		buffer.append("Temp Min: " + tempMin + "; ");
-		buffer.append("Feels Like: " + feels_like + "; ");
-		buffer.append("Humidity: " + humidity + "; ");
-		buffer.append("Pressure: " + pressure + "; ");
-		buffer.append("Date: " + date + "; "); 
-		return buffer.toString();
-	}
+
 	
 	
 	

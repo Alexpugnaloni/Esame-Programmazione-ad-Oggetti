@@ -28,11 +28,11 @@ public class AverageFeelsLike extends Stats{
     }
 
     public void calculateStat() {
-        Vector<Double> v = new Vector<Double>();
-        Double sum = (double) 0, avg;
+        Vector<Double> v = new Vector<>();
+        double sum = 0, avg;
         int size;
-        for (int i = 0; i < weatherForecast.size(); i++) {
-            v.add(weatherForecast.get(i).getFeels_like());
+        for (WeatherData weatherData : weatherForecast) {
+            v.add(weatherData.getFeels_like());
         }
         size = v.size();
         for (int i = 0; i < size; i++) {
