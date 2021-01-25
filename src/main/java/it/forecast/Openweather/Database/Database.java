@@ -43,7 +43,5 @@ public class Database {
     public static void saveToCSV(){
         CSVparsing.saveToDatabase(csvFile);
     }
-    public static String getCsvFile() {
-        return csvFile;
-    }
+
 }
