@@ -9,6 +9,9 @@ import java.util.ArrayList;
 public class Database {
     private static ArrayList<WeatherData> weatherforecast = new ArrayList<>();
     private static final ArrayList<Metadata> metadata = new ArrayList<>();
+
+
+
     private static final String csvFile = "DatabaseFile/Database.csv";
 
     public static ArrayList<WeatherData> getWeatherforecast(){
@@ -39,5 +42,8 @@ public class Database {
     }
     public static void saveToCSV(){
         CSVparsing.saveToDatabase(csvFile);
+    }
+    public static String getCsvFile() {
+        return csvFile;
     }
 }

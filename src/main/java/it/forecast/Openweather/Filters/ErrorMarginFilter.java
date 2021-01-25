@@ -8,9 +8,9 @@ import java.util.Vector;
 public class ErrorMarginFilter {
 
 
-    static int count=0;
+    int count=0;
 
-    public static List<WeatherData> calculateAccuracy(List<WeatherData> weatherForecast, List<WeatherData> futureForecast, Double accuracy){
+    public List<WeatherData> calculateAccuracy(List<WeatherData> weatherForecast, List<WeatherData> futureForecast, Double accuracy){
         List<WeatherData> FilteredList = new Vector<>();
         double a,b,result;
         for(int i=weatherForecast.size()-1; i>=0;i--){
@@ -22,6 +22,7 @@ public class ErrorMarginFilter {
                     else result = a / b;
                     if (result >= accuracy) {
                         count++;
+                        System.out.println(count);
                         FilteredList.add(weatherForecast.get(i));
                     }
                 }
@@ -32,7 +33,7 @@ public class ErrorMarginFilter {
         return FilteredList;
     }
 
-    public static int getCount(){
+    public int getCount(){
         return count;
     }
 }

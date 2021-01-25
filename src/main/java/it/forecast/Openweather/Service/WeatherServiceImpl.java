@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
+import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
@@ -124,8 +125,9 @@ public class WeatherServiceImpl implements WeatherService {
         if (city.equals("")) {}
         else { weatherForecast = CityFilter.getFilteredCity(city, weatherForecast); futureForecast = CityFilter.getFilteredCity(city, futureForecast); }
 
-        St.put("Amount of correct forecasts",new JSONObject(ErrorMarginFilter.getCount()));
-        St.put("List of correct forecasts",new JSONArray(ErrorMarginFilter.calculateAccuracy(weatherForecast,futureForecast,accuracy)));
+        ErrorMarginFilter marginFilter = new ErrorMarginFilter();
+        St.put("Amount of correct forecasts",new JSONObject(marginFilter.getCount()));
+        St.put("List of correct forecasts",new JSONArray(marginFilter.calculateAccuracy(weatherForecast,futureForecast,accuracy)));
        return St.toMap();
     }
 
