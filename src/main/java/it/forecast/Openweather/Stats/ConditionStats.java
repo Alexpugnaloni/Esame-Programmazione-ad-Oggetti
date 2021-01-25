@@ -4,8 +4,17 @@ import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
 import java.util.List;
 
+/**
+ * Sottoclasse che si occupa di generare statistiche sulle condizioni meteo.
+ * @author Pugnaloni Alex
+ * @author Riva Tommaso
+ */
+
 
 public class ConditionStats extends Stats{
+    /**
+     * parametri utilizzati come contatori
+     */
 
     int thunderstorm = 0, drizzle = 0, rain = 0, snow = 0, clear = 0, clouds = 0, other = 0;
 
@@ -13,17 +22,27 @@ public class ConditionStats extends Stats{
         super(weatherForecast);
     }
 
-
+    /**
+     * Metodo che restituisce data e ora
+     * @return data e ora
+     */
     @Override
     public String getDate() {
         return null;
     }
 
+    /**
+     * Metodo che restituisce temperatura
+     * @return temperatura
+     */
     @Override
     public double getTemp() {
         return 0;
     }
 
+    /**
+     * Metodo che calcola statistiche sulle condizioni meteo.
+     */
     @Override
     public void calculateStat() {
 
@@ -60,6 +79,10 @@ public class ConditionStats extends Stats{
 
     }
 
+    /**
+     * Metodo che ritorna statistiche su condizioni meteo.
+     * @return condizioni meteo
+     */
     @Override
     public JSONObject ritornaCalculateStat() {
         JSONObject St = new JSONObject();

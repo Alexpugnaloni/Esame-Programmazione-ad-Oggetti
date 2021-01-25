@@ -20,7 +20,18 @@ import java.net.URL;
 import java.util.List;
 import java.util.Vector;
 
+/**
+ * Classe che si occupa di gestire il download e i relativi dati forniti dalla chiamata api.
+ * @author Pugnaloni Alex
+ * @author Riva Tommaso
+ */
+
 public class WeatherForecast_API_Call {
+	/**
+	 * Metodo che si occupa della chiamata all'api
+	 * @param url indirizzo di ricerca
+	 * @return dati relativi alla chiamata api.
+	 */
 
 
 
@@ -51,6 +62,12 @@ public class WeatherForecast_API_Call {
 
 
 	}
+
+	/**
+	 * Metodo che si occupa di prelevare solamente alcuni dati dalla chiamata completa all'api.
+	 * @param stats JSONObject per ingresso nella lista di oggetti della chiamata.
+	 * @param downloadedForecast chiamata totale.
+	 */
 
 
 	private void buildForecast(JSONObject stats,  List<WeatherData> downloadedForecast) {

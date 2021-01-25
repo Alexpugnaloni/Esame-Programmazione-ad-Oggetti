@@ -5,12 +5,27 @@ import it.forecast.Openweather.Model.WeatherData;
 import java.util.List;
 import java.util.Vector;
 
-public class ErrorMarginFilter {
+/**
+ * Classe che contiene il filtro margine d'errore.
+ * @author Pugnaloni Alex
+ * @author Riva Tommaso
+ */
 
+public class ErrorMarginFilter {
+    /**
+     * Attributo usato come contatore da incrementare.
+     */
 
     private int count;
 
-
+    /**
+     * Metodo utilizzato per calcolare il margine d'errore.
+     * @param weatherForecast vettore di chiamate proveniente da database attuale.
+     * @param futureForecast vettore di chiamate proveniente da database futuro.
+     * @param accuracy margine d'errore scelto dall'utente.
+     * @param param tipo di dato che l'utente vuole visualizzare.
+     * @return vettore di chiamate filtrare in base al param scelto.
+     */
 
     public List<WeatherData> calculateAccuracy(List<WeatherData> weatherForecast, List<WeatherData> futureForecast, Double accuracy, String param) {
 
@@ -86,6 +101,11 @@ public class ErrorMarginFilter {
         }
 
         }
+
+    /**
+     * Metodo per estrarre il contatore e quantificare le chiamate azzeccate.
+     * @return contatore.
+     */
 
     public int getCount(){
 

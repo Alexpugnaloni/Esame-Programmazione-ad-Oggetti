@@ -7,6 +7,12 @@ import it.forecast.Openweather.Model.WeatherData;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * Classe che si occupa del parsing dei dati all'interno un file "csv".
+ * @author Pugnaloni Alex
+ * @author Riva Tommaso
+ */
+
 
 public class CSVparsing {
 

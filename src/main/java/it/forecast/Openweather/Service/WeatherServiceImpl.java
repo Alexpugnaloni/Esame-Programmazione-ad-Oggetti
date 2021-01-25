@@ -20,13 +20,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
+/**
+ * Classe che implementa l'interfaccia WeatherService.
+ * @author Pugnaloni Alex
+ * @author Riva Tommaso
+ */
+
 @Service
 public class WeatherServiceImpl implements WeatherService {
+    /**
+     * Vettori di dati meteo ottenuti dall'API.
+     */
 
     private List<WeatherData> weatherForecast = new Vector<>();
     private List<WeatherData> futureForecast = new Vector<>();
 
-
+    /**
+     * Implementazione metodo delle condizioni attuali e previsioni future.
+     * @param url indirizzo di ricerca.
+     * @return vettore di condizioni meteo.
+     */
     public List<WeatherData> get5ForecastWeather(String url) throws NoDataException {
         WeatherForecast_API_Call w = new WeatherForecast_API_Call();
         this.weatherForecast = w.loadCall(url);
@@ -37,8 +50,12 @@ public class WeatherServiceImpl implements WeatherService {
     }
 
 
-
-
+    /**
+     * Implementazione metodo sulle statistiche periodiche.
+     * @param city città sulla quale si vuole avere delle statistiche.
+     * @param period periodo scelto sul quale si vuole avere delle statistiche.
+     * @return JSONObject di statistiche periodiche.
+     */
 
     public Map<String, Object> getStats(String city,String period) throws NoDataException {
 
@@ -111,6 +128,13 @@ public class WeatherServiceImpl implements WeatherService {
 
     }
 
+    /**
+     * implementazione metodo statistiche previsioni azzeccate.
+     * @param city città sulla quale si vuole avere delle statistiche.
+     * @param accuracy filtra i risultati in base ad una soglia di errore.
+     * @param param parametro scelto per visualizzare statistiche sul tipo di dato selezionato.
+     * @return JSONObject di statistiche.
+     */
 
     public Map<String, Object> getAccuracy(String city, Double accuracy, String param) throws IOException, ParseException, JSONException, NoDataException {
         JSONObject St = new JSONObject();

@@ -6,25 +6,49 @@ import org.json.simple.JSONObject;
 import java.util.List;
 import java.util.Vector;
 
+/**
+ * Sottoclasse che genera statistiche su varianza temperatura percepita
+ * @author Pugnaloni Alex
+ * @author Riva Tommaso
+ */
+
 public class VarianceFeelsLike extends Stats{
+    /**
+     * Attributo della classe VarianceFeelsLike
+     */
     private double varianceTemperatureFeelsLike;
 
+    /**
+     * Costruttore della classe VarianceFeelsLike
+     * @param weatherForecast vettore di dati meteo
+     */
     public VarianceFeelsLike(List<WeatherData> weatherForecast) {
         super(weatherForecast);
         this.varianceTemperatureFeelsLike = 0;
     }
 
-
+    /**
+     * Metodo che ritorna data e ora
+     * @return data e ora
+     */
     @Override
     public String getDate() {
         return null;
     }
+
+    /**
+     * Metodo che ritorna varianza temperatura percepita
+     * @return varianza temperatura percepita
+     */
 
     @Override
     public double getTemp() {
         return this.varianceTemperatureFeelsLike;
     }
 
+    /**
+     * Metodo che calcola statistiche su varianza temperatura percepita
+     */
     public void calculateStat() {
 
         Vector<Double> v = new Vector<>();
@@ -47,6 +71,11 @@ public class VarianceFeelsLike extends Stats{
         varianceTemperatureFeelsLike = variance;
 
     }
+
+    /**
+     * Metodo che ritorna statistiche su varianza temperatura percepita
+     * @return varianza temperatura percepita
+     */
     public JSONObject ritornaCalculateStat(){
         JSONObject St = new JSONObject();
 

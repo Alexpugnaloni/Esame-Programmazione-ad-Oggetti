@@ -1,6 +1,15 @@
 package it.forecast.Openweather.Model;
 
+/**
+ * Classe che contiene i dati del servizio meteo.
+ * @author Pugnaloni Alex
+ * @author Riva Tommaso
+ */
+
 public class WeatherData {
+	/**
+	 * attributi della classe WeatherData settati private
+	 */
 
 
 	private String description;
@@ -14,6 +23,21 @@ public class WeatherData {
 	private String city;
 	private String country;
 	private String mainCondition;
+
+	/**
+	 * Costruttore della Classe WeatherData con i suoi attributi.
+	 * @param description descriozione
+	 * @param temperature temperatura
+	 * @param tempMin temperatura minima
+	 * @param tempMax temperatura massima
+	 * @param feels_like temperatura percepita
+	 * @param humidity umidità
+	 * @param pressure pressione
+	 * @param date data e ora
+	 * @param city città
+	 * @param country paese
+	 * @param mainCondition condizione principale
+	 */
 
 	public WeatherData( String description, Double temperature, Double tempMin, Double tempMax, Double feels_like, Long humidity,Long pressure,String date, String city, String country, String mainCondition){
 
@@ -34,6 +58,9 @@ public class WeatherData {
 
 	}
 
+	/**
+	 * serie di getter e setter per gli attributi della classe WeatherData.
+	 */
 
 	public String getDescription() {
 		return description;

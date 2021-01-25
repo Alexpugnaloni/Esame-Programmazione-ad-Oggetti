@@ -9,7 +9,19 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Vector;
 
+/**
+ * Classe che contiene il filtro del periodo.
+ * @author Pugnaloni Alex
+ * @author Riva Tommaso
+ */
+
 public class PeriodFilter {
+    /**
+     * Metodo che filtra statistiche in base al periodo.
+     * @param period periodo scelto dall'utente,
+     * @param weatherForecast vettore di chiamate.
+     * @return vettore di chiamate filtrate in base al periodo scelto.
+     */
 
     public static List<WeatherData> getFilteredPeriod(String period, List<WeatherData> weatherForecast) {
 
