@@ -112,7 +112,7 @@ public class WeatherServiceImpl implements WeatherService {
     }
 
 
-    public Map<String, Object> getAccuracy(String city, Double accuracy) throws IOException, ParseException, JSONException, NoDataException {
+    public Map<String, Object> getAccuracy(String city, Double accuracy, String param) throws IOException, ParseException, JSONException, NoDataException {
         JSONObject St = new JSONObject();
         ErrorMarginFilter marginFilter = new ErrorMarginFilter();
 
@@ -127,7 +127,7 @@ public class WeatherServiceImpl implements WeatherService {
         if (city.equals("")) {}
         else { weatherForecast = CityFilter.getFilteredCity(city, weatherForecast); futureForecast = CityFilter.getFilteredCity(city, futureForecast); }
 
-        St.put("List of correct forecasts",new JSONArray(marginFilter.calculateAccuracy(weatherForecast,futureForecast,accuracy)));
+        St.put("List of correct forecasts",new JSONArray(marginFilter.calculateAccuracy(weatherForecast,futureForecast,accuracy, param)));
         St.put("Amount of correct forecasts", marginFilter.getCount());
 
        return St.toMap();
