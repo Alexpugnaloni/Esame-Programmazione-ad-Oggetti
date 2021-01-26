@@ -29,9 +29,9 @@ public class Controller {
 	 */
 
 	public String url;
-	public String cityPar;
+	public String cityPar = "Ancona";
 	public String api_keyPar;
-	public String langPar;
+	public String langPar ="it";
 
 
 

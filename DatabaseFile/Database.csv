@@ -1,3 +1,4 @@
 Description;Temperature;TempMin;TempMax;Feels Like;Humidity;Pressure;Date;City;Country;Main Condition
-cielo sereno;5.3;3.07;5.3;1.39;64;1016;2021-01-26 18:00:00;Ancona;IT;Clear;
-cielo sereno;5.3;3.07;5.3;1.39;64;1016;2021-01-26 18:00:00;Ancona;IT;Clear;
+cielo sereno;5.25;5.25;6.29;2.23;48;1017;2021-01-26 18:00:00;Firenze;IT;Clear;
+cielo sereno;4.37;4.37;6.29;1.62;61;1017;2021-01-26 18:00:00;Firenze;IT;Clear;
+cielo sereno;4.25;4.25;6.21;1.57;61;1017;2021-01-26 18:00:00;Firenze;IT;Clear;

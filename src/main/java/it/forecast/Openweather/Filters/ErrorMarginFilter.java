@@ -17,6 +17,7 @@ public class ErrorMarginFilter {
      */
 
     private int count;
+    private int countCall;
 
     /**
      * Metodo utilizzato per calcolare il margine d'errore.
@@ -35,9 +36,9 @@ public class ErrorMarginFilter {
         switch (param) {
 
             case "temperature": {
-                for (WeatherData data : weatherForecast) {
-                    for (WeatherData weatherData : futureForecast) {
-                        if (data.getDate().compareTo(weatherData.getDate()) > 0) {
+                for (WeatherData weatherData : futureForecast) {
+                    for (WeatherData data : weatherForecast) {
+                        if (data.getDate().compareTo(weatherData.getDate()) >= 0) {
                             a = data.getTemperature();
                             b = weatherData.getTemperature();
                             if (a >= b) result = b / a;
@@ -50,7 +51,7 @@ public class ErrorMarginFilter {
                         }
 
                     }
-
+                countCall++;
                 }
 
                 return FilteredList;
@@ -110,5 +111,8 @@ public class ErrorMarginFilter {
     public int getCount(){
 
         return count;
+    }
+    public int getCountCall(){
+        return countCall;
     }
 }
