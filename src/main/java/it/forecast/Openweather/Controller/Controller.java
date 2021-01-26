@@ -91,7 +91,7 @@ public class Controller {
 	 * @return JSONObject di statistiche.
 	 */
 	@PostMapping("/accuracystats")
-		public ResponseEntity<Object> getAccuracyt(@RequestBody PostRequestBodyHandler AccuracyStats) throws NoDataException, IOException, ParseException {
+		public ResponseEntity<Object> getAccuracy(@RequestBody PostRequestBodyHandler AccuracyStats) throws NoDataException, IOException, ParseException {
 		return new ResponseEntity<>(w.getAccuracy(AccuracyStats),HttpStatus.OK);
 	}
 }

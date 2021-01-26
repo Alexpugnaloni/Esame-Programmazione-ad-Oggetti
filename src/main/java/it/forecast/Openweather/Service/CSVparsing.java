@@ -53,8 +53,12 @@ public class CSVparsing {
                     weatherforecast.add(objectRecovered);
                 }
             }
-                catch (ArrayIndexOutOfBoundsException e) { }
-            catch (NumberFormatException e) { } catch (IOException e) {
+                catch (ArrayIndexOutOfBoundsException e) {
+                        System.out.println("Row "+ row +" "+e.toString()+"parametri inseriti. Aspettati 11");
+                }
+            catch (NumberFormatException e) {
+                System.out.println("Row "+row+" "+e.toString());
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             row++;
@@ -62,13 +66,14 @@ public class CSVparsing {
         try{
             bufferedReader.close();
         } catch (IOException e) {
-            System.out.println(e.getClass().getCanonicalName());
+            System.out.println(e.getClass().getCanonicalName() + "Errore in it.forecast.Openweather.Service.CSVparsing.java: Chiusura File");
         }
        }
           catch (FileNotFoundException e) {
-            System.out.println(e.getClass().getCanonicalName());
+            System.out.println(e.getClass().getCanonicalName()+ "Errore in it.forecast.Openweather.Service.CSVparsing.java: File non trovato");
           } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getClass().getCanonicalName() + "Errore in it.forecast.Openweather.Service.CSVparsing.java: I/O interrotto");
+          //  e.printStackTrace();
         }
         return weatherforecast;
     }
@@ -130,7 +135,10 @@ public class CSVparsing {
             csvWriter.flush(); //salvo per sicurezza in modo tale da non lassciare nulla sul buffer
             csvWriter.close();
         } catch (FileNotFoundException e) {
+            System.out.println(e.getClass().getCanonicalName()+ "Errore in it.forecast.Openweather.Service.CSVparsing.java: File non trovato");
+
         } catch (IOException e) {
+            System.out.println(e.getClass().getCanonicalName()+ "Errore in it.forecast.Openweather.Service.CSVparsing.java: I/O interrotto");
         }
     }
     /**
@@ -186,7 +194,9 @@ public class CSVparsing {
             csvWriter.flush();
             csvWriter.close();
         } catch (FileNotFoundException e) {
+            System.out.println(e.getClass().getCanonicalName()+ "Errore in it.forecast.Openweather.Service.CSVparsing.java: File non trovato");
         } catch (IOException e) {
+            System.out.println(e.getClass().getCanonicalName()+ "Errore in it.forecast.Openweather.Service.CSVparsing.java: I/O interrotto");
         }
     }
 }

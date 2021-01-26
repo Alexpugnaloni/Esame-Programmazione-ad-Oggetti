@@ -54,9 +54,11 @@ public class WeatherForecast_API_Call {
 			}
 			in.close();
 		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		} catch (IOException e) {
+			e.printStackTrace();
 		} catch (ParseException e) {
-
+			e.printStackTrace();
 		}
 		return downloadedForecast;
 
@@ -110,6 +112,7 @@ public class WeatherForecast_API_Call {
 				CurrentCounter++;
 
 			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 	}
