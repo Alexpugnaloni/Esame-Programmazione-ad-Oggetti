@@ -13,7 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
-import java.io.FileReader;
+
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
@@ -57,10 +57,13 @@ public class WeatherServiceImpl implements WeatherService {
      * @return JSONObject di statistiche periodiche.
      */
 
-    public Map<String, Object> getStats(String city,String period) throws NoDataException {
+    public Map<String, Object> getStats(PostRequestBodyHandler PeriodicStats) throws NoDataException {
 
         JSONObject St = new JSONObject();
         Stats s;
+        String city = PeriodicStats.getCity();
+        city = city.substring(0, 1).toUpperCase() + city.substring(1);
+        String period = PeriodicStats.getPeriod().toLowerCase();
 
         try {
             weatherForecast = Database.getWeatherforecast();
@@ -72,6 +75,7 @@ public class WeatherServiceImpl implements WeatherService {
         if (city.equals("")) {}
         else weatherForecast = CityFilter.getFilteredCity(city, weatherForecast);
         List<WeatherData> weatherStats = PeriodFilter.getFilteredPeriod(period, weatherForecast);
+        System.out.println(weatherForecast);
 
         Vector result = new Vector<>();
         Vector resultFeelsLike = new Vector<>();
@@ -136,9 +140,13 @@ public class WeatherServiceImpl implements WeatherService {
      * @return JSONObject di statistiche.
      */
 
-    public Map<String, Object> getAccuracy(String city, Double accuracy, String param) throws IOException, ParseException, JSONException, NoDataException {
+    public Map<String, Object> getAccuracy(PostRequestBodyHandler AccuracyStats) throws IOException, ParseException, JSONException, NoDataException {
         JSONObject St = new JSONObject();
         ErrorMarginFilter marginFilter = new ErrorMarginFilter();
+        String city = AccuracyStats.getCity();
+        city = city.substring(0, 1).toUpperCase() + city.substring(1);
+        Double accuracy = AccuracyStats.getAccuracy();
+        String param = AccuracyStats.getParam();
 
         try {
             weatherForecast = Database.getWeatherforecast();

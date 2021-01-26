@@ -3,6 +3,7 @@ package it.forecast.Openweather.Service;
 
 import it.forecast.Openweather.Exception.NoDataException;
 import it.forecast.Openweather.Model.WeatherData;
+import it.forecast.Openweather.Stats.PostRequestBodyHandler;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -29,7 +30,7 @@ public interface WeatherService {
 	 * @param period periodo scelto sul quale si vuole avere delle statistiche.
 	 * @return JSONObject di statistiche periodiche.
 	 */
-	Map<String,Object> getStats(String city, String period) throws IOException, ParseException, JSONException, NoDataException;
+	Map<String,Object> getStats(PostRequestBodyHandler PeriodicStats) throws IOException, ParseException, JSONException, NoDataException;
 
 	/**
 	 * Metodo che restituisce statistiche su previsioni azzeccate.
@@ -38,6 +39,6 @@ public interface WeatherService {
 	 * @param param parametro scelto per visualizzare statistiche sul tipo di dato selezionato.
 	 * @return JSONObject di statistiche.
 	 */
-	Map<String,Object> getAccuracy (String city, Double accuracy, String param) throws IOException, ParseException, JSONException, NoDataException;
+	Map<String,Object> getAccuracy (PostRequestBodyHandler AccuracyStats) throws IOException, ParseException, JSONException, NoDataException;
 
 }
