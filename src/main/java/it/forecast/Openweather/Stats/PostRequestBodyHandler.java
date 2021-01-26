@@ -1,12 +1,28 @@
 package it.forecast.Openweather.Stats;
 
+/**
+ * Classe che contiene il costruttore per i body delle chiamate PostRequest.
+ * @author Pugnaloni Alex
+ * @author Riva Tommaso
+ */
+
 public class PostRequestBodyHandler {
+    /**
+     * Attributi della classe PostRequestBodyHandler
+     */
 
     String city;
     String period;
     Double accuracy;
     String param;
 
+    /**
+     * Costruttore della classe PostRequestBodyHandler
+     * @param city città di cui visulizzare le statistiche
+     * @param period periodo scelto
+     * @param accuracy margine d'errore
+     * @param param indicatore di cui calcolare l'accuratezza
+     */
     public PostRequestBodyHandler(String city, String period, Double accuracy, String param) {
 
         this.city = city;
@@ -15,7 +31,9 @@ public class PostRequestBodyHandler {
         this.param = param;
     }
 
-
+    /**
+     * Metodi Getter e Setter degli attributi della classe PostRequestBodyHandler.
+     */
 
     public String getCity() {
         return city;

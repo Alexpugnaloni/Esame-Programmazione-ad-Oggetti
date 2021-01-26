@@ -26,17 +26,14 @@ public interface WeatherService {
 
 	/**
 	 * Metodo che restituisce statistiche periodiche.
-	 * @param city città sulla quale si vuole avere delle statistiche.
-	 * @param period periodo scelto sul quale si vuole avere delle statistiche.
+	 * @param PeriodicStats body passato alla rotta periodicstats
 	 * @return JSONObject di statistiche periodiche.
 	 */
 	Map<String,Object> getStats(PostRequestBodyHandler PeriodicStats) throws IOException, ParseException, JSONException, NoDataException;
 
 	/**
 	 * Metodo che restituisce statistiche su previsioni azzeccate.
-	 * @param city città sulla quale si vuole avere delle statistiche.
-	 * @param accuracy filtra i risultati in base ad una soglia di errore.
-	 * @param param parametro scelto per visualizzare statistiche sul tipo di dato selezionato.
+	 * @param AccuracyStats body passato alla rotta accuracystats
 	 * @return JSONObject di statistiche.
 	 */
 	Map<String,Object> getAccuracy (PostRequestBodyHandler AccuracyStats) throws IOException, ParseException, JSONException, NoDataException;

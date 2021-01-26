@@ -26,7 +26,7 @@ public class WeatherData {
 
 	/**
 	 * Costruttore della Classe WeatherData con i suoi attributi.
-	 * @param description descriozione
+	 * @param description descrizione
 	 * @param temperature temperatura
 	 * @param tempMin temperatura minima
 	 * @param tempMax temperatura massima
