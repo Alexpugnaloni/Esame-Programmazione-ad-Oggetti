@@ -74,8 +74,7 @@ public class Controller {
 
 	/**
 	 * Rotta per visualizzare statistiche periodiche.
-	 * @param city se inserito filtra statistiche riguardanti la città scelta.
-	 * @param period filtra i risultati in base al periodo scelto.
+	 * @body contiene parametri utilizzati dalle classi di statistiche
 	 * @return	JSONObject di statistiche periodiche.
 
 	 */
@@ -88,9 +87,7 @@ public class Controller {
 
 	/**
 	 * Rotta per visualizzare statistiche su previsioni azzeccate.
-	 * @param city se inserito filtra statistiche riguardanti la città scelta.
-	 * @param accuracy filtra i risultati in base ad una soglia di errore.
-	 * @param param Seleziona le statistiche in base all'accuratezza delle previsioni del campo scelto.
+	 * @body contiene parametri utilizzati dalle classi di statistiche
 	 * @return JSONObject di statistiche.
 	 */
 	@PostMapping("/accuracystats")
