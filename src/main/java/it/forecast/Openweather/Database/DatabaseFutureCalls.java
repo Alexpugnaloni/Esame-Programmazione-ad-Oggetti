@@ -64,7 +64,7 @@ public class DatabaseFutureCalls {
     }
 
     /**
-     * metodo che allo start del programma ripulisce e setta il database per il salvataggio dei dati
+     * metodo che popola l'array dinamico con i dati contenuti nel database delle previsioni future
      */
     public static void setWeatherDataCSV(){
         weatherforecast = CSVparsing.runParsing(csvFile);

@@ -65,6 +65,7 @@ public class WeatherServiceImpl implements WeatherService {
         String period = PeriodicStats.getPeriod().toLowerCase();
 
         try {
+            Database.setWeatherDataCSV();
             weatherForecast = Database.getWeatherforecast();
             if (this.weatherForecast == null)
                 throw new NoDataException();
@@ -74,7 +75,6 @@ public class WeatherServiceImpl implements WeatherService {
         if (city.equals("")) {}
         else weatherForecast = CityFilter.getFilteredCity(city, weatherForecast);
         List<WeatherData> weatherStats = PeriodFilter.getFilteredPeriod(period, weatherForecast);
-        System.out.println(weatherForecast);
 
         Vector result = new Vector<>();
         Vector resultFeelsLike = new Vector<>();
@@ -146,7 +146,9 @@ public class WeatherServiceImpl implements WeatherService {
         String param = AccuracyStats.getParam();
 
         try {
+            Database.setWeatherDataCSV();
             weatherForecast = Database.getWeatherforecast();
+            DatabaseFutureCalls.setWeatherDataCSV();
             futureForecast = DatabaseFutureCalls.getWeatherforecast();
             if (this.weatherForecast == null || this.futureForecast == null)
                 throw new NoDataException();

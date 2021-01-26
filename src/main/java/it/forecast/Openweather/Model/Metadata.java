@@ -1,6 +1,6 @@
 package it.forecast.Openweather.Model;
 /**
- * Classe che rappresenta oggetti che contangono alias assegnato,
+ * Classe che rappresenta oggetti che contengono alias assegnato,
  * nome della colonna e tipo di dato.
  * @author Pugnaloni Alex
  * @author Riva Tommaso

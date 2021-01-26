@@ -64,7 +64,7 @@ public class Database {
     }
 
     /**
-     * metodo che allo start del programma ripulisce e setta il database per il salvataggio dei dati
+     * metodo che popola l'array dinamico con i dati contenuti nel database dei dati meteo correnti
      */
     public static void setWeatherDataCSV(){
         weatherforecast = CSVparsing.runParsing(csvFile);
