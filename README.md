@@ -131,22 +131,33 @@ Il servizio utilizza due diversi array al fine di poter catalogare le diverse vo
 
 Contatore che riporta la quantità di diverse tipologie di condizioni che si riscontrano nel periodo scelto.
 
-1. "Rain": pioggia.
-2. "Snow": neve.
-3. "Clouds": nuvoloso.
-4. "Drizzle": pioviggine.
-5. "Other specific atmosphere cases": racchiude condizioni specifiche più rare o presenti solo in alcune parti del mondo, ad esempio "Tornado" o "Cenere Vulcanica".
-6. "Thunderstorm": temporale.
-7. "Clear": sereno.
+1. **Rain:** pioggia.
+2. **Snow:** neve.
+3. **Clouds:** nuvoloso.
+4. **Drizzle:** pioviggine.
+5. **Other specific atmosphere cases:** racchiude condizioni specifiche più rare o presenti solo in alcune parti del mondo, ad esempio "Tornado" o "Cenere Vulcanica".
+6. **Thunderstorm:** temporale.
+7. **Clear:** sereno.
 
-### Stats for Temperature
+### Stats for Temperature:
 
 Contiene tutte le statistiche sulla temperatura del periodo scelto.
 
-1. "tempMax": Temperatura più alta registrata nel periodo.
-2. "tempMaxDate": Data in cui è stata registrata la massima.
-3. "tempMinDate": Data in cui è stata registrata la minima.
-4. "tempMin": Temperatura più bassa.
-5. "Average": Media di temperatura del periodo.
-6. "Variance": Varianza di temperatura del periodo.
+1. **tempMax:** Temperatura più alta registrata nel periodo.
+2. **tempMaxDate:** Data in cui è stata registrata la massima.
+3. **tempMinDate:** Data in cui è stata registrata la minima.
+4. **tempMin:** Temperatura più bassa.
+5. **Average:** Media di temperatura del periodo.
+6. **Variance:** Varianza di temperatura del periodo.
+
+### Stats for Feels Like Temperature:
+
+Contiene tutte le statistiche sulla temperatura del periodo scelto.
+
+1. **tempMax_FeelsLike:** Temperatura più alta registrata nel periodo.
+2. **tempMaxDate_FeelsLike:** Data in cui è stata registrata la massima.
+3. **tempMinDate_FeelsLike:** Data in cui è stata registrata la minima.
+4. **tempMin_FeelsLike:** Temperatura più bassa.
+5. **Average_FeelsLike:** Media di temperatura del periodo.
+6. **Variance_FeelsLike:** Varianza di temperatura del periodo.
    
