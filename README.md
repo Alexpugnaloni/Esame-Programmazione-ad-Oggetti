@@ -141,12 +141,12 @@ Contatore che riporta la quantità di diverse tipologie di condizioni che si ris
 
 ### Stats for Temperature
 
+Contiene tutte le statistiche sulla temperatura del periodo scelto.
+
 1. "tempMax": Temperatura più alta registrata nel periodo.
 2. "tempMaxDate": Data in cui è stata registrata la massima.
-
-1. "tempMinDate": Data in cui è stata registrata la minima.
-2. "tempMin": Temperatura più bassa.
-
-1. "Average": Media di temperatura del periodo.
-2. "Variance": Varianza di temperatura del periodo.
+3. "tempMinDate": Data in cui è stata registrata la minima.
+4. "tempMin": Temperatura più bassa.
+5. "Average": Media di temperatura del periodo.
+6. "Variance": Varianza di temperatura del periodo.
    
