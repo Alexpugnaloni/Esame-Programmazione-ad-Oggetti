@@ -72,7 +72,7 @@ public class ErrorMarginFilter {
                         }
 
                     }
-
+                countCall++;
                 }
 
                 return FilteredList;
@@ -93,7 +93,7 @@ public class ErrorMarginFilter {
                         }
 
                     }
-
+                countCall++;
                 }
 
                 return FilteredList;

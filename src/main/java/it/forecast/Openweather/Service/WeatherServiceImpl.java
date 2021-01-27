@@ -159,7 +159,9 @@ public class WeatherServiceImpl implements WeatherService {
         else { weatherForecast = CityFilter.getFilteredCity(city, weatherForecast); futureForecast = CityFilter.getFilteredCity(city, futureForecast); }
 
         St.put("List of correct forecasts",new JSONArray(marginFilter.calculateAccuracy(weatherForecast,futureForecast,accuracy, param)));
+
         St.put("Amount of correct forecasts", marginFilter.getCount());
+        St.put("Amount of total forecasts:",marginFilter.getCountCall());
 
        return St.toMap();
     }

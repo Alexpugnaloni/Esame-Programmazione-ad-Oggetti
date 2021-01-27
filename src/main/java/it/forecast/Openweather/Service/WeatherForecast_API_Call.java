@@ -111,8 +111,9 @@ public class WeatherForecast_API_Call {
 				}
 				CurrentCounter++;
 
-			} catch (Exception e) {
+			} catch (ClassCastException e) {} catch (Exception e) {
 				e.printStackTrace();
+
 			}
 		}
 	}

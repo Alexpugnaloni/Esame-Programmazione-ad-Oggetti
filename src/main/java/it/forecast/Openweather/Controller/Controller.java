@@ -64,7 +64,7 @@ public class Controller {
 	 * Chiamata programmata per popolare i database presenti nel progetto con frequenza oraria.
 	 *
 	 */
-	@Scheduled(initialDelay = 10000,fixedRate = 900000)
+	@Scheduled(initialDelay = 10000,fixedRate = 5000)
 	public void scheduledRequest() throws ParseException, NoDataException, IOException {
 
 		get5ForecastWeather(cityPar,langPar);
