@@ -44,14 +44,24 @@ Esempio di chiamata su Postman con parametri modificati e con body di risposta:
  Il programma resituisce un Array popolato con Oggetti rappresentanti le singole previsioni. Vengono restituiti in totale 40 oggetti,
  esattamente una previsione ogni 3 ore per 5 giorni.
  
-**description** : "nubi sparse",
-**temperature** : 7.11,
-**tempMin** : 7.07,
-**tempMax** : 7.11,
-**feels_like** : 3.38,
-**humidity** : 44,
-**pressure** : 1018,
-**date** : "2021-01-27 12:00:00",
-**city** : "Ancona",
-**country** : "IT",
-**mainCondition** : "Clouds"
+**description** : Descrizione della condizione meteo.
+
+**temperature** : Temperatura
+
+**tempMin** : Temperatura minima registrata nella città
+
+**tempMax** : Temperatura massima registrata nella città
+
+**feels_like** : Temperatura percepita 
+
+**humidity** : Umidità presente nell' aria
+
+**pressure** : Pressione atmosferica
+
+**date** : Data e ora della previsione
+
+**city** : Città richiesta dall' utente
+
+**country** : Stato della città richiesta
+
+**mainCondition** : macroparametro rappresentante la condizione meteo (utilizzato per le statistiche)
