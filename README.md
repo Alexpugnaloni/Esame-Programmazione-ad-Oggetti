@@ -38,30 +38,115 @@ Esempio di chiamata su Postman con parametri modificati e con body di risposta:
 
 <<< INSERIRE IMMAGINE >>>>>>>>
 
+## Body Example
 
-### Body Breakdown 
+```json
+{
+        "description": "nubi sparse",
+        "temperature": 7.11,
+        "tempMin": 7.07,
+        "tempMax": 7.11,
+        "feels_like": 3.38,
+        "humidity": 44,
+        "pressure": 1018,
+        "date": "2021-01-27 12:00:00",
+        "city": "Ancona",
+        "country": "IT",
+        "mainCondition": "Clouds"
+    }
+```
 
- Il programma resituisce un Array popolato con Oggetti rappresentanti le singole previsioni. Vengono restituiti in totale 40 oggetti,
+## Body Breakdown 
+
+ Il servizio resituisce un Array popolato con Oggetti rappresentanti le singole previsioni. Vengono restituiti in totale 40 oggetti,
  esattamente una previsione ogni 3 ore per 5 giorni.
  
-**description** : Descrizione della condizione meteo.
+1. **description** : Descrizione della condizione meteo.
+2. **temperature** : Temperatura.
+3. **tempMin** : Temperatura minima registrata nella città.
+4. **tempMax** : Temperatura massima registrata nella città.
+5. **feels_like** : Temperatura percepita.
+6. **humidity** : Umidità presente nell' aria.
+7. **pressure** : Pressione atmosferica.
+8. **date** : Data e ora della previsione.
+9. **city** : Città richiesta dall' utente.
+10. **country** : Stato della città richiesta.
+11. **mainCondition** : macroparametro rappresentante la condizione meteo (utilizzato per le statistiche).
 
-**temperature** : Temperatura
+-------------------------------------------------------------------------------------------------------------------------------------
 
-**tempMin** : Temperatura minima registrata nella città
+## POST /periodicstats
 
-**tempMax** : Temperatura massima registrata nella città
 
-**feels_like** : Temperatura percepita 
+## Body Example
+```json
+{
+    "Weather Condition Count": {
+        "Rain": 2,
+        "Snow": 0,
+        "Clouds": 2,
+        "Drizzle": 0,
+        "Other specific atmosphere cases": 0,
+        "Thunderstorm": 1,
+        "Clear": 2
+    },
+    "Stats for Temperature": [
+        {
+            "tempMax": 6.77,
+            "tempMaxDate": "2021-01-27 12:00:00"
+        },
+        {
+            "tempMinDate": "2021-01-27 12:00:00",
+            "tempMin": 5.96
+        },
+        {
+            "Average": 6.769999999999999
+        },
+        {
+            "Variance": 7.888609052210118E-31
+        }
+    ],
+    "Stats for Feels Like Temperature": [
+        {
+            "tempMax_FeelsLike": 3.13,
+            "tempMaxDate_FeelsLike": "2021-01-27 12:00:00"
+        },
+        {
+            "tempMin_FeelsLike": 3.13,
+            "tempMinDate_FeelsLike": "2021-01-27 12:00:00"
+        },
+        {
+            "Average_FeelsLike": 3.13
+        },
+        {
+            "Variance_FeelsLike": 0.0
+        }
+    ]
+}
+```
+## Body Breakdown
+Il servizio utilizza due diversi array al fine di poter catalogare le diverse voci e mostrarle con un ordine prefissato. 
 
-**humidity** : Umidità presente nell' aria
+### Weather Condition Count
 
-**pressure** : Pressione atmosferica
+Contatore che riporta la quantità di diverse tipologie di condizioni che si riscontrano nel periodo scelto.
 
-**date** : Data e ora della previsione
+1. "Rain": pioggia.
+2. "Snow": neve.
+3. "Clouds": nuvoloso.
+4. "Drizzle": pioviggine.
+5. "Other specific atmosphere cases": racchiude condizioni specifiche più rare o presenti solo in alcune parti del mondo, ad esempio "Tornado" o "Cenere Vulcanica".
+6. "Thunderstorm": temporale.
+7. "Clear": sereno.
 
-**city** : Città richiesta dall' utente
+### Stats for Temperature
 
-**country** : Stato della città richiesta
+1. "tempMax": Temperatura più alta registrata nel periodo.
+2. "tempMaxDate": Data in cui è stata registrata la massima.
 
-**mainCondition** : macroparametro rappresentante la condizione meteo (utilizzato per le statistiche)
+1. "tempMinDate": Data in cui è stata registrata la minima.
+2. "tempMin": Temperatura più bassa.
+
+1. "Average": Media di temperatura del periodo.
+2. "Variance": Varianza di temperatura del periodo.
+   
