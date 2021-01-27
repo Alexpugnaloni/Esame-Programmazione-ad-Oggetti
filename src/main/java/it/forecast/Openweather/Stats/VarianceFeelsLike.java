@@ -7,20 +7,20 @@ import java.util.List;
 import java.util.Vector;
 
 /**
- * Sottoclasse che genera statistiche su varianza temperatura percepita
+ * Sottoclasse che genera statistiche su varianza temperatura percepita.
  * @author Pugnaloni Alex
  * @author Riva Tommaso
  */
 
 public class VarianceFeelsLike extends Stats{
     /**
-     * Attributo della classe VarianceFeelsLike
+     * Attributo della classe VarianceFeelsLike.
      */
     private double varianceTemperatureFeelsLike;
 
     /**
-     * Costruttore della classe VarianceFeelsLike
-     * @param weatherForecast vettore di dati meteo
+     * Costruttore della classe VarianceFeelsLike.
+     * @param weatherForecast vettore di dati meteo.
      */
     public VarianceFeelsLike(List<WeatherData> weatherForecast) {
         super(weatherForecast);
@@ -28,8 +28,8 @@ public class VarianceFeelsLike extends Stats{
     }
 
     /**
-     * Metodo che ritorna data e ora
-     * @return data e ora
+     * Metodo che ritorna data e ora.
+     * @return data e ora.
      */
     @Override
     public String getDate() {
@@ -37,8 +37,8 @@ public class VarianceFeelsLike extends Stats{
     }
 
     /**
-     * Metodo che ritorna varianza temperatura percepita
-     * @return varianza temperatura percepita
+     * Metodo che ritorna varianza temperatura percepita.
+     * @return varianza temperatura percepita.
      */
 
     @Override
@@ -47,7 +47,7 @@ public class VarianceFeelsLike extends Stats{
     }
 
     /**
-     * Metodo che calcola statistiche su varianza temperatura percepita
+     * Metodo che calcola statistiche su varianza temperatura percepita.
      */
     public void calculateStat() {
 
@@ -73,8 +73,8 @@ public class VarianceFeelsLike extends Stats{
     }
 
     /**
-     * Metodo che ritorna statistiche su varianza temperatura percepita
-     * @return varianza temperatura percepita
+     * Metodo che ritorna statistiche su varianza temperatura percepita.
+     * @return varianza temperatura percepita.
      */
     public JSONObject ritornaCalculateStat(){
         JSONObject St = new JSONObject();

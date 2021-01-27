@@ -18,7 +18,7 @@ import java.util.Vector;
 public class PeriodFilter {
     /**
      * Metodo che filtra statistiche in base al periodo.
-     * @param period periodo scelto dall'utente,
+     * @param period periodo scelto dall'utente.
      * @param weatherForecast vettore di chiamate.
      * @return vettore di chiamate filtrate in base al periodo scelto.
      */

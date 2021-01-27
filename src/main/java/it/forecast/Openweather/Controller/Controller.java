@@ -74,7 +74,7 @@ public class Controller {
 
 	/**
 	 * Rotta per visualizzare statistiche periodiche.
-	 * @body contiene parametri utilizzati dalle classi di statistiche
+	 * @body contiene parametri utilizzati dalle classi di statistiche.
 	 * @return	JSONObject di statistiche periodiche.
 
 	 */
@@ -87,7 +87,7 @@ public class Controller {
 
 	/**
 	 * Rotta per visualizzare statistiche su previsioni azzeccate.
-	 * @body contiene parametri utilizzati dalle classi di statistiche
+	 * @body contiene parametri utilizzati dalle classi di statistiche.
 	 * @return JSONObject di statistiche.
 	 */
 	@PostMapping("/accuracystats")

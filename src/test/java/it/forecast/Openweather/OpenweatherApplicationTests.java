@@ -26,8 +26,8 @@ class OpenweatherApplicationTests {
 	void inizio() throws Exception{
 		w1 = new WeatherData("cielo sereno",4.37,4.37,6.29,1.62,Long.valueOf(61),Long.valueOf(1017),String.valueOf(new Date()),"Firenze","IT","Clear");
 		w2 = new WeatherData("cielo sereno",2.37,2.37,6.29,1.08,Long.valueOf(40),Long.valueOf(1100),String.valueOf(new Date()),"Torbole","IT","Clear");
-weather.add(w1);
-weather.add(w2);
+	weather.add(w1);
+	weather.add(w2);
 	}
 	@AfterEach
 	void dereferenziaValori() throws Exception{

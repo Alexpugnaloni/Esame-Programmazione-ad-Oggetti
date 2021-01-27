@@ -6,21 +6,21 @@ import org.json.simple.JSONObject;
 import java.util.List;
 
 /**
- * Sottoclasse che genera statistiche su minima temperatura
+ * Sottoclasse che genera statistiche su minima temperatura.
  * @author Pugnaloni Alex
  * @author Riva Tommaso
  */
 
 public class MinTemperature extends Stats{
     /**
-     * Attributi della classe MinTemperature
+     * Attributi della classe MinTemperature.
      */
     private double minTemperature;
     private String date;
 
     /**
-     * Costruttore della classe MinTemperature
-     * @param weatherForecast vettore di dati meteo
+     * Costruttore della classe MinTemperature.
+     * @param weatherForecast vettore di dati meteo.
      */
     public MinTemperature(List<WeatherData> weatherForecast){
         super(weatherForecast);
@@ -29,8 +29,8 @@ public class MinTemperature extends Stats{
     }
 
     /**
-     * Metodo che ritorna data e ora
-     * @return data e ora
+     * Metodo che ritorna data e ora.
+     * @return data e ora.
      */
     @Override
     public String getDate() {
@@ -38,8 +38,8 @@ public class MinTemperature extends Stats{
     }
 
     /**
-     * Metodo che ritorna minima temperatura
-     * @return minima temperatura
+     * Metodo che ritorna minima temperatura.
+     * @return minima temperatura.
      */
     @Override
     public double getTemp() {
@@ -47,7 +47,7 @@ public class MinTemperature extends Stats{
     }
 
     /**
-     * Metodo che calcola statistiche su minima temperatura
+     * Metodo che calcola statistiche su minima temperatura.
      */
     public void calculateStat(){
 
@@ -65,8 +65,8 @@ public class MinTemperature extends Stats{
     }
 
     /**
-     * Metodo che ritorna statistiche su minima temperatua
-     * @return minima temperatura e data e ora
+     * Metodo che ritorna statistiche su minima temperatura.
+     * @return minima temperatura e data e ora.
      */
     public JSONObject ritornaCalculateStat(){
         JSONObject St = new JSONObject();

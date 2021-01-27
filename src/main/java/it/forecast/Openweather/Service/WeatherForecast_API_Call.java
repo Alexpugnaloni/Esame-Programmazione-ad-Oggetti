@@ -28,8 +28,8 @@ import java.util.Vector;
 
 public class WeatherForecast_API_Call {
 	/**
-	 * Metodo che si occupa della chiamata all'api
-	 * @param url indirizzo di ricerca
+	 * Metodo che si occupa della chiamata all'api.
+	 * @param url indirizzo di ricerca.
 	 * @return dati relativi alla chiamata api.
 	 */
 

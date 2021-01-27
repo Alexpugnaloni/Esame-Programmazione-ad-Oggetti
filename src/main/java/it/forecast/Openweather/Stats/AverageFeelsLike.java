@@ -16,8 +16,8 @@ public class AverageFeelsLike extends Stats{
     private double averageFeelsLike;
 
     /**
-     * Costruttore della classe AverageFeelsLike
-     * @param weatherForecast vettore di dati meteo
+     * Costruttore della classe AverageFeelsLike.
+     * @param weatherForecast vettore di dati meteo.
      */
     public AverageFeelsLike(List<WeatherData> weatherForecast) {
         super(weatherForecast);
@@ -26,8 +26,8 @@ public class AverageFeelsLike extends Stats{
     }
 
     /**
-     * Metodo che ritorna data e ora
-     * @return data e ora
+     * Metodo che ritorna data e ora.
+     * @return data e ora.
      */
     @Override
     public String getDate() {
@@ -35,8 +35,8 @@ public class AverageFeelsLike extends Stats{
     }
 
     /**
-     * Metodo che ritorna la temperatura
-     * @return temperatura
+     * Metodo che ritorna la temperatura.
+     * @return temperatura.
      */
     @Override
     public double getTemp() {
@@ -44,7 +44,7 @@ public class AverageFeelsLike extends Stats{
     }
 
     /**
-     * Metodo che calcola la statistica media temperatura percepita
+     * Metodo che calcola la statistica media temperatura percepita.
      */
     public void calculateStat() {
         Vector<Double> v = new Vector<>();

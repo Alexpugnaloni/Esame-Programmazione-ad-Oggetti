@@ -7,20 +7,20 @@ import java.util.List;
 import java.util.Vector;
 
 /**
- * Sottoclasse che si occupa di generare statistiche su varianza temperatura
+ * Sottoclasse che si occupa di generare statistiche su varianza temperatura.
  * @author Pugnaloni Alex
  * @author Riva Tommaso
  */
 
 public class VarianceTemperature extends Stats {
     /**
-     * Attributo della classe VarianceTemperature
+     * Attributo della classe VarianceTemperature.
      */
     private double varianceTemperature;
 
     /**
-     * Costruttore della classe VarianceTemperatue
-     * @param weatherForecast vettore di dati meteo
+     * Costruttore della classe VarianceTemperature.
+     * @param weatherForecast vettore di dati meteo.
      */
     public VarianceTemperature(List<WeatherData> weatherForecast) {
         super(weatherForecast);
@@ -28,8 +28,8 @@ public class VarianceTemperature extends Stats {
     }
 
     /**
-     * Metodo che ritorna data e ora
-     * @return data e ora
+     * Metodo che ritorna data e ora.
+     * @return data e ora.
      */
     @Override
     public String getDate() {
@@ -37,8 +37,8 @@ public class VarianceTemperature extends Stats {
     }
 
     /**
-     * Metodo che ritorna varianza temperatura
-     * @return varianza temperatura
+     * Metodo che ritorna varianza temperatura.
+     * @return varianza temperatura.
      */
     @Override
     public double getTemp() {
@@ -46,7 +46,7 @@ public class VarianceTemperature extends Stats {
     }
 
     /**
-     * Metodo che calcola statistiche su varianza temperatura
+     * Metodo che calcola statistiche su varianza temperatura.
      */
     public void calculateStat() {
 
@@ -72,8 +72,8 @@ public class VarianceTemperature extends Stats {
     }
 
     /**
-     * Metodo che ritorna statistiche su varianza temperatura
-     * @return varianza temperatura
+     * Metodo che ritorna statistiche su varianza temperatura.
+     * @return varianza temperatura.
      */
     public JSONObject ritornaCalculateStat(){
         JSONObject St = new JSONObject();

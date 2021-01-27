@@ -14,14 +14,14 @@ import java.util.List;
 
 public class MinFeelsLike extends Stats{
     /**
-     * Attributi della classe MinFeelsLike
+     * Attributi della classe MinFeelsLike.
      */
     private double minTemperatureFeelsLike;
     private String date;
 
     /**
-     * Costruttore della classe MinFeelsLike
-     * @param weatherForecast vettore di dati meteo
+     * Costruttore della classe MinFeelsLike.
+     * @param weatherForecast vettore di dati meteo.
      */
     public MinFeelsLike(List<WeatherData> weatherForecast){
         super(weatherForecast);
@@ -30,8 +30,8 @@ public class MinFeelsLike extends Stats{
     }
 
     /**
-     * Metodo che ritorna data e ora
-     * @return data e ora
+     * Metodo che ritorna data e ora.
+     * @return data e ora.
      */
     @Override
     public String getDate() {
@@ -39,8 +39,8 @@ public class MinFeelsLike extends Stats{
     }
 
     /**
-     * Metodo che ritorna minima temperatura percepita
-     * @return minima temperatura percepita
+     * Metodo che ritorna minima temperatura percepita.
+     * @return minima temperatura percepita.
      */
     @Override
     public double getTemp() {
@@ -67,7 +67,7 @@ public class MinFeelsLike extends Stats{
 
     /**
      * Metodo che ritorna statistiche su minima temperatura percepita.
-     * @return minima temperatura percepita e data e ora
+     * @return minima temperatura percepita e data e ora.
      */
     public JSONObject ritornaCalculateStat(){
         JSONObject St = new JSONObject();

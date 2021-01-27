@@ -133,7 +133,7 @@ public class WeatherServiceImpl implements WeatherService {
 
     /**
      * implementazione metodo statistiche previsioni azzeccate.
-     * @param AccuracyStats body passato alla rotta accuracystats
+     * @param AccuracyStats body passato alla rotta accuracystats.
      * @return JSONObject di statistiche.
      */
 

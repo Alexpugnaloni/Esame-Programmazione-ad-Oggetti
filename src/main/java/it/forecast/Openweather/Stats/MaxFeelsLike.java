@@ -14,14 +14,14 @@ import java.util.List;
 
 public class MaxFeelsLike extends Stats{
     /**
-     * attributi della classe
+     * attributi della classe.
      */
     private double maxTemperatureFeelsLike;
     private String date;
 
     /**
-     * Costruttore della classe
-     * @param weatherForecast vettore di dati meteo
+     * Costruttore della classe.
+     * @param weatherForecast vettore di dati meteo.
      */
     public MaxFeelsLike(List<WeatherData> weatherForecast){
         super(weatherForecast);
@@ -30,16 +30,16 @@ public class MaxFeelsLike extends Stats{
     }
 
     /**
-     * Metodo che ritorna temperatura
-     * @return temperatura
+     * Metodo che ritorna temperatura.
+     * @return temperatura.
      */
     @Override
     public double getTemp(){
         return this.maxTemperatureFeelsLike; }
 
     /**
-     * Metodo che ritorna data e ora
-     * @return data e ora
+     * Metodo che ritorna data e ora.
+     * @return data e ora.
      */
     @Override
     public String getDate(){
@@ -66,8 +66,8 @@ public class MaxFeelsLike extends Stats{
     }
 
     /**
-     * Metodo che ritorna statistiche su temperatura massima percepita
-     * @return temperatura massima percepita e data
+     * Metodo che ritorna statistiche su temperatura massima percepita.
+     * @return temperatura massima percepita e data.
      */
     public JSONObject ritornaCalculateStat(){
         JSONObject St = new JSONObject();

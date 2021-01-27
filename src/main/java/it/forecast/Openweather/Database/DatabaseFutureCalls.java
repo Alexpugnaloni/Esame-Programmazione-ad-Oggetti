@@ -8,29 +8,29 @@ import java.util.ArrayList;
 
 
 /**
- * Classe che contiene i metodi salvadati automatizzati dallo scheduler per salvare le previsioni dei giorni successivi
+ * Classe che contiene i metodi salvadati automatizzati dallo scheduler per salvare le previsioni dei giorni successivi.
  * @author Pugnaloni Alex
  * @author Riva Tommaso
  */
 public class DatabaseFutureCalls {
 
     /**
-     * array contenente tutti i dati sulle previsioni dei giorni successivi
+     * array contenente tutti i dati sulle previsioni dei giorni successivi.
      */
     private static ArrayList<WeatherData> weatherforecast = new ArrayList<>();
 
     /**
-     * array contentente tutti i metadati
+     * array contentente tutti i metadati.
      */
     private static final ArrayList<Metadata> metadata = new ArrayList<>();
 
     /**
-     * percorso del database popolato di dati sulle previsioni dei giorni successivi
+     * percorso del database popolato di dati sulle previsioni dei giorni successivi.
      */
     private static final String csvFile = "DatabaseFile/DatabaseFutureCalls.csv";
 
     /**
-     * @return array di tutti i dati sulle previsioni dei giorni successivi
+     * @return array di tutti i dati sulle previsioni dei giorni successivi.
      */
     public static ArrayList<WeatherData> getWeatherforecast(){
         return weatherforecast;
@@ -38,7 +38,7 @@ public class DatabaseFutureCalls {
 
     /**
      *
-     * @return array di metadati
+     * @return array di metadati.
      */
     public static ArrayList<Metadata> getMetadata(){
         metadata.add(new Metadata("description","Description","String"));
@@ -56,22 +56,22 @@ public class DatabaseFutureCalls {
     }
 
     /**
-     * metodo che aggiunge dati sulle previsioni dei giorni successivi all' array
-     * @param weatherData istanza della classe weatherdata
+     * metodo che aggiunge dati sulle previsioni dei giorni successivi all' array.
+     * @param weatherData istanza della classe weatherdata.
      */
     public static void addWeatherForecast(WeatherData weatherData) {
         weatherforecast.add(weatherData);
     }
 
     /**
-     * metodo che popola l'array dinamico con i dati contenuti nel database delle previsioni future
+     * metodo che popola l'array dinamico con i dati contenuti nel database delle previsioni future.
      */
     public static void setWeatherDataCSV(){
         weatherforecast = CSVparsing.runParsing(csvFile);
     }
 
     /**
-     * metodo utilizzato per salvare i dati sul database
+     * metodo utilizzato per salvare i dati sul database.
      */
     public static void saveToCSV(){
         CSVparsing.saveToDatabaseFutureCalls(csvFile);

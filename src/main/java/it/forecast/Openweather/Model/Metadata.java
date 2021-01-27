@@ -1,6 +1,6 @@
 package it.forecast.Openweather.Model;
 /**
- * Classe che rappresenta oggetti che contengono alias assegnato,
+ * Classe che rappresenta oggetti che contengono alias assegnato.
  * nome della colonna e tipo di dato.
  * @author Pugnaloni Alex
  * @author Riva Tommaso
@@ -8,7 +8,7 @@ package it.forecast.Openweather.Model;
 
 public class Metadata {
     /**
-     * Attributi della Classe Metadata
+     * Attributi della Classe Metadata.
      */
 
     private String alias;
@@ -16,7 +16,7 @@ public class Metadata {
     private String type;
 
     /**
-     * Costruttori della classe Metadata
+     * Costruttori della classe Metadata.
      */
 
     public Metadata() {}

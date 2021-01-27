@@ -22,8 +22,8 @@ public class MaxTemperature extends Stats {
     private String date;
 
     /**
-     * Costruttore della classe MaxTemperature
-     * @param weatherForecast vettore di dati meteo
+     * Costruttore della classe MaxTemperature.
+     * @param weatherForecast vettore di dati meteo.
      */
     public MaxTemperature(List<WeatherData> weatherForecast){
         super(weatherForecast);
@@ -32,16 +32,16 @@ public class MaxTemperature extends Stats {
     }
 
     /**
-     * Metodo che ritorna temperatura
-     * @return temperatura
+     * Metodo che ritorna temperatura.
+     * @return temperatura.
      */
     @Override
     public double getTemp(){
         return this.maxTemperature; }
 
     /**
-     * Metodo che ritorna data e ora
-     * @return data e ora
+     * Metodo che ritorna data e ora.
+     * @return data e ora.
      */
     @Override
     public String getDate(){
@@ -68,8 +68,8 @@ public class MaxTemperature extends Stats {
     }
 
     /**
-     * Metodo che ritorna statistiche su massima temperatura
-     * @return massima temperatura e data e ora
+     * Metodo che ritorna statistiche su massima temperatura.
+     * @return massima temperatura e data e ora.
      */
     public JSONObject ritornaCalculateStat(){
         JSONObject St = new JSONObject();

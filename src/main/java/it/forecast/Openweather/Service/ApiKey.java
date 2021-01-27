@@ -30,7 +30,7 @@ public class ApiKey {
      }
 
     /**
-     * Getter e Setter della Classe ApiKey
+     * Getter e Setter della Classe ApiKey.
      */
 
     public String getApiKey() {

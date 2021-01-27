@@ -8,7 +8,7 @@ package it.forecast.Openweather.Model;
 
 public class WeatherData {
 	/**
-	 * attributi della classe WeatherData settati private
+	 * attributi della classe WeatherData settati private.
 	 */
 
 
@@ -26,17 +26,17 @@ public class WeatherData {
 
 	/**
 	 * Costruttore della Classe WeatherData con i suoi attributi.
-	 * @param description descrizione
-	 * @param temperature temperatura
-	 * @param tempMin temperatura minima
-	 * @param tempMax temperatura massima
-	 * @param feels_like temperatura percepita
-	 * @param humidity umidità
-	 * @param pressure pressione
-	 * @param date data e ora
-	 * @param city città
-	 * @param country paese
-	 * @param mainCondition condizione principale
+	 * @param description descrizione.
+	 * @param temperature temperatura.
+	 * @param tempMin temperatura minima.
+	 * @param tempMax temperatura massima.
+	 * @param feels_like temperatura percepita.
+	 * @param humidity umidità.
+	 * @param pressure pressione.
+	 * @param date data e ora.
+	 * @param city città.
+	 * @param country paese.
+	 * @param mainCondition condizione principale.
 	 */
 
 	public WeatherData( String description, Double temperature, Double tempMin, Double tempMax, Double feels_like, Long humidity,Long pressure,String date, String city, String country, String mainCondition){

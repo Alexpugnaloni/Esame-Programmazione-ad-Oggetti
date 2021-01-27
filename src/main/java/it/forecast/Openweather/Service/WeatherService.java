@@ -33,7 +33,7 @@ public interface WeatherService {
 
 	/**
 	 * Metodo che restituisce statistiche su previsioni azzeccate.
-	 * @param AccuracyStats body passato alla rotta accuracystats
+	 * @param AccuracyStats body passato alla rotta accuracystats.
 	 * @return JSONObject di statistiche.
 	 */
 	Map<String,Object> getAccuracy (PostRequestBodyHandler AccuracyStats) throws IOException, ParseException, JSONException, NoDataException;

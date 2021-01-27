@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * Classe che si occupa di popolare l'ArrayList di dati meteo
+ * Classe che si occupa di popolare l'ArrayList di dati meteo.
  * prendendoli in input da un file CSV.
  * @author Pugnaloni Alex
  * @author Riva Tommaso
@@ -18,8 +18,8 @@ import java.util.ArrayList;
 public class CSVparsing {
     /**
      * Effettua il parsing del file CSV in modo da salvare ogni riga come un oggetto WeatherData.
-     * @param csvFile percorso del file da cui recuperare le informazioni
-     * @return ArrayList di dati meteo
+     * @param csvFile percorso del file da cui recuperare le informazioni.
+     * @return ArrayList di dati meteo.
      */
 
     @SuppressWarnings("deprecation")

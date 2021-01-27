@@ -8,7 +8,7 @@ package it.forecast.Openweather.Stats;
 
 public class PostRequestBodyHandler {
     /**
-     * Attributi della classe PostRequestBodyHandler
+     * Attributi della classe PostRequestBodyHandler.
      */
 
     String city;
@@ -17,11 +17,11 @@ public class PostRequestBodyHandler {
     String param;
 
     /**
-     * Costruttore della classe PostRequestBodyHandler
-     * @param city città di cui visulizzare le statistiche
-     * @param period periodo scelto
-     * @param accuracy margine d'errore
-     * @param param indicatore di cui calcolare l'accuratezza
+     * Costruttore della classe PostRequestBodyHandler.
+     * @param city città di cui visulizzare le statistiche.
+     * @param period periodo scelto.
+     * @param accuracy margine d'errore.
+     * @param param indicatore di cui calcolare l'accuratezza.
      */
     public PostRequestBodyHandler(String city, String period, Double accuracy, String param) {
 

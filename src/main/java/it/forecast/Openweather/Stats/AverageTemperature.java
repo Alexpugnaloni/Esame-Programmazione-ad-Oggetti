@@ -16,8 +16,8 @@ public class AverageTemperature extends Stats {
     private double averageTemperature;
 
     /**
-     * Costruttore della classe AverageTempeerature
-     * @param weatherForecast vettore di dati meteo
+     * Costruttore della classe AverageTempeerature.
+     * @param weatherForecast vettore di dati meteo.
      */
     public AverageTemperature(List<WeatherData> weatherForecast) {
         super(weatherForecast);
@@ -26,8 +26,8 @@ public class AverageTemperature extends Stats {
     }
 
     /**
-     * Metodo che restituisce data e ora
-     * @return data e ora
+     * Metodo che restituisce data e ora.
+     * @return data e ora.
      */
     @Override
     public String getDate() {
@@ -35,8 +35,8 @@ public class AverageTemperature extends Stats {
     }
 
     /**
-     * Metodo che restituisce temperatura
-     * @return temperatura
+     * Metodo che restituisce temperatura.
+     * @return temperatura.
      */
     @Override
     public double getTemp() {
@@ -44,7 +44,7 @@ public class AverageTemperature extends Stats {
     }
 
     /**
-     * Metodo che calcola la statistica media temperatura
+     * Metodo che calcola la statistica media temperatura.
      */
     public void calculateStat() {
         Vector<Double> v = new Vector<>();
@@ -64,8 +64,8 @@ public class AverageTemperature extends Stats {
     }
 
     /**
-     * Metodo che ritorna la statistica media temperatura
-     * @return media temperatura
+     * Metodo che ritorna la statistica media temperatura.
+     * @return media temperatura.
      */
     public JSONObject ritornaCalculateStat(){
         JSONObject St = new JSONObject();
