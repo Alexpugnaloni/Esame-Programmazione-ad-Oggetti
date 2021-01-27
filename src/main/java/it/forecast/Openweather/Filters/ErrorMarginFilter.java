@@ -57,9 +57,9 @@ public class ErrorMarginFilter {
                 return FilteredList;
             }
             case "humidity": {
-                for (WeatherData data : weatherForecast) {
-                    for (WeatherData weatherData : futureForecast) {
-                        if (data.getDate().compareTo(weatherData.getDate()) > 0) {
+                for (WeatherData weatherData : futureForecast) {
+                    for (WeatherData data : weatherForecast) {
+                        if (data.getDate().compareTo(weatherData.getDate()) >= 0) {
                             a = data.getHumidity();
                             b = weatherData.getHumidity();
                             if (a >= b) result = b / a;
@@ -78,9 +78,9 @@ public class ErrorMarginFilter {
                 return FilteredList;
             }
             case "pressure": {
-                for (WeatherData data : weatherForecast) {
-                    for (WeatherData weatherData : futureForecast) {
-                        if (data.getDate().compareTo(weatherData.getDate()) > 0) {
+                for (WeatherData weatherData : futureForecast) {
+                    for (WeatherData data : weatherForecast) {
+                        if (data.getDate().compareTo(weatherData.getDate()) >= 0) {
                             a = data.getPressure();
                             b = weatherData.getPressure();
                             if (a >= b) result = b / a;

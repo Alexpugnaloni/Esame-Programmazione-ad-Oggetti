@@ -36,6 +36,12 @@ weather.add(w2);
 	@Test
 	public  void Test1 (){
 		assertNotEquals(w1.getTemperature(),w2.getTemperature());
+		assertNotEquals(w1.getFeels_like(),w2.getFeels_like());
+		assertNotEquals(w1.getTempMin(),w2.getTempMin());
+	}
+	@Test
+	public void Test2() {
+
 	}
 
 }
