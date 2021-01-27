@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
 
+import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
@@ -26,7 +27,6 @@ public class PeriodFilter {
     public static List<WeatherData> getFilteredPeriod(String period, List<WeatherData> weatherForecast) {
 
         List<WeatherData> FilteredList = new Vector<>();
-
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();

@@ -98,30 +98,32 @@ public class CSVparsing {
         }
         try {
             //Creo i nomi delle colonne per il file CSV
-            FileWriter csvWriter = new FileWriter(csvFile);
-            csvWriter.append("Description");
-            csvWriter.append(";");
-            csvWriter.append("Temperature");
-            csvWriter.append(";");
-            csvWriter.append("TempMin");
-            csvWriter.append(";");
-            csvWriter.append("TempMax");
-            csvWriter.append(";");
-            csvWriter.append("Feels Like");
-            csvWriter.append(";");
-            csvWriter.append("Humidity");
-            csvWriter.append(";");
-            csvWriter.append("Pressure");
-            csvWriter.append(";");
-            csvWriter.append("Date");
-            csvWriter.append(";");
-            csvWriter.append("City");
-            csvWriter.append(";");
-            csvWriter.append("Country");
-            csvWriter.append(";");
-            csvWriter.append("Main Condition");
-            csvWriter.append("\n");
-
+            FileWriter csvWriter = new FileWriter(csvFile,true);
+            File f = new File(csvFile);
+            if(!f.exists()) {
+                csvWriter.append("Description");
+                csvWriter.append(";");
+                csvWriter.append("Temperature");
+                csvWriter.append(";");
+                csvWriter.append("TempMin");
+                csvWriter.append(";");
+                csvWriter.append("TempMax");
+                csvWriter.append(";");
+                csvWriter.append("Feels Like");
+                csvWriter.append(";");
+                csvWriter.append("Humidity");
+                csvWriter.append(";");
+                csvWriter.append("Pressure");
+                csvWriter.append(";");
+                csvWriter.append("Date");
+                csvWriter.append(";");
+                csvWriter.append("City");
+                csvWriter.append(";");
+                csvWriter.append("Country");
+                csvWriter.append(";");
+                csvWriter.append("Main Condition");
+                csvWriter.append("\n");
+            }
             String[] sections;
             for (String rowData : rows) {
                 //divido la stringa dati meteo precedente dove trovo ";"
@@ -132,7 +134,7 @@ public class CSVparsing {
                 }
                 csvWriter.append("\n");
             }
-            csvWriter.flush(); //salvo per sicurezza in modo tale da non lassciare nulla sul buffer
+            csvWriter.flush(); //salvo per sicurezza in modo tale da non lasciare nulla sul buffer
             csvWriter.close();
         } catch (FileNotFoundException e) {
             System.out.println(e.getClass().getCanonicalName()+ "Errore in it.forecast.Openweather.Service.CSVparsing.java: File non trovato");
@@ -159,29 +161,31 @@ public class CSVparsing {
         }
         try {
             FileWriter csvWriter = new FileWriter(csvFile);
-            csvWriter.append("Description");
-            csvWriter.append(";");
-            csvWriter.append("Temperature");
-            csvWriter.append(";");
-            csvWriter.append("TempMin");
-            csvWriter.append(";");
-            csvWriter.append("TempMax");
-            csvWriter.append(";");
-            csvWriter.append("Feels Like");
-            csvWriter.append(";");
-            csvWriter.append("Humidity");
-            csvWriter.append(";");
-            csvWriter.append("Pressure");
-            csvWriter.append(";");
-            csvWriter.append("Date");
-            csvWriter.append(";");
-            csvWriter.append("City");
-            csvWriter.append(";");
-            csvWriter.append("Country");
-            csvWriter.append(";");
-            csvWriter.append("Main Condition");
-            csvWriter.append("\n");
-
+            File f = new File(csvFile);
+            if(!f.exists()) {
+                csvWriter.append("Description");
+                csvWriter.append(";");
+                csvWriter.append("Temperature");
+                csvWriter.append(";");
+                csvWriter.append("TempMin");
+                csvWriter.append(";");
+                csvWriter.append("TempMax");
+                csvWriter.append(";");
+                csvWriter.append("Feels Like");
+                csvWriter.append(";");
+                csvWriter.append("Humidity");
+                csvWriter.append(";");
+                csvWriter.append("Pressure");
+                csvWriter.append(";");
+                csvWriter.append("Date");
+                csvWriter.append(";");
+                csvWriter.append("City");
+                csvWriter.append(";");
+                csvWriter.append("Country");
+                csvWriter.append(";");
+                csvWriter.append("Main Condition");
+                csvWriter.append("\n");
+            }
             String[] sections;
             for (String rowData : rows) {
                 sections = rowData.split(";");

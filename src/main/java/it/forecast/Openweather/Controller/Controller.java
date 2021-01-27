@@ -6,6 +6,7 @@ import it.forecast.Openweather.Exception.NoDataException;
 import it.forecast.Openweather.Service.ApiKey;
 import it.forecast.Openweather.Service.WeatherService;
 import it.forecast.Openweather.Stats.PostRequestBodyHandler;
+import org.json.HTTP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -60,11 +61,16 @@ public class Controller {
 		return new ResponseEntity<>(w.get5ForecastWeather(url), HttpStatus.OK);
 	}
 
+	@GetMapping("/metadata")
+	public ResponseEntity<Object> getMetadata(){
+		return new ResponseEntity<>(Database.getMetadata(), HttpStatus.OK);
+	}
+
 	/**
 	 * Chiamata programmata per popolare i database presenti nel progetto con frequenza oraria.
 	 *
 	 */
-	@Scheduled(initialDelay = 10000,fixedRate = 5000)
+	@Scheduled(initialDelay = 3600000,fixedRate = 3600000)
 	public void scheduledRequest() throws ParseException, NoDataException, IOException {
 
 		get5ForecastWeather(cityPar,langPar);

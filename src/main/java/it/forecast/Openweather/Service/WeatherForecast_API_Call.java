@@ -111,10 +111,14 @@ public class WeatherForecast_API_Call {
 				}
 				CurrentCounter++;
 
+
 			} catch (ClassCastException e) {} catch (Exception e) {
 				e.printStackTrace();
 
 			}
+
+			Database.saveToCSV();
+			DatabaseFutureCalls.saveToCSV();
 		}
 	}
 }

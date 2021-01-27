@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.io.IOException;
+import java.io.NotActiveException;
 import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
@@ -44,7 +45,7 @@ public class WeatherServiceImpl implements WeatherService {
         WeatherForecast_API_Call w = new WeatherForecast_API_Call();
         this.weatherForecast = w.loadCall(url);
         if (this.weatherForecast == null || this.weatherForecast.contains("[]"))
-            throw new NoDataException();
+            throw new NoDataException("weatherforecast");
 
         return this.weatherForecast;
     }
@@ -64,11 +65,13 @@ public class WeatherServiceImpl implements WeatherService {
         city = city.substring(0, 1).toUpperCase() + city.substring(1);
         String period = PeriodicStats.getPeriod().toLowerCase();
 
+
+
         try {
             Database.setWeatherDataCSV();
             weatherForecast = Database.getWeatherforecast();
             if (this.weatherForecast == null)
-                throw new NoDataException();
+                throw new NoDataException("weatherForecast");
         } catch (Exception e) {
         }
 
@@ -144,6 +147,9 @@ public class WeatherServiceImpl implements WeatherService {
         city = city.substring(0, 1).toUpperCase() + city.substring(1);
         Double accuracy = AccuracyStats.getAccuracy();
         String param = AccuracyStats.getParam();
+        if(accuracy == null) throw new NotActiveException("accuracy");
+        if(param == null) throw new NotActiveException("param");
+        if(city == null) throw new NotActiveException("city");
 
         try {
             Database.setWeatherDataCSV();
@@ -151,7 +157,7 @@ public class WeatherServiceImpl implements WeatherService {
             DatabaseFutureCalls.setWeatherDataCSV();
             futureForecast = DatabaseFutureCalls.getWeatherforecast();
             if (this.weatherForecast == null || this.futureForecast == null)
-                throw new NoDataException();
+                throw new NoDataException("weatherForecast");
 
         } catch (Exception e) {
         }

@@ -16,6 +16,7 @@ public class PostRequestBodyHandler {
     Double accuracy;
     String param;
 
+
     /**
      * Costruttore della classe PostRequestBodyHandler.
      * @param city città di cui visulizzare le statistiche.
@@ -29,6 +30,7 @@ public class PostRequestBodyHandler {
         this.period = period;
         this.accuracy = accuracy;
         this.param = param;
+
     }
 
     /**
@@ -66,4 +68,7 @@ public class PostRequestBodyHandler {
     public void setParam(String param) {
         this.param = param;
     }
+
+
+
 }
