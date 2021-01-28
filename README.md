@@ -283,7 +283,7 @@ il servizio è in esecuzione.
 
 **MissingDataException**: lanciata quando una o più voci del requestbody non sono presenti.
 
-**FailRequestException**: lanciata quando la città inserita non è stata trovata nel database di OpenWeather
+**FailRequestException**: lanciata quando la città inserita non è stata trovata nel database di OpenWeather.
 
 Esempio MissingDataException:
 ```
@@ -312,7 +312,7 @@ Sono presenti dei test all' interno del servizio.
 
 **Test 1**: Verifica che due previsioni abbiano valori differenti.
 
-**Test 2** Serve a verificare che l'eccezione MissingDataException funzioni correttamente
+**Test 2** Serve a verificare che l'eccezione MissingDataException funzioni correttamente.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Authors
