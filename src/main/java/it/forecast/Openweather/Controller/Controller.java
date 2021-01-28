@@ -2,6 +2,7 @@ package it.forecast.Openweather.Controller;
 
 import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Database.DatabaseFutureCalls;
+import it.forecast.Openweather.Exceptions.EmptyWeatherException;
 import it.forecast.Openweather.Exceptions.FailRequestException;
 import it.forecast.Openweather.Exceptions.MissingDataException;
 import it.forecast.Openweather.Service.ApiKey;
@@ -49,7 +50,7 @@ public class Controller {
 	 */
 
 	@GetMapping("/weather")
-			public ResponseEntity<Object> get5ForecastWeather(@RequestParam( name="city",defaultValue="Ancona") String city, @RequestParam(name="lang",defaultValue = "it") String lang) throws MissingDataException, IOException, ParseException {
+			public ResponseEntity<Object> get5ForecastWeather(@RequestParam( name="city",defaultValue="Ancona") String city, @RequestParam(name="lang",defaultValue = "it") String lang) throws MissingDataException, IOException, ParseException, FailRequestException {
 		city= city.toLowerCase();
 		lang = lang.toLowerCase();
 		cityPar = city;
@@ -58,11 +59,11 @@ public class Controller {
 		apiKey.ReadApiKey();
 		api_keyPar = apiKey.getApiKey();
 		url = "https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&appid="+ api_keyPar+ "&lang=" + lang + "&units=metric";
-		try {
+	//	try {
 			return new ResponseEntity<>(w.get5ForecastWeather(url), HttpStatus.OK);
-		} catch (FailRequestException e) {
-		return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
-		}
+	//	} catch (FailRequestException e) {
+	//	return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
+	//	}
 	}
 
 	@GetMapping("/metadata")
@@ -75,7 +76,7 @@ public class Controller {
 	 *
 	 */
 	@Scheduled(initialDelay = 3600000,fixedRate = 3600000)
-	public void scheduledRequest() throws ParseException, MissingDataException, IOException {
+	public void scheduledRequest() throws ParseException, MissingDataException, IOException, FailRequestException {
 
 		get5ForecastWeather(cityPar,langPar);
 		Database.saveToCSV();
@@ -89,10 +90,12 @@ public class Controller {
 
 	 */
 	@PostMapping("/periodicstats")
-		public 	ResponseEntity<Object> getStats (@RequestBody PostRequestBodyHandler PeriodicStats) throws MissingDataException, IOException, ParseException {
-
-		return new ResponseEntity<>(w.getStats(PeriodicStats), HttpStatus.OK);
-
+		public 	ResponseEntity<Object> getStats (@RequestBody PostRequestBodyHandler PeriodicStats) throws MissingDataException, IOException, ParseException, EmptyWeatherException {
+		try {
+			return new ResponseEntity<>(w.getStats(PeriodicStats), HttpStatus.OK);
+		} catch (EmptyWeatherException e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
+		}
 	}
 
 	/**
@@ -104,7 +107,7 @@ public class Controller {
 		public ResponseEntity<Object> getAccuracy(@RequestBody PostRequestBodyHandler AccuracyStats) throws IOException, ParseException {
 		try {
 			return new ResponseEntity<>(w.getAccuracy(AccuracyStats), HttpStatus.OK);
-		} catch (MissingDataException e) {
+		} catch (MissingDataException | EmptyWeatherException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
 		}
 	}

@@ -1,6 +1,7 @@
 package it.forecast.Openweather.Service;
 
 
+import it.forecast.Openweather.Exceptions.EmptyWeatherException;
 import it.forecast.Openweather.Exceptions.FailRequestException;
 import it.forecast.Openweather.Exceptions.MissingDataException;
 import it.forecast.Openweather.Model.WeatherData;
@@ -30,13 +31,13 @@ public interface WeatherService {
 	 * @param PeriodicStats body passato alla rotta periodicstats
 	 * @return JSONObject di statistiche periodiche.
 	 */
-	Map<String,Object> getStats(PostRequestBodyHandler PeriodicStats) throws IOException, ParseException, JSONException, MissingDataException;
+	Map<String,Object> getStats(PostRequestBodyHandler PeriodicStats) throws IOException, ParseException, JSONException, MissingDataException, EmptyWeatherException;
 
 	/**
 	 * Metodo che restituisce statistiche su previsioni azzeccate.
 	 * @param AccuracyStats body passato alla rotta accuracystats.
 	 * @return JSONObject di statistiche.
 	 */
-	Map<String,Object> getAccuracy (PostRequestBodyHandler AccuracyStats) throws IOException, ParseException, JSONException, MissingDataException;
+	Map<String,Object> getAccuracy (PostRequestBodyHandler AccuracyStats) throws IOException, ParseException, JSONException, MissingDataException, EmptyWeatherException;
 
 }
