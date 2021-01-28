@@ -277,6 +277,7 @@ Inoltre, restituisce due contatori:
 # UML Diagrams
 
 ## Class Diagram
+![ClassDiagram](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/Class%20Diagram.jpg)
 ## Use Case Diagram
 ![usecase](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/User%20Case%20Diagram.PNG)
 # Sequence Diagrams
