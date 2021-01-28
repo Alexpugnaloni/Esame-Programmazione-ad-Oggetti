@@ -5,6 +5,8 @@ Il programma genera statistiche periodiche e di accuratezza delle informazioni c
 
 L' utente, utilizzando un Client (ad esempio [Postman](https://www.postman.com/)), utilizza le funzionalità del servizio grazie al Web Service [Tomcat](http://tomcat.apache.org/) integrato nel Framework [Spring](https://spring.io/).
 
+Il server default di Tomcat su cui vanno effettuate le richieste è http://localhost:8080/ Aggiungere all'url una delle rotte disponibili per visualizzare le informazioni corrispondenti.
+
 :warning: :warning: :warning: ***per il corretto utilizzo del servizio, è necessario innanzitutto disporre di una Key Openweather personale per poter effettuare le chiamate. Visitare [la pagina di sign up](https://home.openweathermap.org/users/sign_up) e registrarsi per ottenerne una. Inserire successivamente la propria key all' interno del file ApiKey.txt all' interno della cartella omonima presente nel progetto*** :warning: :warning: :warning: 
 
 ## Caratteristiche del Servizio
@@ -308,7 +310,7 @@ Sono presenti dei test all' interno del servizio.
 
 **Test 1**: Verifica che due previsioni abbiano valori differenti.
 
-**Test 2**
+**Test 2** Serve a verificare che l'eccezione MissingDataException funzioni correttamente
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Authors
