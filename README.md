@@ -276,10 +276,10 @@ Inoltre, restituisce due contatori:
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # UML Diagrams
 
-##Class Diagram
-##Use Case Diagram
+## Class Diagram
+## Use Case Diagram
 ![usecase](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/User%20Case%20Diagram.PNG)
-#Sequence Diagrams
+# Sequence Diagrams
 ![getweather](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/OpenWeatherMap%20Model%20Sequence%20Diagram%20GETWEATHER.jpg)
 ![getmetadata](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/OpenWeatherMap%20Model%20Sequence%20Diagram%20GETMETADATA.jpg)
 ![postperiodic](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/OpenWeatherMap%20Model%20Sequence%20Diagram%20GETSTATS.jpg)
