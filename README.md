@@ -226,7 +226,7 @@ chiamate correnti. La soglia di errore può essere modificata a piacere dall' ut
     "param": "temperature"
 }
 ```
-1. **city** : città della quale calcolare le statistiche, (è opzionale, se non si inserisce il servizio calcolerà statistiche fra tutte le città nel database).
+1. **city** : città della quale calcolare le statistiche, (il database deve essere già popolato con chiamate alla stessa città).
 2. **accuracy**: soglia di errore di tolleranza per il filtro, è sempre un numero compreso tra 0 e 1. Il filtro riporterà le previsioni con un' accuratezza maggiore o uguale.
 3. **param**: campo del quale calcolare l' accuratezza. Si può scegliere fra "temperature", "humidity" o "pressure".
 
