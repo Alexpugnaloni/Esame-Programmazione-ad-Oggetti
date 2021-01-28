@@ -48,7 +48,7 @@ public class WeatherServiceImpl implements WeatherService {
         WeatherForecast_API_Call w = new WeatherForecast_API_Call();
         this.weatherForecast = w.loadCall(url);
         if (this.weatherForecast == null || this.weatherForecast.contains("[]"))
-            throw new FailRequestException();  //DA RIVEDERE ALLA FINE
+            throw new FailRequestException();
 
         return this.weatherForecast;
     }
@@ -79,7 +79,7 @@ public class WeatherServiceImpl implements WeatherService {
             Database.setWeatherDataCSV();
             weatherForecast = Database.getWeatherforecast();
             if (this.weatherForecast == null)
-                throw new EmptyWeatherException("weatherForecast is"); //DA provare
+                throw new EmptyWeatherException("weatherForecast is");
         } catch (Exception e) {
         }
 
@@ -165,7 +165,7 @@ public class WeatherServiceImpl implements WeatherService {
             DatabaseFutureCalls.setWeatherDataCSV();
             futureForecast = DatabaseFutureCalls.getWeatherforecast();
             if (this.weatherForecast == null || this.futureForecast == null)
-                throw new EmptyWeatherException("weatherForecast and/or futureforecast are"); //DA CAMBIARE provare
+                throw new EmptyWeatherException("weatherForecast and/or futureforecast are");
 
         } catch (Exception e) {
         }

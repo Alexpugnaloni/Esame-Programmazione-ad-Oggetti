@@ -1,11 +1,17 @@
 package it.forecast.Openweather.Exceptions;
 
 public class FailRequestException extends Exception{
-    public FailRequestException(){
+    private String s1,s2;
+
+    public  FailRequestException(){
+        super();
+        this.s1= "city";
+        this.s2= "lang";
 
     }
-    @Override
+ @Override
     public String getMessage(){
-        return "Failed Request, check correct name of city and lang parameters";
-    }
+        return "Failed Request, check correct name of" +s1+ "and "+s2+"parameters";
+}
+
 }

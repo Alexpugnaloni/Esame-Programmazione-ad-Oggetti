@@ -58,7 +58,6 @@ public class Controller {
 		ApiKey apiKey = new ApiKey();
 		apiKey.ReadApiKey();
 		api_keyPar = apiKey.getApiKey();
-		if(city == null || lang== null) throw new FailRequestException(); // DA RIVEDERE
 		url = "https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&appid="+ api_keyPar+ "&lang=" + lang + "&units=metric";
 	try {
 			return new ResponseEntity<>(w.get5ForecastWeather(url), HttpStatus.OK);
