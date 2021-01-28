@@ -78,8 +78,30 @@ Esempio di chiamata su Postman con parametri modificati e con body di risposta:
 ---------------------------------------------------------------------------------------------------------------------
 # GET /metadata
 
-Questa rotta manda in output i metadati 
+Questa rotta manda in output l' elenco di metadati costruiti all' interno della classe omonima ed utilizzati all' interno del servizio
 
+Esempio di chiamata su Postman.
+
+<<< INSERIRE IMMAGINE >>>>>>>>
+
+## Body Example
+```json
+ {
+     "alias": "description",
+     "sourcefield": "Description",
+     "type": "String"
+ },
+ {
+     "alias": "temperature",
+     "sourcefield": "Temperature",
+     "type": "Double"
+ }, ...
+```
+
+## Body Breakdown
+1. **alias**: nome del dato.
+2. **sourcefield**: campo da cui vengono presi i valori.
+3. **type**: Tipo del metadato.
 ----------------------------------------------------------------------------------------------------------------------
 # POST /periodicstats
 
