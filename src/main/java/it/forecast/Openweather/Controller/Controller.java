@@ -50,7 +50,7 @@ public class Controller {
 	 */
 
 	@GetMapping("/weather")
-			public ResponseEntity<Object> get5ForecastWeather(@RequestParam( name="city",defaultValue="Ancona") String city, @RequestParam(name="lang",defaultValue = "it") String lang) throws MissingDataException, IOException, ParseException, FailRequestException {
+			public ResponseEntity<Object> get5ForecastWeather(@RequestParam( name="city",defaultValue="Ancona") String city, @RequestParam(name="lang",defaultValue = "it") String lang) throws FailRequestException, IOException, MissingDataException {
 		city= city.toLowerCase();
 		lang = lang.toLowerCase();
 		cityPar = city;
@@ -58,12 +58,13 @@ public class Controller {
 		ApiKey apiKey = new ApiKey();
 		apiKey.ReadApiKey();
 		api_keyPar = apiKey.getApiKey();
+		if(city == null || lang== null) throw new FailRequestException(); // DA RIVEDERE
 		url = "https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&appid="+ api_keyPar+ "&lang=" + lang + "&units=metric";
 	try {
 			return new ResponseEntity<>(w.get5ForecastWeather(url), HttpStatus.OK);
-		} catch (FailRequestException e) {
+		} catch (FailRequestException | ParseException e) {
 		return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
-		}
+	}
 	}
 
 	@GetMapping("/metadata")
