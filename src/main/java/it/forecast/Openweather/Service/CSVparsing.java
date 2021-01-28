@@ -98,9 +98,9 @@ public class CSVparsing {
         }
         try {
             //Creo i nomi delle colonne per il file CSV
-            FileWriter csvWriter = new FileWriter(csvFile, true);
+            FileWriter csvWriter = new FileWriter(csvFile);
             File f = new File(csvFile);
-            if(!f.exists()) {
+
                 csvWriter.append("Description");
                 csvWriter.append(";");
                 csvWriter.append("Temperature");
@@ -123,7 +123,7 @@ public class CSVparsing {
                 csvWriter.append(";");
                 csvWriter.append("Main Condition");
                 csvWriter.append("\n");
-            }
+
             String[] sections;
             for (String rowData : rows) {
                 //divido la stringa dati meteo precedente dove trovo ";"
@@ -160,9 +160,9 @@ public class CSVparsing {
             rows.add(x);
         }
         try {
-            FileWriter csvWriter = new FileWriter(csvFile, true);
+            FileWriter csvWriter = new FileWriter(csvFile);
             File f = new File(csvFile);
-            if(!f.exists()) {
+
                 csvWriter.append("Description");
                 csvWriter.append(";");
                 csvWriter.append("Temperature");
@@ -185,7 +185,7 @@ public class CSVparsing {
                 csvWriter.append(";");
                 csvWriter.append("Main Condition");
                 csvWriter.append("\n");
-            }
+
             String[] sections;
             for (String rowData : rows) {
                 sections = rowData.split(";");
