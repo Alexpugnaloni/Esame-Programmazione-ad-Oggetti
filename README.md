@@ -276,7 +276,7 @@ Inoltre, restituisce due contatori:
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # UML Diagrams
 
-[Test](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/OpenWeatherMap%20Model%20Sequence%20Diagram%20GETACCURACY.jpg)
+![Test](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/OpenWeatherMap%20Model%20Sequence%20Diagram%20GETACCURACY.jpg)
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # JUnit Tests
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
