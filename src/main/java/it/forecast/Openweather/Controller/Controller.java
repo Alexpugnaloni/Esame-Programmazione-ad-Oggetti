@@ -59,11 +59,11 @@ public class Controller {
 		apiKey.ReadApiKey();
 		api_keyPar = apiKey.getApiKey();
 		url = "https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&appid="+ api_keyPar+ "&lang=" + lang + "&units=metric";
-	//	try {
+	try {
 			return new ResponseEntity<>(w.get5ForecastWeather(url), HttpStatus.OK);
-	//	} catch (FailRequestException e) {
-	//	return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
-	//	}
+		} catch (FailRequestException e) {
+		return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
+		}
 	}
 
 	@GetMapping("/metadata")
@@ -93,7 +93,7 @@ public class Controller {
 		public 	ResponseEntity<Object> getStats (@RequestBody PostRequestBodyHandler PeriodicStats) throws MissingDataException, IOException, ParseException, EmptyWeatherException {
 		try {
 			return new ResponseEntity<>(w.getStats(PeriodicStats), HttpStatus.OK);
-		} catch (EmptyWeatherException e) {
+		} catch (MissingDataException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
 		}
 	}

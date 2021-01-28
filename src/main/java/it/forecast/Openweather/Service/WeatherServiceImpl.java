@@ -16,6 +16,7 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.NotActiveException;
 import java.text.ParseException;
@@ -43,7 +44,7 @@ public class WeatherServiceImpl implements WeatherService {
      * @param url indirizzo di ricerca.
      * @return vettore di condizioni meteo.
      */
-    public List<WeatherData> get5ForecastWeather(String url) throws FailRequestException {
+    public List<WeatherData> get5ForecastWeather(String url) throws FailRequestException, FileNotFoundException {
         WeatherForecast_API_Call w = new WeatherForecast_API_Call();
         this.weatherForecast = w.loadCall(url);
         if (this.weatherForecast == null || this.weatherForecast.contains("[]"))
@@ -59,13 +60,18 @@ public class WeatherServiceImpl implements WeatherService {
      * @return JSONObject di statistiche periodiche.
      */
 
-    public Map<String, Object> getStats(PostRequestBodyHandler PeriodicStats) throws EmptyWeatherException {
+    public Map<String, Object> getStats(PostRequestBodyHandler PeriodicStats) throws EmptyWeatherException, MissingDataException {
 
+
+        if(PeriodicStats.getCity() == null) throw new MissingDataException("city");
+        if(PeriodicStats.getPeriod() == null) throw new MissingDataException("period");
         JSONObject St = new JSONObject();
         Stats s;
         String city = PeriodicStats.getCity();
         city = city.substring(0, 1).toUpperCase() + city.substring(1);
         String period = PeriodicStats.getPeriod().toLowerCase();
+
+
 
 
 

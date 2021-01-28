@@ -1,8 +1,13 @@
 package it.forecast.Openweather;
 
 import it.forecast.Openweather.Database.Database;
+import it.forecast.Openweather.Exceptions.MissingDataException;
 import it.forecast.Openweather.Model.WeatherData;
+import it.forecast.Openweather.Service.WeatherForecast_API_Call;
+import it.forecast.Openweather.Service.WeatherService;
+import it.forecast.Openweather.Service.WeatherServiceImpl;
 import it.forecast.Openweather.Stats.Stats;
+import org.json.simple.JSONObject;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Vector;
 
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -20,6 +26,9 @@ class OpenweatherApplicationTests {
 
 	private ArrayList<WeatherData> weather = new ArrayList<WeatherData>();
 	private WeatherData w1,w2;
+	WeatherService ws = new WeatherServiceImpl();
+	static final String url1 = "api.openweathermap.org/data/2.5/forecast?q=Berlino&appid=64ad2ae5de08dc46224c92d7503a2ac2";
+
 
 
 	@BeforeEach
@@ -40,8 +49,8 @@ class OpenweatherApplicationTests {
 		assertNotEquals(w1.getTempMin(),w2.getTempMin());
 	}
 	@Test
-	public void Test2() {
+	public void Test2()  {
 
 	}
 
-}
+	}
