@@ -5,7 +5,7 @@ Il programma genera statistiche periodiche e di accuratezza delle informazioni c
 
 L' utente, utilizzando un Client (ad esempio [Postman](https://www.postman.com/)), utilizza le funzionalità del servizio grazie al Web Service [Tomcat](http://tomcat.apache.org/) integrato nel Framework [Spring](https://spring.io/).
 
-:warning: *** per il corretto utilizzo del servizio, è necessario innanzitutto disporre di una Key Openweather personale  per poter effettuare le chiamate. Visitare
+:warning: ***per il corretto utilizzo del servizio, è necessario innanzitutto disporre di una Key Openweather personale per poter effettuare le chiamate. Visitare [la pagina di sign up](https://home.openweathermap.org/users/sign_up) e registrarsi per ottenerne una. Inserire successivamente la propria key all' interno del file ApiKey.txt all' interno della cartella omonima presente nel progetto***
 
 ## Caratteristiche del Servizio
 :white_check_mark: Parametri personalizzati a disposizione dell' utente per tutte le rotte
