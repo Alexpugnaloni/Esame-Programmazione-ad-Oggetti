@@ -148,9 +148,9 @@ public class WeatherServiceImpl implements WeatherService {
         city = city.substring(0, 1).toUpperCase() + city.substring(1);
         Double accuracy = AccuracyStats.getAccuracy();
         String param = AccuracyStats.getParam();
-        if(accuracy == null) throw new NotActiveException("accuracy");
-        if(param == null) throw new NotActiveException("param");
-        if(city == null) throw new NotActiveException("city");
+        if(accuracy == null) throw new MissingDataException("accuracy");
+        if(param == null) throw new MissingDataException("param");
+        if(city == null) throw new MissingDataException("city");
 
         try {
             Database.setWeatherDataCSV();
