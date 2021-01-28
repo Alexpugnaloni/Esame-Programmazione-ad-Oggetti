@@ -89,8 +89,8 @@ e percepite.
 ## RequestBody Form
 ```json
 {
-   "city":"ancona", //
-   "period":"day"   //
+   "city":"ancona",
+   "period":"day"
 }
 ```
 1. **city** : città della quale calcolare le statistice, (è opzionale, se non si inserisce il servizio calcolerà statistiche fra tutte le città nel database)
