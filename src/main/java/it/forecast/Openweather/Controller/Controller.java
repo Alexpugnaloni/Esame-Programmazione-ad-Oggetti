@@ -2,6 +2,7 @@ package it.forecast.Openweather.Controller;
 
 import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Database.DatabaseFutureCalls;
+import it.forecast.Openweather.Exceptions.FailRequestException;
 import it.forecast.Openweather.Exceptions.MissingDataException;
 import it.forecast.Openweather.Service.ApiKey;
 import it.forecast.Openweather.Service.WeatherService;
@@ -57,7 +58,11 @@ public class Controller {
 		apiKey.ReadApiKey();
 		api_keyPar = apiKey.getApiKey();
 		url = "https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&appid="+ api_keyPar+ "&lang=" + lang + "&units=metric";
-		return new ResponseEntity<>(w.get5ForecastWeather(url), HttpStatus.OK);
+		try {
+			return new ResponseEntity<>(w.get5ForecastWeather(url), HttpStatus.OK);
+		} catch (FailRequestException e) {
+		return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
+		}
 	}
 
 	@GetMapping("/metadata")

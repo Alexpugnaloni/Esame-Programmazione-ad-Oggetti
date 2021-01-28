@@ -2,6 +2,7 @@ package it.forecast.Openweather.Service;
 
 import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Database.DatabaseFutureCalls;
+import it.forecast.Openweather.Exceptions.FailRequestException;
 import it.forecast.Openweather.Exceptions.MissingDataException;
 import it.forecast.Openweather.Filters.CityFilter;
 import it.forecast.Openweather.Filters.ErrorMarginFilter;
@@ -41,11 +42,11 @@ public class WeatherServiceImpl implements WeatherService {
      * @param url indirizzo di ricerca.
      * @return vettore di condizioni meteo.
      */
-    public List<WeatherData> get5ForecastWeather(String url) throws MissingDataException {
+    public List<WeatherData> get5ForecastWeather(String url) throws FailRequestException {
         WeatherForecast_API_Call w = new WeatherForecast_API_Call();
         this.weatherForecast = w.loadCall(url);
         if (this.weatherForecast == null || this.weatherForecast.contains("[]"))
-            throw new MissingDataException("weatherforecast");
+            throw new FailRequestException();
 
         return this.weatherForecast;
     }
