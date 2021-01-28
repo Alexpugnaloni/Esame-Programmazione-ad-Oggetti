@@ -2,7 +2,6 @@ package it.forecast.Openweather.Stats;
 
 import it.forecast.Openweather.Model.WeatherData;
 import org.json.simple.JSONObject;
-
 import java.util.List;
 
 /**

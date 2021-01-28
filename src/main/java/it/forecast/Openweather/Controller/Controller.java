@@ -2,7 +2,6 @@ package it.forecast.Openweather.Controller;
 
 import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Database.DatabaseFutureCalls;
-import it.forecast.Openweather.Exceptions.EmptyWeatherException;
 import it.forecast.Openweather.Exceptions.FailRequestException;
 import it.forecast.Openweather.Exceptions.MissingDataException;
 import it.forecast.Openweather.Service.ApiKey;
@@ -13,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
-
 import java.io.IOException;
 import java.text.ParseException;
 
@@ -90,7 +88,7 @@ public class Controller {
 
 	 */
 	@PostMapping("/periodicstats")
-		public 	ResponseEntity<Object> getStats (@RequestBody PostRequestBodyHandler PeriodicStats) throws MissingDataException, IOException, ParseException, EmptyWeatherException {
+		public 	ResponseEntity<Object> getStats (@RequestBody PostRequestBodyHandler PeriodicStats) throws MissingDataException, IOException, ParseException {
 		try {
 			return new ResponseEntity<>(w.getStats(PeriodicStats), HttpStatus.OK);
 		} catch (MissingDataException e) {
@@ -107,7 +105,7 @@ public class Controller {
 		public ResponseEntity<Object> getAccuracy(@RequestBody PostRequestBodyHandler AccuracyStats) throws IOException, ParseException {
 		try {
 			return new ResponseEntity<>(w.getAccuracy(AccuracyStats), HttpStatus.OK);
-		} catch (MissingDataException | EmptyWeatherException e) {
+		} catch (MissingDataException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
 		}
 	}

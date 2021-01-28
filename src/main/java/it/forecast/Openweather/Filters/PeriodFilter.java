@@ -4,9 +4,6 @@ package it.forecast.Openweather.Filters;
 import it.forecast.Openweather.Model.WeatherData;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
-
-
-import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 

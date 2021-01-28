@@ -2,7 +2,6 @@ package it.forecast.Openweather.Service;
 
 import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Database.DatabaseFutureCalls;
-import it.forecast.Openweather.Exceptions.EmptyWeatherException;
 import it.forecast.Openweather.Exceptions.FailRequestException;
 import it.forecast.Openweather.Exceptions.MissingDataException;
 import it.forecast.Openweather.Filters.CityFilter;
@@ -14,11 +13,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
-
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.NotActiveException;
 import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
@@ -60,7 +56,7 @@ public class WeatherServiceImpl implements WeatherService {
      * @return JSONObject di statistiche periodiche.
      */
 
-    public Map<String, Object> getStats(PostRequestBodyHandler PeriodicStats) throws EmptyWeatherException, MissingDataException {
+    public Map<String, Object> getStats(PostRequestBodyHandler PeriodicStats) throws  MissingDataException {
 
 
         if(PeriodicStats.getCity() == null) throw new MissingDataException("city");
@@ -79,8 +75,9 @@ public class WeatherServiceImpl implements WeatherService {
             Database.setWeatherDataCSV();
             weatherForecast = Database.getWeatherforecast();
             if (this.weatherForecast == null)
-                throw new EmptyWeatherException("weatherForecast is");
+                throw new MissingDataException("weatherforecast");
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
         if (city.equals("")) {}
@@ -148,14 +145,14 @@ public class WeatherServiceImpl implements WeatherService {
      * @return JSONObject di statistiche.
      */
 
-    public Map<String, Object> getAccuracy(PostRequestBodyHandler AccuracyStats) throws IOException, ParseException, JSONException, MissingDataException, EmptyWeatherException {
+    public Map<String, Object> getAccuracy(PostRequestBodyHandler AccuracyStats) throws IOException, ParseException, JSONException, MissingDataException {
         JSONObject St = new JSONObject();
         ErrorMarginFilter marginFilter = new ErrorMarginFilter();
         String city = AccuracyStats.getCity();
         city = city.substring(0, 1).toUpperCase() + city.substring(1);
         Double accuracy = AccuracyStats.getAccuracy();
         String param = AccuracyStats.getParam();
-        if(accuracy == null) throw new MissingDataException("accuracy");  //OKK
+        if(accuracy == null) throw new MissingDataException("accuracy");
         if(param == null) throw new MissingDataException("param");
         if(city == null) throw new MissingDataException("city");
 
@@ -165,9 +162,10 @@ public class WeatherServiceImpl implements WeatherService {
             DatabaseFutureCalls.setWeatherDataCSV();
             futureForecast = DatabaseFutureCalls.getWeatherforecast();
             if (this.weatherForecast == null || this.futureForecast == null)
-                throw new EmptyWeatherException("weatherForecast and/or futureforecast are");
+                throw new MissingDataException("weatherForecast and/or futureforecast");
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
         if (city.equals("")) {}
         else { weatherForecast = CityFilter.getFilteredCity(city, weatherForecast); futureForecast = CityFilter.getFilteredCity(city, futureForecast); }
