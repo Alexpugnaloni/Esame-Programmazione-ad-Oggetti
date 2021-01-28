@@ -21,7 +21,7 @@ L' utente, utilizzando un Client (ad esempio [Postman](https://www.postman.com/)
 Tipo | Nome | Descrizione
 ---- | ---- | ----  
 GET | /weather | Effettua la chiamata all' API restituendo le previsioni meteo da oggi a cinque giorni.
-GET | /metadata
+GET | /metadata 
 POST | /periodicstats | Calcola le statistiche periodiche sul periodo filtrato selezionato dall' utente
 POST | /accuracystats | Calcola le statistiche di accuratezza delle previsioni meteo generate nei giorni precedenti filtrando una determinata soglia di errore a piacere
 
@@ -77,10 +77,26 @@ Esempio di chiamata su Postman con parametri modificati e con body di risposta:
 
 ---------------------------------------------------------------------------------------------------------------------
 # GET /metadata
+
 Questa rotta manda in output i metadati 
 
+----------------------------------------------------------------------------------------------------------------------
 ## POST /periodicstats
 
+Questa rotta POST sfrutta un body personalizzato dall' utente per calcolare statistiche periodiche su massima, minima, varianza e media di temperature reali
+e percepite.
+
+## RequestBody Form
+```json
+{
+   "city":"ancona", //città della quale calcolare le statistice, opzionale
+   "period":"day"   //scegliere fra "day", "week" o "month"
+}
+```
+
+Esempio di chiamata su Postman con requestbody compilato e body di risposta
+
+<<< INSERIRE IMMAGINE >>>>>>>>
 
 ## Body Example
 ```json
