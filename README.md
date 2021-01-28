@@ -8,31 +8,31 @@ L' utente, utilizzando un Client (ad esempio [Postman](https://www.postman.com/)
 :warning: :warning: :warning: ***per il corretto utilizzo del servizio, è necessario innanzitutto disporre di una Key Openweather personale per poter effettuare le chiamate. Visitare [la pagina di sign up](https://home.openweathermap.org/users/sign_up) e registrarsi per ottenerne una. Inserire successivamente la propria key all' interno del file ApiKey.txt all' interno della cartella omonima presente nel progetto*** :warning: :warning: :warning: 
 
 ## Caratteristiche del Servizio
-:white_check_mark: Parametri personalizzati a disposizione dell' utente per tutte le rotte
+:white_check_mark: Parametri personalizzati a disposizione dell' utente per tutte le rotte.
 
-:white_check_mark: Salvataggio di dati automatico su file di backup ogni ora
+:white_check_mark: Salvataggio di dati automatico su file di backup ogni ora.
 
-:white_check_mark: Statistiche generate utilizzando lo storico di dati raccolti dal backup automatico
+:white_check_mark: Statistiche generate utilizzando lo storico di dati raccolti dal backup automatico.
 
-:white_check_mark: Filtri personalizzati
+:white_check_mark: Filtri personalizzati.
 
-:white_check_mark: Testing JUNIT
+:white_check_mark: Testing JUNIT.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 # Rotte Disponibili
 Tipo | Nome | Descrizione
 ---- | ---- | ----  
 GET | /weather | Effettua la chiamata all' API restituendo le previsioni meteo da oggi a cinque giorni.
-GET | /metadata | Restituisce tutti i metadati utilizzati nel servizio
-POST | /periodicstats | Calcola le statistiche periodiche sul periodo filtrato selezionato dall' utente
-POST | /accuracystats | Calcola le statistiche di accuratezza delle previsioni meteo generate nei giorni precedenti filtrando una determinata soglia di errore a piacere
+GET | /metadata | Restituisce tutti i metadati utilizzati nel servizio.
+POST | /periodicstats | Calcola le statistiche periodiche sul periodo filtrato selezionato dall' utente.
+POST | /accuracystats | Calcola le statistiche di accuratezza delle previsioni meteo generate nei giorni precedenti filtrando una determinata soglia di errore a piacere.
 
 
 # GET /weather
 
 Questa Rotta di tipo GET utilizza dei parametri scelti dall' utente per generare le previsioni. I parametri disponibili sono:
 
-**city:** indica la città di cui si vuole visualizzare le condizioni meteo. Di default è impostata su Ancona,IT
+**city:** indica la città di cui si vuole visualizzare le condizioni meteo. Di default è impostata su Ancona,IT.
 
 **lang:** indica la lingua nel quale si vuole visualizzare le informazioni ricevute dall' API. Di default è impostata su "it".
 
@@ -80,7 +80,7 @@ Esempio di chiamata su Postman con parametri modificati e con body di risposta:
 ---------------------------------------------------------------------------------------------------------------------
 # GET /metadata
 
-Questa rotta manda in output l' elenco di metadati costruiti all' interno della classe omonima ed utilizzati all' interno del servizio
+Questa rotta manda in output l' elenco di metadati costruiti all' interno della classe omonima ed utilizzati all' interno del servizio.
 
 Esempio di chiamata su Postman.
 
@@ -212,7 +212,7 @@ Contiene tutte le statistiche sulla temperatura del periodo scelto.
 # POST /accuracystats
 
 Questa rotta POST sfrutta un body personalizzato dall' utente per calcolare statistiche sull' accuratezza delle previsioni eseguite precedentemente, confrontandole con le
-chiamate correnti. La soglia di errore può essere modificata a piacere dall' utente
+chiamate correnti. La soglia di errore può essere modificata a piacere dall' utente.
 
 ## RequestBody Form
 ```json
@@ -222,7 +222,7 @@ chiamate correnti. La soglia di errore può essere modificata a piacere dall' ut
     "param": "temperature"
 }
 ```
-1. **city** : città della quale calcolare le statistiche, (è opzionale, se non si inserisce il servizio calcolerà statistiche fra tutte le città nel database)
+1. **city** : città della quale calcolare le statistiche, (è opzionale, se non si inserisce il servizio calcolerà statistiche fra tutte le città nel database).
 2. **accuracy**: soglia di errore di tolleranza per il filtro, è sempre un numero compreso tra 0 e 1. Il filtro riporterà le previsioni con un' accuratezza maggiore o uguale.
 3. **param**: campo del quale calcolare l' accuratezza. Si può scegliere fra "temperature", "humidity" o "pressure".
 
@@ -275,7 +275,7 @@ Inoltre, restituisce due contatori:
 # Eccezioni
 
 Il programma utilzza Standard Exceptions e Custom Exceptions per gestire eventuali eccezioni che si possono verificare mentre
-il servizio è in esecuzione
+il servizio è in esecuzione.
 
 ### Custom Exceptions
 
@@ -306,7 +306,7 @@ Esempio:
 # JUnit Tests
 Sono presenti dei test all' interno del servizio.
 
-**Test 1**: Verifica che due previsioni abbiano valori differenti
+**Test 1**: Verifica che due previsioni abbiano valori differenti.
 
 **Test 2**
 
