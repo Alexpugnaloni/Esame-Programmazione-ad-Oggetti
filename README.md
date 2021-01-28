@@ -7,7 +7,7 @@ L' utente, utilizzando un Client (ad esempio [Postman](https://www.postman.com/)
 
 Il server default di Tomcat su cui vanno effettuate le richieste è http://localhost:8080/ Aggiungere all'url una delle rotte disponibili per visualizzare le informazioni corrispondenti.
 
-:warning: :warning: :warning: ***per il corretto utilizzo del servizio, è necessario innanzitutto disporre di una Key Openweather personale per poter effettuare le chiamate. Visitare [la pagina di sign up](https://home.openweathermap.org/users/sign_up) e registrarsi per ottenerne una. Inserire successivamente la propria key all' interno del file ApiKey.txt all' interno della cartella omonima presente nel progetto*** :warning: :warning: :warning: 
+:warning: ***Per il corretto utilizzo del servizio, è necessario innanzitutto disporre di una Key Openweather personale per poter effettuare le chiamate. Visitare [la pagina di sign up](https://home.openweathermap.org/users/sign_up) e registrarsi per ottenerne una. Inserire successivamente la propria key all' interno del file ApiKey.txt all' interno della cartella omonima presente nel progetto*** :warning:
 
 ## Caratteristiche del Servizio
 :white_check_mark: Parametri personalizzati a disposizione dell' utente per tutte le rotte.
