@@ -40,7 +40,7 @@ Tutte le lingue utilizzabili sono disponibili nella [documentazione API](https:/
 
 Esempio di chiamata su Postman con parametri modificati e con body di risposta:
 
-<<< INSERIRE IMMAGINE >>>>>>>>
+![GET/weather](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/PostMan%20Screenshots/get%20weather.PNG)
 
 ## Body Example
 
@@ -53,7 +53,7 @@ Esempio di chiamata su Postman con parametri modificati e con body di risposta:
         "feels_like": 3.38,
         "humidity": 44,
         "pressure": 1018,
-        "date": "2021-01-27 12:00:00",
+        "date": "2021-01-18 12:00:00",
         "city": "Ancona",
         "country": "IT",
         "mainCondition": "Clouds"
@@ -84,7 +84,7 @@ Questa rotta manda in output l' elenco di metadati costruiti all' interno della 
 
 Esempio di chiamata su Postman.
 
-<<< INSERIRE IMMAGINE >>>>>>>>
+![get/metadata](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/PostMan%20Screenshots/get%20metadata.PNG)
 
 ## Body Example
 ```json
@@ -122,7 +122,7 @@ e percepite. Inoltre, restituisce un conteggio delle quantità di tipologie dive
 
 Esempio di chiamata su Postman con requestbody compilato e body di risposta
 
-<<< INSERIRE IMMAGINE >>>>>>>>
+![post/periodicstats](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/PostMan%20Screenshots/post%20periodic.PNG)
 
 ## Body Example
 ```json
@@ -139,10 +139,10 @@ Esempio di chiamata su Postman con requestbody compilato e body di risposta
     "Stats for Temperature": [
         {
             "tempMax": 6.77,
-            "tempMaxDate": "2021-01-27 12:00:00"
+            "tempMaxDate": "2021-01-19 12:00:00"
         },
         {
-            "tempMinDate": "2021-01-27 12:00:00",
+            "tempMinDate": "2021-01-20 12:00:00",
             "tempMin": 5.96
         },
         {
@@ -155,11 +155,11 @@ Esempio di chiamata su Postman con requestbody compilato e body di risposta
     "Stats for Feels Like Temperature": [
         {
             "tempMax_FeelsLike": 3.13,
-            "tempMaxDate_FeelsLike": "2021-01-27 12:00:00"
+            "tempMaxDate_FeelsLike": "2021-01-20 12:00:00"
         },
         {
             "tempMin_FeelsLike": 3.13,
-            "tempMinDate_FeelsLike": "2021-01-27 12:00:00"
+            "tempMinDate_FeelsLike": "2021-01-19 12:00:00"
         },
         {
             "Average_FeelsLike": 3.13
@@ -228,14 +228,14 @@ chiamate correnti. La soglia di errore può essere modificata a piacere dall' ut
 
 Esempio di chiamata su Postman con requestbody compilato e body di risposta
 
-<<< INSERIRE IMMAGINE >>>>>>>>
+![post /accuracy](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/PostMan%20Screenshots/post%20accuracy.PNG)
 
 ## Body Example
 ```json
 {
     "List of correct forecasts": [
         {
-            "date": "2021-01-28 12:00:00",
+            "date": "2021-01-19 12:00:00",
             "tempMax": 8.49,
             "country": "IT",
             "mainCondition": "Clouds",
@@ -248,7 +248,7 @@ Esempio di chiamata su Postman con requestbody compilato e body di risposta
             "tempMin": 7.21
         },
         {
-            "date": "2021-01-29 09:00:00",
+            "date": "2021-01-20 09:00:00",
             "tempMax": 7.27,
             "country": "IT",
             "mainCondition": "Rain",
@@ -276,7 +276,14 @@ Inoltre, restituisce due contatori:
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # UML Diagrams
 
-![Test](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/OpenWeatherMap%20Model%20Sequence%20Diagram%20GETACCURACY.jpg)
+##Class Diagram
+##Use Case Diagram
+![usecase](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/User%20Case%20Diagram.PNG)
+#Sequence Diagrams
+![getweather](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/OpenWeatherMap%20Model%20Sequence%20Diagram%20GETWEATHER.jpg)
+![getmetadata](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/OpenWeatherMap%20Model%20Sequence%20Diagram%20GETMETADATA.jpg)
+![postperiodic](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/OpenWeatherMap%20Model%20Sequence%20Diagram%20GETSTATS.jpg)
+![postaccuracy](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/OpenWeatherMap%20Model%20Sequence%20Diagram%20GETACCURACY.jpg)
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # JUnit Tests
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
