@@ -321,7 +321,7 @@ Sono presenti dei test all' interno del servizio.
 
 **Test 1**: Verifica che due previsioni abbiano valori differenti.
 
-**Test 2** Serve a verificare che l'eccezione MissingDataException funzioni correttamente.
+**Test 2**: Serve a verificare che l'eccezione MissingDataException funzioni correttamente.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Authors
