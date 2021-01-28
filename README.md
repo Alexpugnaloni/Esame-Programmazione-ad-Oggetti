@@ -287,6 +287,11 @@ Inoltre, restituisce due contatori:
 ![postaccuracy](https://raw.githubusercontent.com/Alexpugnaloni/Esame-Programmazione-ad-Oggetti/master/UML/OpenWeatherMap%20Model%20Sequence%20Diagram%20GETACCURACY.jpg)
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # JUnit Tests
+Sono presenti dei test all' interno del servizio.
+
+**Test 1**: Verifica che due previsioni abbiano valori differenti
+**Test 2**
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Authors
 
