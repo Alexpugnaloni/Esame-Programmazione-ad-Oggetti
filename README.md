@@ -270,7 +270,7 @@ Esempio di chiamata su Postman con requestbody compilato e body di risposta
 Il body restituito comprende una lista di tutte le previsioni al di sopra della soglia di errore presenti nel database delle previsioni: "List of Correct Forecasts".
 Inoltre, restituisce due contatori:
 1. **Amount of correct forecasts:** contiene il numero totale di previsioni al di sopra della soglia di errore
-2. **Amount of total forecasts:**: contiene il numero totale delle previsioni esaminate
+2. **Amount of total forecasts:** contiene il numero totale delle previsioni esaminate
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Eccezioni
 
