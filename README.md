@@ -93,7 +93,7 @@ e percepite. Inoltre, restituisce un conteggio delle quantità di tipologie dive
    "period":"day"
 }
 ```
-1. **city** : città della quale calcolare le statistice, (è opzionale, se non si inserisce il servizio calcolerà statistiche fra tutte le città nel database)
+1. **city** : città della quale calcolare le statistiche, (è opzionale, se non si inserisce il servizio calcolerà statistiche fra tutte le città nel database)
 2. **period**: scegliere fra "day", "week" o "month" per visualizzare statistiche in base al periodo scelto dalla giornata di oggi.
 
 Esempio di chiamata su Postman con requestbody compilato e body di risposta
@@ -198,7 +198,7 @@ chiamate correnti. La soglia di errore può essere modificata a piacere dall' ut
     "param": "temperature"
 }
 ```
-1. **city** : città della quale calcolare le statistice, (è opzionale, se non si inserisce il servizio calcolerà statistiche fra tutte le città nel database)
+1. **city** : città della quale calcolare le statistiche, (è opzionale, se non si inserisce il servizio calcolerà statistiche fra tutte le città nel database)
 2. **accuracy**: soglia di errore di tolleranza per il filtro, è sempre un numero compreso tra 0 e 1. Il filtro riporterà le previsioni con un' accuratezza maggiore o uguale.
 3. **param**: campo del quale calcolare l' accuratezza. Si può scegliere fra "temperature", "humidity" o "pressure".
 
@@ -241,3 +241,10 @@ Esempio di chiamata su Postman con requestbody compilato e body di risposta
     "Amount of total forecasts:": 37
 }
 ```
+## Body Breakdown
+
+Il body restituito comprende una lista di tutte le previsioni al di sopra della soglia di errore presenti nel database delle previsioni: "List of Correct Forecasts".
+Inoltre, restituisce due contatori:
+1. **Amount of correct forecasts:** contiene il numero totale di previsioni al di sopra della soglia di errore
+2. **Amount of total forecasts:**: contiene il numero totale delle previsioni esaminate
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
