@@ -9,7 +9,7 @@ Il server default di Tomcat su cui vanno effettuate le richieste è http://local
 
 :warning: ***Per il corretto utilizzo del servizio, è necessario innanzitutto disporre di una Key Openweather personale per poter effettuare le chiamate. Visitare [la pagina di sign up](https://home.openweathermap.org/users/sign_up) e registrarsi per ottenerne una. Inserire successivamente la propria key all' interno del file ApiKey.txt all' interno della cartella omonima presente nel progetto*** :warning:
 
-## Caratteristiche del Servizio
+## Caratteristiche Principali del Servizio
 :white_check_mark: Parametri personalizzati a disposizione dell' utente per tutte le rotte.
 
 :white_check_mark: Salvataggio di dati automatico su file di backup ogni ora.
