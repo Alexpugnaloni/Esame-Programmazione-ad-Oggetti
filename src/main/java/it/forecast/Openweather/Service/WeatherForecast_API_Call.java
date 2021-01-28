@@ -2,7 +2,6 @@ package it.forecast.Openweather.Service;
 
 import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Database.DatabaseFutureCalls;
-import it.forecast.Openweather.Exception.NoDataException;
 import it.forecast.Openweather.Model.WeatherData;
 
 import org.json.simple.JSONArray;

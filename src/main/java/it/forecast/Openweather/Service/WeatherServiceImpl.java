@@ -2,8 +2,7 @@ package it.forecast.Openweather.Service;
 
 import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Database.DatabaseFutureCalls;
-import it.forecast.Openweather.Exception.BadRequestException;
-import it.forecast.Openweather.Exception.NoDataException;
+import it.forecast.Openweather.Exceptions.MissingDataException;
 import it.forecast.Openweather.Filters.CityFilter;
 import it.forecast.Openweather.Filters.ErrorMarginFilter;
 import it.forecast.Openweather.Filters.PeriodFilter;
@@ -42,11 +41,11 @@ public class WeatherServiceImpl implements WeatherService {
      * @param url indirizzo di ricerca.
      * @return vettore di condizioni meteo.
      */
-    public List<WeatherData> get5ForecastWeather(String url) throws BadRequestException { //DA SISTEMARE
+    public List<WeatherData> get5ForecastWeather(String url) throws MissingDataException {
         WeatherForecast_API_Call w = new WeatherForecast_API_Call();
         this.weatherForecast = w.loadCall(url);
         if (this.weatherForecast == null || this.weatherForecast.contains("[]"))
-            throw new BadRequestException(); //DA SISTEMARE
+            throw new MissingDataException("weatherforecast");
 
         return this.weatherForecast;
     }
@@ -58,7 +57,7 @@ public class WeatherServiceImpl implements WeatherService {
      * @return JSONObject di statistiche periodiche.
      */
 
-    public Map<String, Object> getStats(PostRequestBodyHandler PeriodicStats) throws NoDataException {
+    public Map<String, Object> getStats(PostRequestBodyHandler PeriodicStats) throws MissingDataException {
 
         JSONObject St = new JSONObject();
         Stats s;
@@ -72,7 +71,7 @@ public class WeatherServiceImpl implements WeatherService {
             Database.setWeatherDataCSV();
             weatherForecast = Database.getWeatherforecast();
             if (this.weatherForecast == null)
-                throw new NoDataException("weatherForecast"); //DA CAMBIARE
+                throw new MissingDataException("weatherForecast");
         } catch (Exception e) {
         }
 
@@ -141,16 +140,16 @@ public class WeatherServiceImpl implements WeatherService {
      * @return JSONObject di statistiche.
      */
 
-    public Map<String, Object> getAccuracy(PostRequestBodyHandler AccuracyStats) throws IOException, ParseException, JSONException, NoDataException {
+    public Map<String, Object> getAccuracy(PostRequestBodyHandler AccuracyStats) throws IOException, ParseException, JSONException, MissingDataException {
         JSONObject St = new JSONObject();
         ErrorMarginFilter marginFilter = new ErrorMarginFilter();
         String city = AccuracyStats.getCity();
         city = city.substring(0, 1).toUpperCase() + city.substring(1);
         Double accuracy = AccuracyStats.getAccuracy();
         String param = AccuracyStats.getParam();
-        if(accuracy == null) throw new NoDataException("accuracy");
-        if(param == null) throw new NoDataException("param");
-        if(city == null) throw new NoDataException("city");
+        if(accuracy == null) throw new NotActiveException("accuracy");
+        if(param == null) throw new NotActiveException("param");
+        if(city == null) throw new NotActiveException("city");
 
         try {
             Database.setWeatherDataCSV();
@@ -158,7 +157,7 @@ public class WeatherServiceImpl implements WeatherService {
             DatabaseFutureCalls.setWeatherDataCSV();
             futureForecast = DatabaseFutureCalls.getWeatherforecast();
             if (this.weatherForecast == null || this.futureForecast == null)
-                throw new NoDataException("weatherForecast"); //DA CAMBIARE
+                throw new MissingDataException("weatherForecast");
 
         } catch (Exception e) {
         }

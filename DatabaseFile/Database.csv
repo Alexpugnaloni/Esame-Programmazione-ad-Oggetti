@@ -1,2 +1,4 @@
 Description;Temperature;TempMin;TempMax;Feels Like;Humidity;Pressure;Date;City;Country;Main Condition
-cielo coperto;7.4;7.4;8.49;4.53;62;1015;2021-01-28 12:00:00;Ancona;IT;Clouds;
+cielo coperto;7.21;7.21;8.49;4.31;62;1015;2021-01-28 12:00:00;Ancona;IT;Clouds;
+pioggia leggera;7.27;7.27;7.27;3.93;82;1008;2021-01-29 09:00:00;Ancona;IT;Rain;
+cielo coperto;8.72;8.49;8.72;5.75;54;1015;2021-01-28 12:00:00;Ancona;IT;Clouds;

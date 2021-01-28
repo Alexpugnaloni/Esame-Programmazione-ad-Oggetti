@@ -1,8 +1,8 @@
-package it.forecast.Openweather.Exception;
+package it.forecast.Openweather.Exceptions;
 
-public class NoDataException extends Exception {
+public class MissingDataException extends Exception {
 private String missing;
-    public NoDataException(String missing) {
+    public MissingDataException(String missing) {
 
         super();
         this.missing = missing;

@@ -2,12 +2,10 @@ package it.forecast.Openweather.Controller;
 
 import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Database.DatabaseFutureCalls;
-import it.forecast.Openweather.Exception.BadRequestException;
-import it.forecast.Openweather.Exception.NoDataException;
+import it.forecast.Openweather.Exceptions.MissingDataException;
 import it.forecast.Openweather.Service.ApiKey;
 import it.forecast.Openweather.Service.WeatherService;
 import it.forecast.Openweather.Stats.PostRequestBodyHandler;
-import org.json.HTTP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,7 +48,7 @@ public class Controller {
 	 */
 
 	@GetMapping("/weather")
-			public ResponseEntity<Object> get5ForecastWeather(@RequestParam( name="city",defaultValue="Ancona") String city, @RequestParam(name="lang",defaultValue = "it") String lang) throws NoDataException, IOException, ParseException, BadRequestException {
+			public ResponseEntity<Object> get5ForecastWeather(@RequestParam( name="city",defaultValue="Ancona") String city, @RequestParam(name="lang",defaultValue = "it") String lang) throws MissingDataException, IOException, ParseException {
 		city= city.toLowerCase();
 		lang = lang.toLowerCase();
 		cityPar = city;
@@ -72,7 +70,7 @@ public class Controller {
 	 *
 	 */
 	@Scheduled(initialDelay = 3600000,fixedRate = 3600000)
-	public void scheduledRequest() throws ParseException, NoDataException, IOException, BadRequestException {
+	public void scheduledRequest() throws ParseException, MissingDataException, IOException {
 
 		get5ForecastWeather(cityPar,langPar);
 		Database.saveToCSV();
@@ -86,7 +84,7 @@ public class Controller {
 
 	 */
 	@PostMapping("/periodicstats")
-		public 	ResponseEntity<Object> getStats (@RequestBody PostRequestBodyHandler PeriodicStats) throws NoDataException, IOException, ParseException {
+		public 	ResponseEntity<Object> getStats (@RequestBody PostRequestBodyHandler PeriodicStats) throws MissingDataException, IOException, ParseException {
 
 		return new ResponseEntity<>(w.getStats(PeriodicStats), HttpStatus.OK);
 
@@ -98,10 +96,10 @@ public class Controller {
 	 * @return JSONObject di statistiche.
 	 */
 	@PostMapping("/accuracystats")
-		public ResponseEntity<Object> getAccuracy(@RequestBody PostRequestBodyHandler AccuracyStats) throws NoDataException, IOException, ParseException {
+		public ResponseEntity<Object> getAccuracy(@RequestBody PostRequestBodyHandler AccuracyStats) throws IOException, ParseException {
 		try {
 			return new ResponseEntity<>(w.getAccuracy(AccuracyStats), HttpStatus.OK);
-		} catch (NoDataException e) {
+		} catch (MissingDataException e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
 		}
 	}

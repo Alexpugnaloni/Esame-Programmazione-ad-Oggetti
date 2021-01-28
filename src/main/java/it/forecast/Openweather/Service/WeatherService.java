@@ -1,8 +1,7 @@
 package it.forecast.Openweather.Service;
 
 
-import it.forecast.Openweather.Exception.BadRequestException;
-import it.forecast.Openweather.Exception.NoDataException;
+import it.forecast.Openweather.Exceptions.MissingDataException;
 import it.forecast.Openweather.Model.WeatherData;
 import it.forecast.Openweather.Stats.PostRequestBodyHandler;
 import org.json.JSONException;
@@ -23,20 +22,20 @@ public interface WeatherService {
 	 * @return vettore di condizioni meteo.
 	 */
 
-	List<WeatherData> get5ForecastWeather(String url) throws IOException, ParseException, JSONException, BadRequestException, NoDataException;
+	List<WeatherData> get5ForecastWeather(String url) throws IOException, ParseException, JSONException, MissingDataException;
 
 	/**
 	 * Metodo che restituisce statistiche periodiche.
 	 * @param PeriodicStats body passato alla rotta periodicstats
 	 * @return JSONObject di statistiche periodiche.
 	 */
-	Map<String,Object> getStats(PostRequestBodyHandler PeriodicStats) throws IOException, ParseException, JSONException, NoDataException;
+	Map<String,Object> getStats(PostRequestBodyHandler PeriodicStats) throws IOException, ParseException, JSONException, MissingDataException;
 
 	/**
 	 * Metodo che restituisce statistiche su previsioni azzeccate.
 	 * @param AccuracyStats body passato alla rotta accuracystats.
 	 * @return JSONObject di statistiche.
 	 */
-	Map<String,Object> getAccuracy (PostRequestBodyHandler AccuracyStats) throws IOException, ParseException, JSONException, NoDataException;
+	Map<String,Object> getAccuracy (PostRequestBodyHandler AccuracyStats) throws IOException, ParseException, JSONException, MissingDataException;
 
 }
