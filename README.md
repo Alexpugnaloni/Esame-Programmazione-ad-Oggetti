@@ -81,10 +81,10 @@ Esempio di chiamata su Postman con parametri modificati e con body di risposta:
 Questa rotta manda in output i metadati 
 
 ----------------------------------------------------------------------------------------------------------------------
-## POST /periodicstats
+# POST /periodicstats
 
 Questa rotta POST sfrutta un body personalizzato dall' utente per calcolare statistiche periodiche su massima, minima, varianza e media di temperature reali
-e percepite.
+e percepite. Inoltre, restituisce un conteggio delle quantità di tipologie diverse di condizioni meteo nel periodo scelto.
 
 ## RequestBody Form
 ```json
@@ -183,3 +183,21 @@ Contiene tutte le statistiche sulla temperatura del periodo scelto.
 5. **Average_FeelsLike:** Media di temperatura del periodo.
 6. **Variance_FeelsLike:** Varianza di temperatura del periodo.
    
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# POST /accuracystats
+
+Questa rotta POST sfrutta un body personalizzato dall' utente per calcolare statistiche sull' accuratezza delle previsioni eseguite precedentemente, confrontandole con le
+chiamate correnti. La soglia di errore può essere modificata a piacere dall' utente
+
+## RequestBody Form
+```json
+{
+    "city":"ancona",
+    "accuracy": "1",
+    "param": "temperature"
+}
+```
+1. **city** : città della quale calcolare le statistice, (è opzionale, se non si inserisce il servizio calcolerà statistiche fra tutte le città nel database)
+2. **accuracy**: soglia di errore di tolleranza per il filtro, è sempre un numero compreso tra 0 e 1. Il filtro riporterà le previsioni con un' accuratezza maggiore o uguale.
+3. **param**: campo del quale calcolare l' accuratezza. Si può scegliere fra "temperature", "humidity" o "pressure".
