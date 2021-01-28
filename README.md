@@ -121,7 +121,7 @@ e percepite. Inoltre, restituisce un conteggio delle quantità di tipologie dive
    "period":"day"
 }
 ```
-1. **city** : città della quale calcolare le statistiche, (è opzionale, se non si inserisce il servizio calcolerà statistiche fra tutte le città nel database)
+1. **city** : città della quale calcolare le statistiche (il database deve contenere già chiamate alla stessa città)
 2. **period**: scegliere fra "day", "week" o "month" per visualizzare statistiche in base al periodo scelto dalla giornata di oggi.
 
 Esempio di chiamata su Postman con requestbody compilato e body di risposta
