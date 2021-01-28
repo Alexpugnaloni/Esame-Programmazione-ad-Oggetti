@@ -296,6 +296,8 @@ Esempio MissingDataException:
   - IOException
   - FileNotFoundException
   - ParseException
+  - JSONException
+  - ClassException
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # UML Diagrams
 
