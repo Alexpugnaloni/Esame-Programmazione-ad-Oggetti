@@ -273,6 +273,23 @@ Inoltre, restituisce due contatori:
 2. **Amount of total forecasts:**: contiene il numero totale delle previsioni esaminate
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Eccezioni
+
+Il programma utilzza Standard Exceptions e Custom Exceptions per gestire eventuali eccezioni che si possono verificare mentre
+il servizio è in esecuzione
+
+### Custom Exceptions
+
+**MissingDataException**: lanciata quando una o più voci del requestbody non sono presenti.
+
+Esempio:
+```
+    the field accuracy is missing
+```
+
+### Standard Exceptions
+  - IOException
+        - FileNotFoundException
+  - ParseException
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # UML Diagrams
 
@@ -290,6 +307,7 @@ Inoltre, restituisce due contatori:
 Sono presenti dei test all' interno del servizio.
 
 **Test 1**: Verifica che due previsioni abbiano valori differenti
+
 **Test 2**
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
