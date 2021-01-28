@@ -201,3 +201,43 @@ chiamate correnti. La soglia di errore può essere modificata a piacere dall' ut
 1. **city** : città della quale calcolare le statistice, (è opzionale, se non si inserisce il servizio calcolerà statistiche fra tutte le città nel database)
 2. **accuracy**: soglia di errore di tolleranza per il filtro, è sempre un numero compreso tra 0 e 1. Il filtro riporterà le previsioni con un' accuratezza maggiore o uguale.
 3. **param**: campo del quale calcolare l' accuratezza. Si può scegliere fra "temperature", "humidity" o "pressure".
+
+Esempio di chiamata su Postman con requestbody compilato e body di risposta
+
+<<< INSERIRE IMMAGINE >>>>>>>>
+
+## Body Example
+```json
+{
+    "List of correct forecasts": [
+        {
+            "date": "2021-01-28 12:00:00",
+            "tempMax": 8.49,
+            "country": "IT",
+            "mainCondition": "Clouds",
+            "city": "Ancona",
+            "temperature": 7.21,
+            "description": "cielo coperto",
+            "humidity": 62,
+            "pressure": 1015,
+            "feels_like": 4.31,
+            "tempMin": 7.21
+        },
+        {
+            "date": "2021-01-29 09:00:00",
+            "tempMax": 7.27,
+            "country": "IT",
+            "mainCondition": "Rain",
+            "city": "Ancona",
+            "temperature": 7.27,
+            "description": "pioggia leggera",
+            "humidity": 82,
+            "pressure": 1008,
+            "feels_like": 3.93,
+            "tempMin": 7.27
+        }
+    ],
+    "Amount of correct forecasts": 2,
+    "Amount of total forecasts:": 37
+}
+```
