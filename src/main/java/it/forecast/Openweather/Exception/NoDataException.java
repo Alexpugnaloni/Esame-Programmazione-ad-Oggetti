@@ -10,6 +10,6 @@ private String missing;
     @Override
     public String getMessage() {
 
-        return " the field " + missing + "is missing";
+        return " the field " + missing + " is missing";
     }
 }

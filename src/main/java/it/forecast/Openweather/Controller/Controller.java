@@ -2,6 +2,7 @@ package it.forecast.Openweather.Controller;
 
 import it.forecast.Openweather.Database.Database;
 import it.forecast.Openweather.Database.DatabaseFutureCalls;
+import it.forecast.Openweather.Exception.BadRequestException;
 import it.forecast.Openweather.Exception.NoDataException;
 import it.forecast.Openweather.Service.ApiKey;
 import it.forecast.Openweather.Service.WeatherService;
@@ -49,7 +50,7 @@ public class Controller {
 	 */
 
 	@GetMapping("/weather")
-			public ResponseEntity<Object> get5ForecastWeather(@RequestParam( name="city",defaultValue="Ancona") String city, @RequestParam(name="lang",defaultValue = "it") String lang) throws NoDataException, IOException, ParseException {
+			public ResponseEntity<Object> get5ForecastWeather(@RequestParam( name="city",defaultValue="Ancona") String city, @RequestParam(name="lang",defaultValue = "it") String lang) throws NoDataException, IOException, ParseException, BadRequestException {
 		city= city.toLowerCase();
 		lang = lang.toLowerCase();
 		cityPar = city;
@@ -71,7 +72,7 @@ public class Controller {
 	 *
 	 */
 	@Scheduled(initialDelay = 3600000,fixedRate = 3600000)
-	public void scheduledRequest() throws ParseException, NoDataException, IOException {
+	public void scheduledRequest() throws ParseException, NoDataException, IOException, BadRequestException {
 
 		get5ForecastWeather(cityPar,langPar);
 		Database.saveToCSV();
@@ -98,7 +99,11 @@ public class Controller {
 	 */
 	@PostMapping("/accuracystats")
 		public ResponseEntity<Object> getAccuracy(@RequestBody PostRequestBodyHandler AccuracyStats) throws NoDataException, IOException, ParseException {
-		return new ResponseEntity<>(w.getAccuracy(AccuracyStats),HttpStatus.OK);
+		try {
+			return new ResponseEntity<>(w.getAccuracy(AccuracyStats), HttpStatus.OK);
+		} catch (NoDataException e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
+		}
 	}
 }
 

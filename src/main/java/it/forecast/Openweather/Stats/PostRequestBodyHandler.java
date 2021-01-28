@@ -11,10 +11,10 @@ public class PostRequestBodyHandler {
      * Attributi della classe PostRequestBodyHandler.
      */
 
-    String city;
-    String period;
-    Double accuracy;
-    String param;
+  private String city;
+  private String period;
+  private Double accuracy;
+  private String param;
 
 
     /**

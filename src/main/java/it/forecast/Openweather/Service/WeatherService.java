@@ -1,6 +1,7 @@
 package it.forecast.Openweather.Service;
 
 
+import it.forecast.Openweather.Exception.BadRequestException;
 import it.forecast.Openweather.Exception.NoDataException;
 import it.forecast.Openweather.Model.WeatherData;
 import it.forecast.Openweather.Stats.PostRequestBodyHandler;
@@ -22,7 +23,7 @@ public interface WeatherService {
 	 * @return vettore di condizioni meteo.
 	 */
 
-	List<WeatherData> get5ForecastWeather(String url) throws IOException, ParseException, JSONException, NoDataException;
+	List<WeatherData> get5ForecastWeather(String url) throws IOException, ParseException, JSONException, BadRequestException, NoDataException;
 
 	/**
 	 * Metodo che restituisce statistiche periodiche.
