@@ -117,9 +117,10 @@ public class WeatherForecast_API_Call {
 
 			}
 
-			Database.saveToCSV();
-			DatabaseFutureCalls.saveToCSV();
+
 		}
+		Database.saveToCSV();
+		DatabaseFutureCalls.saveToCSV();
 	}
 }
 

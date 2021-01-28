@@ -98,7 +98,7 @@ public class CSVparsing {
         }
         try {
             //Creo i nomi delle colonne per il file CSV
-            FileWriter csvWriter = new FileWriter(csvFile,true);
+            FileWriter csvWriter = new FileWriter(csvFile, true);
             File f = new File(csvFile);
             if(!f.exists()) {
                 csvWriter.append("Description");
@@ -160,7 +160,7 @@ public class CSVparsing {
             rows.add(x);
         }
         try {
-            FileWriter csvWriter = new FileWriter(csvFile);
+            FileWriter csvWriter = new FileWriter(csvFile, true);
             File f = new File(csvFile);
             if(!f.exists()) {
                 csvWriter.append("Description");
