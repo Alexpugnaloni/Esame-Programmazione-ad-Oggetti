@@ -21,7 +21,7 @@ L' utente, utilizzando un Client (ad esempio [Postman](https://www.postman.com/)
 Tipo | Nome | Descrizione
 ---- | ---- | ----  
 GET | /weather | Effettua la chiamata all' API restituendo le previsioni meteo da oggi a cinque giorni.
-GET | /metadata 
+GET | /metadata | Restituisce tutti i metadati utilizzati nel servizio
 POST | /periodicstats | Calcola le statistiche periodiche sul periodo filtrato selezionato dall' utente
 POST | /accuracystats | Calcola le statistiche di accuratezza delle previsioni meteo generate nei giorni precedenti filtrando una determinata soglia di errore a piacere
 
