@@ -89,10 +89,12 @@ e percepite.
 ## RequestBody Form
 ```json
 {
-   "city":"ancona", //città della quale calcolare le statistice, opzionale
-   "period":"day"   //scegliere fra "day", "week" o "month"
+   "city":"ancona", //
+   "period":"day"   //
 }
 ```
+1. **city** : città della quale calcolare le statistice, (è opzionale, se non si inserisce il servizio calcolerà statistiche fra tutte le città nel database)
+2. **period**: scegliere fra "day", "week" o "month" per visualizzare statistiche in base al periodo scelto dalla giornata di oggi.
 
 Esempio di chiamata su Postman con requestbody compilato e body di risposta
 
