@@ -68,7 +68,7 @@ public class MinTemperature extends Stats{
      * Metodo che ritorna statistiche su minima temperatura.
      * @return minima temperatura e data e ora.
      */
-    public JSONObject ritornaCalculateStat(){
+    public JSONObject returnCalculateStat(){
         JSONObject St = new JSONObject();
 
 

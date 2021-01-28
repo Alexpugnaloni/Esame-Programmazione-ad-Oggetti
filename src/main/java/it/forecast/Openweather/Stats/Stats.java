@@ -73,5 +73,5 @@ public abstract class Stats {
      * Metodo astratto per ritornare il calcolo delle statistiche.
      * @return calcolo delle statistiche.
      */
-    public abstract JSONObject ritornaCalculateStat();
+    public abstract JSONObject returnCalculateStat();
 }

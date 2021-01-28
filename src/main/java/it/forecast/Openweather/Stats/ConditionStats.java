@@ -84,7 +84,7 @@ public class ConditionStats extends Stats{
      * @return condizioni meteo.
      */
     @Override
-    public JSONObject ritornaCalculateStat() {
+    public JSONObject returnCalculateStat() {
         JSONObject St = new JSONObject();
 
         St.put("Thunderstorm", thunderstorm);

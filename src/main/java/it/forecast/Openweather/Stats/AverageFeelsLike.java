@@ -67,7 +67,7 @@ public class AverageFeelsLike extends Stats{
      * Metodo che ritorna la statistica media temperatura percepita.
      * @return media temperatura percepita.
      */
-    public JSONObject ritornaCalculateStat(){
+    public JSONObject returnCalculateStat(){
         JSONObject St = new JSONObject();
 
         St.put("Average_FeelsLike", getTemp());

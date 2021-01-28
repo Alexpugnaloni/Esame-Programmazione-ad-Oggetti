@@ -69,7 +69,7 @@ public class MaxFeelsLike extends Stats{
      * Metodo che ritorna statistiche su temperatura massima percepita.
      * @return temperatura massima percepita e data.
      */
-    public JSONObject ritornaCalculateStat(){
+    public JSONObject returnCalculateStat(){
         JSONObject St = new JSONObject();
 
         St.put("tempMax_FeelsLike", getTemp());

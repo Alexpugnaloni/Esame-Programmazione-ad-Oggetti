@@ -87,36 +87,36 @@ public class WeatherServiceImpl implements WeatherService {
         // TEMPERATURE STATS
         s = new MaxTemperature(weatherStats);
         s.calculateStat();
-        result.add(s.ritornaCalculateStat());
+        result.add(s.returnCalculateStat());
 
         s = new MinTemperature(weatherStats);
         s.calculateStat();
-        result.add(s.ritornaCalculateStat());
+        result.add(s.returnCalculateStat());
 
         s = new AverageTemperature(weatherStats);
         s.calculateStat();
-        result.add(s.ritornaCalculateStat());
+        result.add(s.returnCalculateStat());
 
         s = new VarianceTemperature(weatherStats);
         s.calculateStat();
-        result.add(s.ritornaCalculateStat());
+        result.add(s.returnCalculateStat());
 
         //FEELS LIKE STATS
         s = new MaxFeelsLike(weatherStats);
         s.calculateStat();
-        resultFeelsLike.add(s.ritornaCalculateStat());
+        resultFeelsLike.add(s.returnCalculateStat());
 
         s = new MinFeelsLike(weatherStats);
         s.calculateStat();
-        resultFeelsLike.add(s.ritornaCalculateStat());
+        resultFeelsLike.add(s.returnCalculateStat());
 
         s = new AverageFeelsLike(weatherStats);
         s.calculateStat();
-        resultFeelsLike.add(s.ritornaCalculateStat());
+        resultFeelsLike.add(s.returnCalculateStat());
 
         s = new VarianceFeelsLike(weatherStats);
         s.calculateStat();
-        resultFeelsLike.add(s.ritornaCalculateStat());
+        resultFeelsLike.add(s.returnCalculateStat());
 
         s = new ConditionStats(weatherStats);
         s.calculateStat();
@@ -124,7 +124,7 @@ public class WeatherServiceImpl implements WeatherService {
 
         St.put("Stats for Temperature",new JSONArray(result));
         St.put("Stats for Feels Like Temperature",new JSONArray(resultFeelsLike));
-        St.put("Weather Condition Count", new JSONObject(s.ritornaCalculateStat()));
+        St.put("Weather Condition Count", new JSONObject(s.returnCalculateStat()));
 
 
 

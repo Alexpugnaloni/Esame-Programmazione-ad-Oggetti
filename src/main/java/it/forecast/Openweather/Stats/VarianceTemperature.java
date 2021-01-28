@@ -75,7 +75,7 @@ public class VarianceTemperature extends Stats {
      * Metodo che ritorna statistiche su varianza temperatura.
      * @return varianza temperatura.
      */
-    public JSONObject ritornaCalculateStat(){
+    public JSONObject returnCalculateStat(){
         JSONObject St = new JSONObject();
 
 

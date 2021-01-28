@@ -67,7 +67,7 @@ public class AverageTemperature extends Stats {
      * Metodo che ritorna la statistica media temperatura.
      * @return media temperatura.
      */
-    public JSONObject ritornaCalculateStat(){
+    public JSONObject returnCalculateStat(){
         JSONObject St = new JSONObject();
 
         St.put("Average", getTemp());

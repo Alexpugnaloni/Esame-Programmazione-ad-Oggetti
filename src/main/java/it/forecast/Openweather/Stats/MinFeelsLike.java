@@ -69,7 +69,7 @@ public class MinFeelsLike extends Stats{
      * Metodo che ritorna statistiche su minima temperatura percepita.
      * @return minima temperatura percepita e data e ora.
      */
-    public JSONObject ritornaCalculateStat(){
+    public JSONObject returnCalculateStat(){
         JSONObject St = new JSONObject();
 
 
