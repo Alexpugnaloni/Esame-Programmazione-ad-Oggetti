@@ -283,7 +283,9 @@ il servizio è in esecuzione.
 
 **MissingDataException**: lanciata quando una o più voci del requestbody non sono presenti.
 
-Esempio:
+**FailRequestException**: lanciata quando la città inserita non è stata trovata nel database di OpenWeather
+
+Esempio MissingDataException:
 ```
     the field accuracy is missing
 ```
