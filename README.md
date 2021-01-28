@@ -1,5 +1,5 @@
 # Esame-Programmazione-ad-Oggetti
-Servizio metereologico multilinga utile a fornire informazioni sulle condizioni meteo attuali e previsioni dei prossimi 5 giorni. Tutte le informazioni sono ottenute tramite la REST API di OpenWeather ["5 day weather forecast"](https://openweathermap.org/forecast5)
+Servizio metereologico multilingua utile a fornire informazioni sulle condizioni meteo attuali e previsioni dei prossimi 5 giorni. Tutte le informazioni sono ottenute tramite la REST API di OpenWeather ["5 day weather forecast"](https://openweathermap.org/forecast5)
 
 Il programma genera statistiche periodiche e di accuratezza delle informazioni che possono essere filtrate a piacere dall' utente tramite dei filtri.
 
